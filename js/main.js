@@ -68,4 +68,11 @@ function setupMobileNavigation() {
   });
 }
 
-
+// Export functions for testing in Node.js environment
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    setupDarkMode,
+    setupMobileNavigation,
+    initializeDynamicContent: typeof initializeDynamicContent !== 'undefined' ? initializeDynamicContent : undefined
+  };
+}

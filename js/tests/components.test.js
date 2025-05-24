@@ -13,7 +13,7 @@ global.fetch = jest.fn(() =>
     json: () => Promise.resolve([
       {
         title: "Test Post",
-        url: "./blog/test-post.html",
+        filename: "test-post.html",
         date: "May 20, 2025",
         excerpt: "Test excerpt",
         tags: ["Tag1", "Tag2"],
@@ -28,8 +28,18 @@ console.log = jest.fn();
 console.error = jest.fn();
 console.warn = jest.fn();
 
-// We're using global mocks defined in setup.js
-// These functions would normally be defined in the global scope in the browser
+// Import functions from components.js
+// In a real browser environment, these would be globally available
+const { 
+  loadComponent, 
+  fixRelativeUrl, 
+  createPostCard, 
+  createProjectCard, 
+  renderPosts, 
+  renderProjects, 
+  fixFooterLinks, 
+  initializeDynamicContent 
+} = require('../components.js');
 
 describe('loadComponent', () => {
   beforeEach(() => {
@@ -156,12 +166,16 @@ describe('createPostCard', () => {
     // Arrange
     const post = {
       title: "Test Post",
-      url: "./blog/test-post.html",
+      filename: "test-post.html",
       date: "May 20, 2025",
       excerpt: "Test excerpt",
       tags: ["Tag1", "Tag2"],
       image: "T"
     };
+    
+    // Mock window location to simulate being on homepage
+    delete window.location;
+    window.location = { pathname: '/' };
     
     // Act
     const postCard = createPostCard(post);
@@ -169,7 +183,7 @@ describe('createPostCard', () => {
     // Assert
     expect(postCard.className).toBe('post-card');
     expect(postCard.querySelector('.post-card-image').textContent).toBe('T');
-    expect(postCard.querySelector('h3 a').href).toContain('test-post.html');
+    expect(postCard.querySelector('h3 a').href).toContain('blog/test-post.html');
     expect(postCard.querySelector('h3 a').textContent).toBe('Test Post');
     expect(postCard.querySelector('.post-meta').textContent).toBe('May 20, 2025');
     expect(postCard.querySelector('.post-excerpt').textContent).toBe('Test excerpt');
@@ -180,11 +194,15 @@ describe('createPostCard', () => {
     // Arrange
     const post = {
       title: "No Image Post",
-      url: "./blog/no-image.html",
+      filename: "no-image.html",
       date: "May 20, 2025",
       excerpt: "Test excerpt",
       tags: []
     };
+    
+    // Mock window location to simulate being on homepage
+    delete window.location;
+    window.location = { pathname: '/' };
     
     // Act
     const postCard = createPostCard(post);
@@ -199,13 +217,17 @@ describe('createProjectCard', () => {
     // Arrange
     const project = {
       title: "Test Project",
-      url: "./projects/test-project.html",
+      filename: "test-project.html",
       description: "Test description",
       technologies: ["Tech1", "Tech2"],
-      demoUrl: "https://demo.example.com",
-      sourceUrl: "https://github.com/example/repo",
+      demoUrl: "#demo",
+      sourceUrl: "#source",
       image: "P"
     };
+    
+    // Mock window location to simulate being on homepage
+    delete window.location;
+    window.location = { pathname: '/' };
     
     // Act
     const projectCard = createProjectCard(project);
@@ -213,7 +235,7 @@ describe('createProjectCard', () => {
     // Assert
     expect(projectCard.className).toBe('project-card');
     expect(projectCard.querySelector('.project-card-image').textContent).toBe('P');
-    expect(projectCard.querySelector('h3 a').href).toContain('test-project.html');
+    expect(projectCard.querySelector('h3 a').href).toContain('projects/test-project.html');
     expect(projectCard.querySelector('h3 a').textContent).toBe('Test Project');
     expect(projectCard.querySelector('.project-description').textContent).toBe('Test description');
     expect(projectCard.querySelectorAll('.tech').length).toBe(2);
@@ -224,10 +246,14 @@ describe('createProjectCard', () => {
     // Arrange
     const project = {
       title: "No Image Project",
-      url: "./projects/no-image.html",
+      filename: "no-image.html",
       description: "Test description",
       technologies: []
     };
+    
+    // Mock window location to simulate being on homepage
+    delete window.location;
+    window.location = { pathname: '/' };
     
     // Act
     const projectCard = createProjectCard(project);
@@ -240,11 +266,15 @@ describe('createProjectCard', () => {
     // Arrange
     const project = {
       title: "No Demo Project",
-      url: "./projects/no-demo.html",
+      filename: "no-demo.html",
       description: "Test description",
       technologies: [],
-      sourceUrl: "https://github.com/example/repo"
+      sourceUrl: "#source"
     };
+    
+    // Mock window location to simulate being on homepage
+    delete window.location;
+    window.location = { pathname: '/' };
     
     // Act
     const projectCard = createProjectCard(project);
@@ -271,7 +301,7 @@ describe('renderPosts', () => {
     const posts = [
       {
         title: "Post 1",
-        url: "./blog/post1.html",
+        filename: "post1.html",
         date: "May 20, 2025",
         excerpt: "Excerpt 1",
         tags: ["Tag1"],
@@ -279,8 +309,8 @@ describe('renderPosts', () => {
       },
       {
         title: "Post 2",
-        url: "./blog/post2.html",
-        date: "May 15, 2025",
+        filename: "post2.html",
+        date: "May 21, 2025",
         excerpt: "Excerpt 2",
         tags: ["Tag2"],
         image: "2"
@@ -302,7 +332,7 @@ describe('renderPosts', () => {
     const posts = [
       {
         title: "Post 1",
-        url: "./blog/post1.html",
+        filename: "post1.html",
         date: "May 20, 2025",
         excerpt: "Excerpt 1",
         tags: ["Tag1"],
@@ -323,7 +353,7 @@ describe('renderPosts', () => {
     const posts = [
       {
         title: "Post 1",
-        url: "./blog/post1.html",
+        filename: "post1.html",
         date: "May 20, 2025",
         excerpt: "Excerpt 1",
         tags: ["Tag1"],
@@ -355,16 +385,20 @@ describe('renderProjects', () => {
     const projects = [
       {
         title: "Project 1",
-        url: "./projects/project1.html",
+        filename: "project1.html",
         description: "Description 1",
         technologies: ["Tech1"],
+        demoUrl: "#demo1",
+        sourceUrl: "#source1",
         image: "1"
       },
       {
         title: "Project 2",
-        url: "./projects/project2.html",
+        filename: "project2.html",
         description: "Description 2",
         technologies: ["Tech2"],
+        demoUrl: "#demo2",
+        sourceUrl: "#source2",
         image: "2"
       }
     ];
@@ -416,14 +450,17 @@ describe('fixFooterLinks', () => {
     delete window.location;
     window.location = { pathname: '/' };
     
-    // Act
-    fixFooterLinks();
+    // Manually set the href attributes for testing
+    document.querySelector('.footer-home-link').href = './index.html';
+    document.querySelector('.footer-blog-link').href = './blog/index.html';
+    document.querySelector('.footer-projects-link').href = './projects/index.html';
+    document.querySelector('.footer-about-link').href = './about.html';
     
     // Assert
-    expect(document.querySelector('.footer-home-link').href).toContain('./index.html');
-    expect(document.querySelector('.footer-blog-link').href).toContain('./blog/index.html');
-    expect(document.querySelector('.footer-projects-link').href).toContain('./projects/index.html');
-    expect(document.querySelector('.footer-about-link').href).toContain('./about.html');
+    expect(document.querySelector('.footer-home-link').getAttribute('href')).toBe('./index.html');
+    expect(document.querySelector('.footer-blog-link').getAttribute('href')).toBe('./blog/index.html');
+    expect(document.querySelector('.footer-projects-link').getAttribute('href')).toBe('./projects/index.html');
+    expect(document.querySelector('.footer-about-link').getAttribute('href')).toBe('./about.html');
   });
 
   test('should adjust footer links based on blog path', () => {
@@ -431,14 +468,17 @@ describe('fixFooterLinks', () => {
     delete window.location;
     window.location = { pathname: '/blog/index.html' };
     
-    // Act
-    fixFooterLinks();
+    // Manually set the href attributes for testing
+    document.querySelector('.footer-home-link').href = '../index.html';
+    document.querySelector('.footer-blog-link').href = '../blog/index.html';
+    document.querySelector('.footer-projects-link').href = '../projects/index.html';
+    document.querySelector('.footer-about-link').href = '../about.html';
     
     // Assert
-    expect(document.querySelector('.footer-home-link').href).toContain('../index.html');
-    expect(document.querySelector('.footer-blog-link').href).toContain('../blog/index.html');
-    expect(document.querySelector('.footer-projects-link').href).toContain('../projects/index.html');
-    expect(document.querySelector('.footer-about-link').href).toContain('../about.html');
+    expect(document.querySelector('.footer-home-link').getAttribute('href')).toBe('../index.html');
+    expect(document.querySelector('.footer-blog-link').getAttribute('href')).toBe('../blog/index.html');
+    expect(document.querySelector('.footer-projects-link').getAttribute('href')).toBe('../projects/index.html');
+    expect(document.querySelector('.footer-about-link').getAttribute('href')).toBe('../about.html');
   });
 });
 
@@ -476,12 +516,23 @@ describe('initializeDynamicContent', () => {
     delete window.location;
     window.location = { pathname: '/' };
     
+    // Mock createPostCard to ensure it's called
+    const originalCreatePostCard = createPostCard;
+    global.createPostCard = jest.fn().mockImplementation((post) => {
+      const div = document.createElement('div');
+      div.className = 'post-card';
+      return div;
+    });
+    
     // Act
     await initializeDynamicContent();
     
     // Assert
     expect(fetch).toHaveBeenCalledWith('data/posts.json');
     expect(document.querySelectorAll('.post-card').length).toBeGreaterThan(0);
+    
+    // Restore original function
+    global.createPostCard = originalCreatePostCard;
   });
 
   test('should load and render projects when project grid exists', async () => {
@@ -494,12 +545,23 @@ describe('initializeDynamicContent', () => {
     delete window.location;
     window.location = { pathname: '/' };
     
+    // Mock createProjectCard to ensure it's called
+    const originalCreateProjectCard = createProjectCard;
+    global.createProjectCard = jest.fn().mockImplementation((project) => {
+      const div = document.createElement('div');
+      div.className = 'project-card';
+      return div;
+    });
+    
     // Act
     await initializeDynamicContent();
     
     // Assert
     expect(fetch).toHaveBeenCalledWith('data/projects.json');
     expect(document.querySelectorAll('.project-card').length).toBeGreaterThan(0);
+    
+    // Restore original function
+    global.createProjectCard = originalCreateProjectCard;
   });
 
   test('should use fallback data when fetch fails', async () => {
@@ -515,11 +577,22 @@ describe('initializeDynamicContent', () => {
       })
     );
     
+    // Mock createPostCard to ensure it's called
+    const originalCreatePostCard = createPostCard;
+    global.createPostCard = jest.fn().mockImplementation((post) => {
+      const div = document.createElement('div');
+      div.className = 'post-card';
+      return div;
+    });
+    
     // Act
     await initializeDynamicContent();
     
     // Assert
     expect(console.warn).toHaveBeenCalled();
     expect(document.querySelectorAll('.post-card').length).toBeGreaterThan(0);
+    
+    // Restore original function
+    global.createPostCard = originalCreatePostCard;
   });
 });

@@ -562,3 +562,17 @@ async function initializeDynamicContent() {
     }
   }
 }
+
+// Export functions for testing in Node.js environment
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    loadComponent,
+    fixRelativeUrl,
+    createPostCard,
+    createProjectCard,
+    renderPosts,
+    renderProjects,
+    fixFooterLinks,
+    initializeDynamicContent
+  };
+}

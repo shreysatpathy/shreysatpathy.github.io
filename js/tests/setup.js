@@ -62,7 +62,7 @@ global.fetch = jest.fn(() =>
     json: () => Promise.resolve([
       {
         title: "Test Post",
-        url: "./blog/test-post.html",
+        filename: "test-post.html",
         date: "May 20, 2025",
         excerpt: "Test excerpt",
         tags: ["Tag1", "Tag2"],
