@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting Started with Next.js | Shrey's Blog</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey's Blog</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <!-- Back to blog link -->
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+        
+        <header class="post-header">
+          <h1>Getting Started with Next.js</h1>
+          
+          <div class="post-meta-full">
+            <time datetime="2025-05-20">May 20, 2025</time>
+            <div class="post-tags">
+              <span class="tag">Next.js</span>
+              <span class="tag">React</span>
+              <span class="tag">Web Development</span>
+            </div>
+          </div>
+          
+          <!-- Featured image placeholder -->
+          <div class="featured-image placeholder" style="height: 400px; border-radius: 8px;">
+            <span>Next.js</span>
+          </div>
+        </header>
+        
+        <div class="post-body">
+          <p>Next.js has quickly become one of the most popular frameworks for building React applications. It provides a great developer experience with features like server-side rendering, static site generation, and file-based routing. In this post, we'll explore how to get started with Next.js and build your first application.</p>
+          
+          <h2>What is Next.js?</h2>
+          <p>Next.js is a React framework that enables functionality such as server-side rendering and static site generation. It's built on top of React and provides additional structure, features, and optimizations for your application.</p>
+          
+          <p>Some of the key features of Next.js include:</p>
+          <ul>
+            <li><strong>Server-side rendering (SSR)</strong>: Renders pages on the server for improved performance and SEO.</li>
+            <li><strong>Static site generation (SSG)</strong>: Pre-renders pages at build time for even better performance.</li>
+            <li><strong>File-based routing</strong>: Create routes based on the file structure in your pages directory.</li>
+            <li><strong>API routes</strong>: Create API endpoints as serverless functions.</li>
+            <li><strong>Built-in CSS and Sass support</strong>: Import CSS and Sass files directly in your components.</li>
+            <li><strong>Fast refresh</strong>: See your changes instantly without losing component state.</li>
+          </ul>
+          
+          <h2>Setting Up Your First Next.js Project</h2>
+          <p>Let's walk through the process of creating a new Next.js application:</p>
+          
+          <h3>1. Create a new project</h3>
+          <p>The easiest way to get started with Next.js is to use the <code>create-next-app</code> command:</p>
+          
+          <pre><code>npx create-next-app my-next-app
+cd my-next-app</code></pre>
+          
+          <p>This will create a new Next.js project with all the necessary files and dependencies.</p>
+          
+          <h3>2. Explore the project structure</h3>
+          <p>After creating your project, you'll see a directory structure like this:</p>
+          
+          <pre><code>my-next-app/
+  ├── node_modules/
+  ├── pages/
+  │   ├── _app.js
+  │   ├── index.js
+  │   └── api/
+  ├── public/
+  ├── styles/
+  ├── .gitignore
+  ├── package.json
+  └── README.md</code></pre>
+          
+          <p>The <code>pages</code> directory is where you'll create your routes. Each file in this directory becomes a route in your application.</p>
+          
+          <h3>3. Run the development server</h3>
+          <p>To start the development server, run:</p>
+          
+          <pre><code>npm run dev</code></pre>
+          
+          <p>This will start the development server at <code>http://localhost:3000</code>.</p>
+          
+          <h2>Creating Your First Page</h2>
+          <p>Let's create a simple page in our Next.js application. Open the <code>pages/index.js</code> file and replace its contents with:</p>
+          
+          <pre><code>export default function Home() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Welcome to My Next.js App&lt;/h1&gt;
+      &lt;p&gt;This is my first Next.js page!&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+          
+          <p>Save the file and you should see your changes reflected in the browser.</p>
+          
+          <h2>Adding a New Page</h2>
+          <p>To add a new page, simply create a new file in the <code>pages</code> directory. For example, let's create an about page:</p>
+          
+          <p>Create a new file <code>pages/about.js</code> with the following content:</p>
+          
+          <pre><code>export default function About() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;About Me&lt;/h1&gt;
+      &lt;p&gt;This is the about page of my Next.js application.&lt;/p&gt;
+    &lt;/div&gt;
+  )
+}</code></pre>
+          
+          <p>Now you can access this page at <code>http://localhost:3000/about</code>.</p>
+          
+          <h2>Conclusion</h2>
+          <p>Next.js provides a powerful and flexible framework for building React applications. In this post, we've just scratched the surface of what's possible with Next.js. As you continue to explore, you'll discover features like:</p>
+          
+          <ul>
+            <li>Dynamic routes</li>
+            <li>API routes</li>
+            <li>CSS modules</li>
+            <li>Image optimization</li>
+            <li>Internationalization</li>
+            <li>And much more!</li>
+          </ul>
+          
+          <p>Stay tuned for more posts about Next.js and other web development topics!</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <h3>Shrey's Blog</h3>
+          <p>A personal blog about web development and technology.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="index.html">Blog</a></li>
+            <li><a href="../projects/index.html">Projects</a></li>
+            <li><a href="../about.html">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Shrey's Blog. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
