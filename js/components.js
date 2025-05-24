@@ -132,7 +132,7 @@ function fixRelativeUrl(url) {
  * Create and render a post card component
  * @param {Object} post - Post data object
  * @param {string} post.title - Post title
- * @param {string} post.url - Post URL
+ * @param {string} post.filename - Post HTML filename
  * @param {string} post.date - Post date
  * @param {string} post.excerpt - Post excerpt
  * @param {Array} post.tags - Array of tags
@@ -158,20 +158,30 @@ function createPostCard(post) {
   
   // Build the URL based on the current page context
   const path = window.location.pathname;
-  const isHomePage = path === '/' || path.endsWith('/index.html') || path.split('/').filter(part => part !== '').length === 0;
+  console.log('Current path:', path);
+  
+  // Check if we're on the homepage
+  const isHomePage = path === '/' || 
+                    path.endsWith('/index.html') || 
+                    path.split('/').filter(part => part !== '').length === 0;
+  
+  // Check if we're on a blog page
   const isBlogPage = path.includes('/blog/');
   
   // Determine the correct URL path
   let url;
-  if (isHomePage) {
+  if (isBlogPage) {
+    // On blog page, we can use the filename directly without any prefix
+    url = post.filename;
+    console.log('On blog page, using filename directly:', url);
+  } else if (isHomePage) {
     // On homepage, we need to include the blog directory
     url = 'blog/' + post.filename;
-  } else if (isBlogPage) {
-    // On blog page, we can use the filename directly
-    url = post.filename;
+    console.log('On homepage, adding blog/ prefix:', url);
   } else {
     // From other pages, we need to navigate to the blog directory
     url = 'blog/' + post.filename;
+    console.log('On other page, adding blog/ prefix:', url);
   }
   
   titleLink.href = url;
@@ -218,7 +228,7 @@ function createPostCard(post) {
  * Create and render a project card component
  * @param {Object} project - Project data object
  * @param {string} project.title - Project title
- * @param {string} project.url - Project URL
+ * @param {string} project.filename - Project HTML filename
  * @param {string} project.description - Project description
  * @param {Array} project.technologies - Array of technologies used
  * @param {string} project.demoUrl - Demo URL
@@ -245,20 +255,30 @@ function createProjectCard(project) {
   
   // Build the URL based on the current page context
   const path = window.location.pathname;
-  const isHomePage = path === '/' || path.endsWith('/index.html') || path.split('/').filter(part => part !== '').length === 0;
+  console.log('Current path (project):', path);
+  
+  // Check if we're on the homepage
+  const isHomePage = path === '/' || 
+                    path.endsWith('/index.html') || 
+                    path.split('/').filter(part => part !== '').length === 0;
+  
+  // Check if we're on a projects page
   const isProjectsPage = path.includes('/projects/');
   
   // Determine the correct URL path
   let url;
-  if (isHomePage) {
+  if (isProjectsPage) {
+    // On projects page, we can use the filename directly without any prefix
+    url = project.filename;
+    console.log('On projects page, using filename directly:', url);
+  } else if (isHomePage) {
     // On homepage, we need to include the projects directory
     url = 'projects/' + project.filename;
-  } else if (isProjectsPage) {
-    // On projects page, we can use the filename directly
-    url = project.filename;
+    console.log('On homepage, adding projects/ prefix:', url);
   } else {
     // From other pages, we need to navigate to the projects directory
     url = 'projects/' + project.filename;
+    console.log('On other page, adding projects/ prefix:', url);
   }
   
   titleLink.href = url;
@@ -409,7 +429,7 @@ async function initializeDynamicContent() {
   const fallbackPosts = [
     {
       title: "Getting Started with Next.js",
-      url: "blog/getting-started-with-nextjs.html",
+      filename: "getting-started-with-nextjs.html",
       date: "May 20, 2025",
       excerpt: "Learn how to build modern web applications with Next.js, a powerful React framework.",
       tags: ["Next.js", "React", "Web Development"],
@@ -417,7 +437,7 @@ async function initializeDynamicContent() {
     },
     {
       title: "Building Scalable ML Systems",
-      url: "blog/building-scalable-ml-systems.html",
+      filename: "building-scalable-ml-systems.html",
       date: "May 15, 2025",
       excerpt: "Strategies for designing and implementing production-grade machine learning systems that scale.",
       tags: ["Machine Learning", "Scalability", "Production"],
@@ -428,7 +448,7 @@ async function initializeDynamicContent() {
   const fallbackProjects = [
     {
       title: "E-commerce Platform",
-      url: "projects/ecommerce-platform.html",
+      filename: "ecommerce-platform.html",
       description: "A full-featured e-commerce platform built with modern web technologies.",
       technologies: ["React", "Node.js", "MongoDB"],
       demoUrl: "#",
@@ -437,7 +457,7 @@ async function initializeDynamicContent() {
     },
     {
       title: "AI-Powered Reliability System",
-      url: "projects/ai-reliability-system.html",
+      filename: "ai-reliability-system.html",
       description: "Predictive maintenance system using machine learning to forecast equipment failures.",
       technologies: ["Python", "TensorFlow", "Time Series Analysis"],
       demoUrl: "#",
@@ -494,16 +514,33 @@ async function initializeDynamicContent() {
     if (projectGrid) {
       console.log('Found project grid, loading projects...');
       try {
+        // Determine if we're on the projects index page or the home page
+        const isProjectsIndexPage = window.location.pathname.includes('/projects/index.html') || 
+                                  window.location.pathname.endsWith('/projects/');
+        console.log('Is projects index page:', isProjectsIndexPage);
+        
+        // Adjust the path for data file based on current location
+        let dataPath = 'data/projects.json';
+        if (isProjectsIndexPage) {
+          dataPath = '../data/projects.json';
+        }
+        
         // Try to load projects data
-        const projectsResponse = await fetch('data/projects.json');
+        const projectsResponse = await fetch(dataPath);
         console.log('Projects response status:', projectsResponse.status);
         
         if (projectsResponse.ok) {
           const projectsData = await projectsResponse.json();
           console.log('Projects data loaded:', projectsData.length, 'projects');
-          // Render featured projects (first 3 or fewer)
-          const featuredProjects = projectsData.slice(0, 3);
-          renderProjects(featuredProjects, '.project-grid');
+          
+          if (isProjectsIndexPage) {
+            // On projects index page, show all projects
+            renderProjects(projectsData, '.project-grid');
+          } else {
+            // On home page, show only featured projects (first 3 or fewer)
+            const featuredProjects = projectsData.slice(0, 3);
+            renderProjects(featuredProjects, '.project-grid');
+          }
         } else {
           console.warn('Could not load projects.json, using fallback data');
           renderProjects(fallbackProjects, '.project-grid');
