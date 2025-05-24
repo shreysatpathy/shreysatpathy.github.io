@@ -1,7 +1,7 @@
 [
   {
     "title": "Getting Started with Next.js",
-    "url": "blog/getting-started-with-nextjs.html",
+    "filename": "getting-started-with-nextjs.html",
     "date": "May 20, 2025",
     "excerpt": "Learn how to build modern web applications with Next.js, a powerful React framework.",
     "tags": ["Next.js", "React", "Web Development"],
@@ -9,7 +9,7 @@
   },
   {
     "title": "Building Scalable ML Systems",
-    "url": "blog/building-scalable-ml-systems.html",
+    "filename": "building-scalable-ml-systems.html",
     "date": "May 15, 2025",
     "excerpt": "Strategies for designing and implementing production-grade machine learning systems that scale.",
     "tags": ["Machine Learning", "Scalability", "Production"],
@@ -17,7 +17,7 @@
   },
   {
     "title": "AI for Physical Systems",
-    "url": "blog/ai-for-physical-systems.html",
+    "filename": "ai-for-physical-systems.html",
     "date": "May 10, 2025",
     "excerpt": "Exploring the intersection of AI and dynamical physical systems for real-world applications.",
     "tags": ["AI", "Physical Systems", "Simulation"],

@@ -1,0 +1,23 @@
+{
+  "name": "shrey-blog",
+  "version": "1.0.0",
+  "description": "Shrey Satpathy's personal blog",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "moduleFileExtensions": ["js"],
+    "transform": {},
+    "testMatch": ["**/js/tests/**/*.test.js"],
+    "setupFilesAfterEnv": ["./js/tests/setup.js"],
+    "testEnvironmentOptions": {
+      "customExportConditions": ["node", "node-addons"]
+    }
+  }
+}

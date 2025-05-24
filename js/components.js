@@ -30,6 +30,105 @@ async function loadComponent(url, targetSelector) {
 }
 
 /**
+ * Fix relative URLs based on the current page location
+ * @param {string} url - The URL to fix
+ * @returns {string} - The fixed URL
+ */
+function fixRelativeUrl(url) {
+  console.log('Fixing URL:', url, 'from path:', window.location.pathname);
+  
+  // If the URL is already absolute or has a protocol, return it as is
+  if (url.startsWith('/') || url.includes('://')) {
+    return url;
+  }
+  
+  // Handle URLs with leading ./ notation
+  if (url.startsWith('./')) {
+    // For URLs starting with ./, we need to adjust based on current directory
+    const path = window.location.pathname;
+    const pathParts = path.split('/').filter(part => part !== '');
+    
+    // If we're in a subdirectory (like blog/ or projects/), we need to adjust the path
+    if (pathParts.length > 0) {
+      const currentDir = pathParts[pathParts.length - 1];
+      
+      // If we're in blog directory
+      if (currentDir === 'blog' || path.includes('/blog/')) {
+        // If the URL is pointing to a blog post from blog directory
+        if (url.startsWith('./blog/')) {
+          return url.replace('./blog/', '');
+        }
+      }
+      
+      // If we're in projects directory
+      if (currentDir === 'projects' || path.includes('/projects/')) {
+        // If the URL is pointing to a project from projects directory
+        if (url.startsWith('./projects/')) {
+          return url.replace('./projects/', '');
+        }
+      }
+    }
+    
+    // For other cases, just remove the ./ prefix
+    return url.substring(2);
+  }
+  
+  // Get current path information
+  const path = window.location.pathname;
+  const pathParts = path.split('/').filter(part => part !== '');
+  
+  // Detect if we're on the blog index page
+  const isBlogIndexPage = path.includes('/blog/index.html') || 
+                         path.endsWith('/blog/') ||
+                         path.endsWith('/blog');
+                         
+  // Detect if we're on the home page (root or index.html)
+  const isHomePage = path === '/' || 
+                    path.endsWith('/index.html') || 
+                    pathParts.length === 0 || 
+                    (pathParts.length === 1 && pathParts[0] === 'index.html');
+  
+  console.log('Page context:', { isHomePage, isBlogIndexPage, pathParts });
+  
+  // Special case for blog/index.html accessing posts from posts.json
+  if (isBlogIndexPage && url.startsWith('blog/')) {
+    // When on blog/index.html, we need to access blog posts directly
+    return url.replace('blog/', '');
+  }
+  
+  // Special case for home page
+  if (isHomePage) {
+    // On home page, URLs should be used exactly as they are in posts.json
+    // If the URL doesn't start with ./ but is a relative path like blog/post.html or projects/project.html
+    // we need to make sure it's properly handled
+    if (!url.startsWith('./') && !url.startsWith('/') && !url.includes('://')) {
+      // The URL is already in the correct format for the home page
+      return url;
+    }
+    return url;
+  }
+  
+  // If we're in a subdirectory (like blog/ or projects/), we need to adjust the path
+  if (pathParts.length > 0) {
+    const currentDir = pathParts[pathParts.length - 1];
+    
+    // If the URL starts with the current directory, we need to remove it to avoid duplication
+    if (url.startsWith(currentDir + '/')) {
+      return url;
+    }
+    
+    // If we're in a blog/ or projects/ directory and trying to access another blog/ or projects/ page
+    if ((currentDir === 'blog' || currentDir === 'projects') && 
+        (url.startsWith('blog/') || url.startsWith('projects/'))) {
+      // Go up one level and then to the target
+      return '../' + url;
+    }
+  }
+  
+  return url;
+}
+
+/**
  * Create and render a post card component
  * @param {Object} post - Post data object
  * @param {string} post.title - Post title
@@ -56,7 +155,26 @@ function createPostCard(post) {
   // Create title
   const titleH3 = document.createElement('h3');
   const titleLink = document.createElement('a');
-  titleLink.href = post.url;
+  
+  // Build the URL based on the current page context
+  const path = window.location.pathname;
+  const isHomePage = path === '/' || path.endsWith('/index.html') || path.split('/').filter(part => part !== '').length === 0;
+  const isBlogPage = path.includes('/blog/');
+  
+  // Determine the correct URL path
+  let url;
+  if (isHomePage) {
+    // On homepage, we need to include the blog directory
+    url = 'blog/' + post.filename;
+  } else if (isBlogPage) {
+    // On blog page, we can use the filename directly
+    url = post.filename;
+  } else {
+    // From other pages, we need to navigate to the blog directory
+    url = 'blog/' + post.filename;
+  }
+  
+  titleLink.href = url;
   titleLink.textContent = post.title;
   titleH3.appendChild(titleLink);
   
@@ -124,7 +242,26 @@ function createProjectCard(project) {
   // Create title
   const titleH3 = document.createElement('h3');
   const titleLink = document.createElement('a');
-  titleLink.href = project.url;
+  
+  // Build the URL based on the current page context
+  const path = window.location.pathname;
+  const isHomePage = path === '/' || path.endsWith('/index.html') || path.split('/').filter(part => part !== '').length === 0;
+  const isProjectsPage = path.includes('/projects/');
+  
+  // Determine the correct URL path
+  let url;
+  if (isHomePage) {
+    // On homepage, we need to include the projects directory
+    url = 'projects/' + project.filename;
+  } else if (isProjectsPage) {
+    // On projects page, we can use the filename directly
+    url = project.filename;
+  } else {
+    // From other pages, we need to navigate to the projects directory
+    url = 'projects/' + project.filename;
+  }
+  
+  titleLink.href = url;
   titleLink.textContent = project.title;
   titleH3.appendChild(titleLink);
   
@@ -317,16 +454,33 @@ async function initializeDynamicContent() {
     if (postGrid) {
       console.log('Found post grid, loading posts...');
       try {
+        // Determine if we're on the blog index page or the home page
+        const isBlogIndexPage = window.location.pathname.includes('/blog/index.html') || 
+                               window.location.pathname.endsWith('/blog/');
+        console.log('Is blog index page:', isBlogIndexPage);
+        
+        // Adjust the path for data file based on current location
+        let dataPath = 'data/posts.json';
+        if (isBlogIndexPage) {
+          dataPath = '../data/posts.json';
+        }
+        
         // Try to load posts data
-        const postsResponse = await fetch('data/posts.json');
+        const postsResponse = await fetch(dataPath);
         console.log('Posts response status:', postsResponse.status);
         
         if (postsResponse.ok) {
           const postsData = await postsResponse.json();
           console.log('Posts data loaded:', postsData.length, 'posts');
-          // Render featured posts (first 3 or fewer)
-          const featuredPosts = postsData.slice(0, 3);
-          renderPosts(featuredPosts, '.post-grid');
+          
+          if (isBlogIndexPage) {
+            // On blog index page, show all posts
+            renderPosts(postsData, '.post-grid');
+          } else {
+            // On home page, show only featured posts (first 3 or fewer)
+            const featuredPosts = postsData.slice(0, 3);
+            renderPosts(featuredPosts, '.post-grid');
+          }
         } else {
           console.warn('Could not load posts.json, using fallback data');
           renderPosts(fallbackPosts, '.post-grid');

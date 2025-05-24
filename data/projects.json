@@ -1,7 +1,7 @@
 [
   {
     "title": "E-commerce Platform",
-    "url": "projects/ecommerce-platform.html",
+    "filename": "ecommerce-platform.html",
     "description": "A full-featured e-commerce platform built with modern web technologies.",
     "technologies": ["React", "Node.js", "MongoDB"],
     "demoUrl": "#",
@@ -10,7 +10,7 @@
   },
   {
     "title": "AI-Powered Reliability System",
-    "url": "projects/ai-reliability-system.html",
+    "filename": "ai-reliability-system.html",
     "description": "Predictive maintenance system using machine learning to forecast equipment failures.",
     "technologies": ["Python", "TensorFlow", "Time Series Analysis"],
     "demoUrl": "#",
@@ -19,7 +19,7 @@
   },
   {
     "title": "Distributed ML Pipeline",
-    "url": "projects/distributed-ml-pipeline.html",
+    "filename": "distributed-ml-pipeline.html",
     "description": "Scalable, fault-tolerant machine learning pipeline for production environments.",
     "technologies": ["Kubernetes", "Docker", "MLflow", "Python"],
     "demoUrl": "#",
