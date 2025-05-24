@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../blog/index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <header class="post-header">
+          <h1>{{title}}</h1>
+          <div class="post-meta-full">
+            <span class="post-date">{{date}}</span>
+            <div class="post-tags">
+              {{#tags}}
+              <span class="tag">{{.}}</span>
+              {{/tags}}
+            </div>
+          </div>
+        </header>
+        
+        <div class="post-body">
+          {{content}}
+        </div>
+        
+        <footer class="post-footer">
+          <div class="post-navigation">
+            {{#previousPost}}
+            <a href="{{url}}" class="prev-post">
+              <span class="nav-label">Previous</span>
+              <span class="post-title">{{title}}</span>
+            </a>
+            {{/previousPost}}
+            
+            {{#nextPost}}
+            <a href="{{url}}" class="next-post">
+              <span class="nav-label">Next</span>
+              <span class="post-title">{{title}}</span>
+            </a>
+            {{/nextPost}}
+          </div>
+        </footer>
+      </div>
+    </article>
+    
+    <section class="related-posts">
+      <div class="container">
+        <h2>Related Posts</h2>
+        <div class="post-grid" id="related-posts-container">
+          <!-- Related posts will be dynamically loaded here -->
+          <div class="loading-placeholder">Loading related posts...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer will be dynamically loaded here -->
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    // Load related posts based on tags
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const response = await fetch('../data/posts.json');
+        if (response.ok) {
+          const allPosts = await response.json();
+          const currentPostTags = [{{#tags}}"{{.}}",{{/tags}}];
+          const currentPostUrl = window.location.pathname;
+          
+          // Filter posts that share tags with current post but aren't the current post
+          const relatedPosts = allPosts
+            .filter(post => {
+              // Don't include current post
+              if (post.url === currentPostUrl) return false;
+              
+              // Check if post shares any tags with current post
+              return post.tags.some(tag => currentPostTags.includes(tag));
+            })
+            .slice(0, 3); // Get up to 3 related posts
+          
+          if (relatedPosts.length > 0) {
+            renderPosts(relatedPosts, '#related-posts-container');
+          } else {
+            document.querySelector('#related-posts-container').innerHTML = 
+              '<p class="no-results">No related posts found.</p>';
+          }
+        }
+      } catch (error) {
+        console.error('Error loading related posts:', error);
+      }
+    });
+  </script>
+</body>
+</html>

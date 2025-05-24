@@ -475,6 +475,47 @@ img {
   font-family: monospace;
 }
 
+/* Loading Placeholders */
+.loading-placeholder {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+  font-style: italic;
+  background-color: var(--bg-secondary);
+  border-radius: 0.5rem;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Component Styles */
+.component-container {
+  margin-bottom: 2rem;
+}
+
+.component-header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.component-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.component-action {
+  font-size: 0.9rem;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .hero-content h1 {

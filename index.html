@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shrey's Blog</title>
+  <title>Shrey Satpathy | Personal Website</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Favicon -->
@@ -13,7 +13,7 @@
   <header class="site-header">
     <div class="container">
       <nav class="main-nav">
-        <a href="index.html" class="logo">Shrey's Blog</a>
+        <a href="index.html" class="logo">Shrey Satpathy</a>
         <div class="nav-links">
           <a href="index.html" class="active">Home</a>
           <a href="blog/index.html">Blog</a>
@@ -31,8 +31,8 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
-          <h1>Welcome to My Blog</h1>
-          <p>I write about web development, technology, and other interesting topics.</p>
+          <h1>Shrey Satpathy</h1>
+          <p>Nuclear Engineer turned Computer Scientist, exploring the intersection of AI, Mathematics, and Computer Science</p>
         </div>
       </div>
     </section>
@@ -41,48 +41,8 @@
       <div class="container">
         <h2>Featured Blog Posts</h2>
         <div class="post-grid">
-          <!-- Featured blog posts will be dynamically loaded here -->
-          <article class="post-card">
-            <div class="post-card-image placeholder">G</div>
-            <div class="post-card-content">
-              <h3><a href="blog/getting-started-with-nextjs.html">Getting Started with Next.js</a></h3>
-              <p class="post-meta">May 20, 2025</p>
-              <p class="post-excerpt">Learn how to build modern web applications with Next.js, a powerful React framework.</p>
-              <div class="post-tags">
-                <span class="tag">Next.js</span>
-                <span class="tag">React</span>
-                <span class="tag">Web Development</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div class="post-card-image placeholder">M</div>
-            <div class="post-card-content">
-              <h3><a href="blog/mastering-tailwind-css.html">Mastering Tailwind CSS</a></h3>
-              <p class="post-meta">May 15, 2025</p>
-              <p class="post-excerpt">Discover how to use Tailwind CSS to build beautiful, responsive user interfaces quickly.</p>
-              <div class="post-tags">
-                <span class="tag">CSS</span>
-                <span class="tag">Tailwind</span>
-                <span class="tag">Design</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div class="post-card-image placeholder">W</div>
-            <div class="post-card-content">
-              <h3><a href="blog/working-with-typescript.html">Working with TypeScript</a></h3>
-              <p class="post-meta">May 10, 2025</p>
-              <p class="post-excerpt">Learn how TypeScript can improve your JavaScript development experience with static typing.</p>
-              <div class="post-tags">
-                <span class="tag">TypeScript</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Programming</span>
-              </div>
-            </div>
-          </article>
+          <!-- Featured blog posts will be dynamically loaded here from data/posts.json -->
+          <div class="loading-placeholder">Loading posts...</div>
         </div>
         <div class="view-all">
           <a href="blog/index.html" class="btn">View All Posts</a>
@@ -94,57 +54,8 @@
       <div class="container">
         <h2>Featured Projects</h2>
         <div class="project-grid">
-          <!-- Featured projects will be dynamically loaded here -->
-          <article class="project-card">
-            <div class="project-card-image placeholder">E</div>
-            <div class="project-card-content">
-              <h3><a href="projects/ecommerce-platform.html">E-commerce Platform</a></h3>
-              <p class="project-description">A full-featured e-commerce platform built with modern web technologies.</p>
-              <div class="project-tech">
-                <span class="tech">React</span>
-                <span class="tech">Node.js</span>
-                <span class="tech">MongoDB</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="btn btn-sm">Live Demo</a>
-                <a href="#" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-image placeholder">P</div>
-            <div class="project-card-content">
-              <h3><a href="projects/portfolio-website.html">Portfolio Website</a></h3>
-              <p class="project-description">A responsive portfolio website to showcase my work and skills.</p>
-              <div class="project-tech">
-                <span class="tech">HTML</span>
-                <span class="tech">CSS</span>
-                <span class="tech">JavaScript</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="btn btn-sm">Live Demo</a>
-                <a href="#" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-card-image placeholder">W</div>
-            <div class="project-card-content">
-              <h3><a href="projects/weather-app.html">Weather App</a></h3>
-              <p class="project-description">A weather application that provides real-time weather information.</p>
-              <div class="project-tech">
-                <span class="tech">JavaScript</span>
-                <span class="tech">API</span>
-                <span class="tech">CSS</span>
-              </div>
-              <div class="project-links">
-                <a href="#" class="btn btn-sm">Live Demo</a>
-                <a href="#" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
-            </div>
-          </article>
+          <!-- Featured projects will be dynamically loaded here from data/projects.json -->
+          <div class="loading-placeholder">Loading projects...</div>
         </div>
         <div class="view-all">
           <a href="projects/index.html" class="btn">View All Projects</a>

@@ -2,11 +2,21 @@
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOM fully loaded, initializing site...');
+  
   // Dark mode toggle functionality
   setupDarkMode();
   
   // Initialize any other interactive elements
   setupMobileNavigation();
+  
+  // Make sure dynamic content is loaded
+  if (typeof initializeDynamicContent === 'function') {
+    console.log('Calling initializeDynamicContent from main.js');
+    initializeDynamicContent();
+  } else {
+    console.error('initializeDynamicContent function not found!');
+  }
 });
 
 /**

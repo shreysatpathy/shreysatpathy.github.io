@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Scalable ML Systems | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <!-- Back to blog link -->
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+        
+        <header class="post-header">
+          <h1>Building Scalable ML Systems</h1>
+          
+          <div class="post-meta-full">
+            <time datetime="2025-05-15">May 15, 2025</time>
+            <div class="post-tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Scalability</span>
+              <span class="tag">Production</span>
+            </div>
+          </div>
+          
+          <!-- Featured image placeholder -->
+          <div class="featured-image placeholder" style="height: 400px; border-radius: 8px;">
+            <span>ML</span>
+          </div>
+        </header>
+        
+        <div class="post-body">
+          <p>Building machine learning systems that can scale effectively in production environments is a significant challenge. As organizations increasingly rely on ML for critical business functions, the need for robust, scalable, and maintainable ML systems has never been greater. In this post, we'll explore strategies for designing and implementing production-grade machine learning systems that scale.</p>
+          
+          <h2>The Challenges of ML in Production</h2>
+          <p>Machine learning in production faces unique challenges that traditional software systems don't encounter:</p>
+          
+          <ul>
+            <li><strong>Data drift and model decay</strong>: Models can degrade over time as the underlying data distribution changes.</li>
+            <li><strong>Resource constraints</strong>: ML models, especially deep learning ones, can be computationally expensive.</li>
+            <li><strong>Reproducibility</strong>: Ensuring consistent results across different environments and runs.</li>
+            <li><strong>Monitoring and observability</strong>: Tracking model performance and behavior in production.</li>
+            <li><strong>Scalability</strong>: Handling increasing data volumes and inference requests.</li>
+          </ul>
+          
+          <h2>Architectural Patterns for Scalable ML Systems</h2>
+          
+          <h3>1. Microservices Architecture</h3>
+          <p>Breaking down ML systems into smaller, specialized services allows for better scalability and maintainability. Each service can be scaled independently based on its specific resource requirements.</p>
+          
+          <pre><code>
+# Example of a prediction service in Flask
+from flask import Flask, request, jsonify
+import joblib
+
+app = Flask(__name__)
+model = joblib.load('model.pkl')
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    data = request.json
+    prediction = model.predict([data['features']])
+    return jsonify({'prediction': prediction.tolist()})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+          </code></pre>
+          
+          <h3>2. Batch vs. Real-time Processing</h3>
+          <p>Determine whether your use case requires real-time predictions or if batch processing is sufficient. Batch processing is often more efficient for large-scale data processing, while real-time systems are necessary for immediate decision-making.</p>
+          
+          <h3>3. Feature Stores</h3>
+          <p>Feature stores centralize feature computation and storage, ensuring consistency between training and serving environments. They also enable feature reuse across different models.</p>
+          
+          <pre><code>
+# Example of using a feature store (pseudocode)
+from feature_store import FeatureStore
+
+# Initialize feature store
+fs = FeatureStore(config)
+
+# Retrieve features for training
+training_features = fs.get_batch_features(
+    feature_names=['user_age', 'user_activity', 'item_popularity'],
+    entity_ids=user_ids,
+    start_time=start_date,
+    end_time=end_date
+)
+
+# Retrieve features for online serving
+online_features = fs.get_online_features(
+    feature_names=['user_age', 'user_activity', 'item_popularity'],
+    entity_id=current_user_id
+)
+          </code></pre>
+          
+          <h2>Infrastructure Considerations</h2>
+          
+          <h3>1. Containerization and Orchestration</h3>
+          <p>Using containers (Docker) and orchestration tools (Kubernetes) provides a consistent environment for ML models and simplifies deployment and scaling.</p>
+          
+          <h3>2. Distributed Training</h3>
+          <p>For large models or datasets, distributed training across multiple machines can significantly reduce training time.</p>
+          
+          <pre><code>
+# Example of distributed training with TensorFlow
+import tensorflow as tf
+
+strategy = tf.distribute.MirroredStrategy()
+with strategy.scope():
+    model = tf.keras.Sequential([
+        tf.keras.layers.Dense(64, activation='relu'),
+        tf.keras.layers.Dense(10, activation='softmax')
+    ])
+    model.compile(optimizer='adam',
+                  loss='sparse_categorical_crossentropy',
+                  metrics=['accuracy'])
+          </code></pre>
+          
+          <h3>3. Auto-scaling</h3>
+          <p>Implement auto-scaling to handle varying loads efficiently. This ensures your system can handle peak traffic without wasting resources during low-traffic periods.</p>
+          
+          <h2>MLOps Practices</h2>
+          
+          <h3>1. Continuous Integration and Deployment (CI/CD)</h3>
+          <p>Automate the testing and deployment of ML models to ensure reliability and reduce deployment time.</p>
+          
+          <h3>2. Model Versioning and Registry</h3>
+          <p>Track model versions and maintain a registry to manage model lifecycle and enable rollbacks if necessary.</p>
+          
+          <h3>3. Monitoring and Alerting</h3>
+          <p>Implement comprehensive monitoring for both technical metrics (latency, throughput) and ML-specific metrics (prediction distribution, feature drift).</p>
+          
+          <pre><code>
+# Example of model monitoring (pseudocode)
+from ml_monitoring import ModelMonitor
+
+monitor = ModelMonitor(model_id='fraud_detection_v2')
+
+# Register metrics to track
+monitor.track_metric('prediction_distribution')
+monitor.track_metric('feature_drift', features=['transaction_amount', 'user_history'])
+monitor.track_metric('model_latency')
+
+# Set up alerts
+monitor.set_alert(
+    metric='feature_drift',
+    threshold=0.3,
+    notification_channel='slack'
+)
+          </code></pre>
+          
+          <h2>Fault Tolerance and Reliability</h2>
+          
+          <h3>1. Graceful Degradation</h3>
+          <p>Design systems to handle failures gracefully, perhaps by falling back to simpler models or cached predictions when the primary system fails.</p>
+          
+          <h3>2. Circuit Breakers</h3>
+          <p>Implement circuit breakers to prevent cascading failures when dependent services are unavailable.</p>
+          
+          <h3>3. Redundancy</h3>
+          <p>Deploy models across multiple regions or zones to ensure availability even if one region experiences issues.</p>
+          
+          <h2>Conclusion</h2>
+          <p>Building scalable ML systems requires a combination of software engineering best practices, ML-specific considerations, and robust infrastructure. By addressing these aspects systematically, organizations can create ML systems that reliably deliver value at scale.</p>
+          
+          <p>In future posts, we'll dive deeper into specific aspects of ML system design, including feature engineering at scale, model monitoring strategies, and techniques for handling data drift in production environments.</p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer will be dynamically loaded here -->
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
