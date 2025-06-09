@@ -1,5 +1,14 @@
 [
   {
+    "title": "My Windsurf Website Journey",
+    "filename": "windsurf-personal-website.html",
+    "description": "A blog post detailing how I used Windsurf to build this personal website from scratch.",
+    "technologies": ["Windsurf", "AI", "Static Site", "GitHub Actions"],
+    "demoUrl": "windsurf-personal-website.html",
+    "sourceUrl": "",
+    "image": "WS"
+  },
+  {
     "title": "E-commerce Platform",
     "filename": "ecommerce-platform.html",
     "description": "A full-featured e-commerce platform built with modern web technologies.",
@@ -25,5 +34,23 @@
     "demoUrl": "#",
     "sourceUrl": "#",
     "image": "D"
+  },
+  {
+    "title": "Portfolio Website",
+    "filename": "portfolio-website.html",
+    "description": "A responsive portfolio website to showcase my work and skills.",
+    "technologies": ["HTML", "CSS", "JavaScript"],
+    "demoUrl": "#",
+    "sourceUrl": "#",
+    "image": "P"
+  },
+  {
+    "title": "Weather App",
+    "filename": "weather-app.html",
+    "description": "A weather application that provides real-time weather information.",
+    "technologies": ["JavaScript", "API", "CSS"],
+    "demoUrl": "#",
+    "sourceUrl": "#",
+    "image": "W"
   }
 ]
