@@ -427,43 +427,43 @@ async function initializeDynamicContent() {
   
   // Fallback data in case JSON files can't be loaded
   const fallbackPosts = [
-    {
-      title: "Getting Started with Next.js",
-      filename: "getting-started-with-nextjs.html",
-      date: "May 20, 2025",
-      excerpt: "Learn how to build modern web applications with Next.js, a powerful React framework.",
-      tags: ["Next.js", "React", "Web Development"],
-      image: "N"
-    },
-    {
-      title: "Building Scalable ML Systems",
-      filename: "building-scalable-ml-systems.html",
-      date: "May 15, 2025",
-      excerpt: "Strategies for designing and implementing production-grade machine learning systems that scale.",
-      tags: ["Machine Learning", "Scalability", "Production"],
-      image: "M"
-    }
+    // {
+    //   title: "Getting Started with Next.js",
+    //   filename: "getting-started-with-nextjs.html",
+    //   date: "May 20, 2025",
+    //   excerpt: "Learn how to build modern web applications with Next.js, a powerful React framework.",
+    //   tags: ["Next.js", "React", "Web Development"],
+    //   image: "N"
+    // },
+    // {
+    //   title: "Building Scalable ML Systems",
+    //   filename: "building-scalable-ml-systems.html",
+    //   date: "May 15, 2025",
+    //   excerpt: "Strategies for designing and implementing production-grade machine learning systems that scale.",
+    //   tags: ["Machine Learning", "Scalability", "Production"],
+    //   image: "M"
+    // }
   ];
   
   const fallbackProjects = [
-    {
-      title: "E-commerce Platform",
-      filename: "ecommerce-platform.html",
-      description: "A full-featured e-commerce platform built with modern web technologies.",
-      technologies: ["React", "Node.js", "MongoDB"],
-      demoUrl: "#",
-      sourceUrl: "#",
-      image: "E"
-    },
-    {
-      title: "AI-Powered Reliability System",
-      filename: "ai-reliability-system.html",
-      description: "Predictive maintenance system using machine learning to forecast equipment failures.",
-      technologies: ["Python", "TensorFlow", "Time Series Analysis"],
-      demoUrl: "#",
-      sourceUrl: "#",
-      image: "R"
-    }
+    // {
+    //   title: "E-commerce Platform",
+    //   filename: "ecommerce-platform.html",
+    //   description: "A full-featured e-commerce platform built with modern web technologies.",
+    //   technologies: ["React", "Node.js", "MongoDB"],
+    //   demoUrl: "#",
+    //   sourceUrl: "#",
+    //   image: "E"
+    // },
+    // {
+    //   title: "AI-Powered Reliability System",
+    //   filename: "ai-reliability-system.html",
+    //   description: "Predictive maintenance system using machine learning to forecast equipment failures.",
+    //   technologies: ["Python", "TensorFlow", "Time Series Analysis"],
+    //   demoUrl: "#",
+    //   sourceUrl: "#",
+    //   image: "R"
+    // }
   ];
   
   try {
