@@ -1,56 +1,11 @@
 [
   {
-    "title": "My Windsurf Website Journey",
+    "title": "Is this meta programming?",
     "filename": "windsurf-personal-website.html",
     "description": "A blog post detailing how I used Windsurf to build this personal website from scratch.",
     "technologies": ["Windsurf", "AI", "Static Site", "GitHub Actions"],
     "demoUrl": "windsurf-personal-website.html",
     "sourceUrl": "",
     "image": "WS"
-  },
-  {
-    "title": "E-commerce Platform",
-    "filename": "ecommerce-platform.html",
-    "description": "A full-featured e-commerce platform built with modern web technologies.",
-    "technologies": ["React", "Node.js", "MongoDB"],
-    "demoUrl": "#",
-    "sourceUrl": "#",
-    "image": "E"
-  },
-  {
-    "title": "AI-Powered Reliability System",
-    "filename": "ai-reliability-system.html",
-    "description": "Predictive maintenance system using machine learning to forecast equipment failures.",
-    "technologies": ["Python", "TensorFlow", "Time Series Analysis"],
-    "demoUrl": "#",
-    "sourceUrl": "#",
-    "image": "R"
-  },
-  {
-    "title": "Distributed ML Pipeline",
-    "filename": "distributed-ml-pipeline.html",
-    "description": "Scalable, fault-tolerant machine learning pipeline for production environments.",
-    "technologies": ["Kubernetes", "Docker", "MLflow", "Python"],
-    "demoUrl": "#",
-    "sourceUrl": "#",
-    "image": "D"
-  },
-  {
-    "title": "Portfolio Website",
-    "filename": "portfolio-website.html",
-    "description": "A responsive portfolio website to showcase my work and skills.",
-    "technologies": ["HTML", "CSS", "JavaScript"],
-    "demoUrl": "#",
-    "sourceUrl": "#",
-    "image": "P"
-  },
-  {
-    "title": "Weather App",
-    "filename": "weather-app.html",
-    "description": "A weather application that provides real-time weather information.",
-    "technologies": ["JavaScript", "API", "CSS"],
-    "demoUrl": "#",
-    "sourceUrl": "#",
-    "image": "W"
   }
 ]
