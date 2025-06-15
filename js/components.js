@@ -412,8 +412,11 @@ document.addEventListener('DOMContentLoaded', () => {
   footerPlaceholder.id = 'footer-placeholder';
   document.body.appendChild(footerPlaceholder);
   
-  // Load the footer component
-  loadComponent('components/footer.html', '#footer-placeholder');
+  // Load the footer component with a path adjusted based on current location
+  const path = window.location.pathname;
+  const isInSubdirectory = path.includes('/blog/') || path.includes('/projects/');
+  const footerPath = isInSubdirectory ? '../components/footer.html' : 'components/footer.html';
+  loadComponent(footerPath, '#footer-placeholder');
   
   // Initialize dynamic content if data files exist
   initializeDynamicContent();
