@@ -190,26 +190,7 @@ describe('createPostCard', () => {
     expect(postCard.querySelectorAll('.tag').length).toBe(2);
   });
 
-  test('should use first letter of title if image is not provided', () => {
-    // Arrange
-    const post = {
-      title: "No Image Post",
-      filename: "no-image.html",
-      date: "May 20, 2025",
-      excerpt: "Test excerpt",
-      tags: []
-    };
-    
-    // Mock window location to simulate being on homepage
-    delete window.location;
-    window.location = { pathname: '/' };
-    
-    // Act
-    const postCard = createPostCard(post);
-    
-    // Assert
-    expect(postCard.querySelector('.post-card-image').textContent).toBe('N');
-  });
+  // Test for fallback image placeholder removed as the functionality has been removed
 });
 
 describe('createProjectCard', () => {
@@ -242,25 +223,7 @@ describe('createProjectCard', () => {
     expect(projectCard.querySelectorAll('.project-links a').length).toBe(2);
   });
 
-  test('should use first letter of title if image is not provided', () => {
-    // Arrange
-    const project = {
-      title: "No Image Project",
-      filename: "no-image.html",
-      description: "Test description",
-      technologies: []
-    };
-    
-    // Mock window location to simulate being on homepage
-    delete window.location;
-    window.location = { pathname: '/' };
-    
-    // Act
-    const projectCard = createProjectCard(project);
-    
-    // Assert
-    expect(projectCard.querySelector('.project-card-image').textContent).toBe('N');
-  });
+  // Test for fallback image placeholder removed as the functionality has been removed
 
   test('should not add demo link if demoUrl is not provided', () => {
     // Arrange
@@ -564,7 +527,7 @@ describe('initializeDynamicContent', () => {
     global.createProjectCard = originalCreateProjectCard;
   });
 
-  test('should use fallback data when fetch fails', async () => {
+  test('should handle fetch failure gracefully', async () => {
     // Arrange
     const postGrid = document.createElement('div');
     postGrid.className = 'post-grid';
@@ -590,7 +553,8 @@ describe('initializeDynamicContent', () => {
     
     // Assert
     expect(console.warn).toHaveBeenCalled();
-    expect(document.querySelectorAll('.post-card').length).toBeGreaterThan(0);
+    // Since fallback data is now empty, we expect no post cards to be rendered
+    expect(document.querySelectorAll('.post-card').length).toBe(0);
     
     // Restore original function
     global.createPostCard = originalCreatePostCard;

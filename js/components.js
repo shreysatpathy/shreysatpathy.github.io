@@ -143,10 +143,29 @@ function createPostCard(post) {
   const article = document.createElement('article');
   article.className = 'post-card';
   
-  // Create image placeholder
+  // Create image or placeholder
   const imageDiv = document.createElement('div');
-  imageDiv.className = 'post-card-image placeholder';
-  imageDiv.textContent = post.image || post.title.charAt(0);
+  
+  // Check if the image is a path to an image file
+  if (post.image && (post.image.endsWith('.jpg') || post.image.endsWith('.jpeg') || post.image.endsWith('.png') || post.image.endsWith('.gif') || post.image.endsWith('.webp'))) {
+    imageDiv.className = 'post-card-image';
+    const img = document.createElement('img');
+    
+    // Adjust image path based on current location
+    const path = window.location.pathname;
+    const isInSubdirectory = path.includes('/blog/') || path.includes('/projects/');
+    const imgPath = isInSubdirectory ? '../' + post.image : post.image;
+    
+    img.src = imgPath;
+    img.alt = post.title;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    imageDiv.appendChild(img);
+  } else {
+    imageDiv.className = 'post-card-image placeholder';
+    imageDiv.textContent = post.image || post.title.charAt(0);
+  }
   
   // Create content container
   const contentDiv = document.createElement('div');
@@ -240,10 +259,29 @@ function createProjectCard(project) {
   const article = document.createElement('article');
   article.className = 'project-card';
   
-  // Create image placeholder
+  // Create image or placeholder
   const imageDiv = document.createElement('div');
-  imageDiv.className = 'project-card-image placeholder';
-  imageDiv.textContent = project.image || project.title.charAt(0);
+  
+  // Check if the image is a path to an image file
+  if (project.image && (project.image.endsWith('.jpg') || project.image.endsWith('.jpeg') || project.image.endsWith('.png') || project.image.endsWith('.gif') || project.image.endsWith('.webp'))) {
+    imageDiv.className = 'project-card-image';
+    const img = document.createElement('img');
+    
+    // Adjust image path based on current location
+    const path = window.location.pathname;
+    const isInSubdirectory = path.includes('/blog/') || path.includes('/projects/');
+    const imgPath = isInSubdirectory ? '../' + project.image : project.image;
+    
+    img.src = imgPath;
+    img.alt = project.title;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    imageDiv.appendChild(img);
+  } else {
+    imageDiv.className = 'project-card-image placeholder';
+    imageDiv.textContent = project.image || project.title.charAt(0);
+  }
   
   // Create content container
   const contentDiv = document.createElement('div');
