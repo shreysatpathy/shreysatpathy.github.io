@@ -4,8 +4,8 @@
     "filename": "windsurf-personal-website.html",
     "description": "A blog post detailing how I used Windsurf to build this personal website from scratch.",
     "technologies": ["Windsurf", "AI", "Static Site", "GitHub Actions"],
-    "demoUrl": "windsurf-personal-website.html",
-    "sourceUrl": "",
+    "demoUrl": "projects/windsurf-personal-website.html",
+    "sourceUrl": "https://github.com/shreysatpathy/shreysatpathy.github.io",
     "image": "images/v0_website.png"
   }
 ]
