@@ -1,8 +1,8 @@
 [
   {
-    "title": "Simulating the world",
+    "title": "Can LLM agents simulate the world?",
     "filename": "simulating-the-world.html",
-    "description": "Exploring computational modeling and simulation techniques to recreate physical phenomena.",
+    "description": "CRUD apps are easy, can coding agents build arbitrary simulation environments?",
     "technologies": ["Simulation", "Physics", "Modeling", "Data Visualization"],
     "demoUrl": "projects/simulating-the-world.html",
     "sourceUrl": "https://github.com/shreysatpathy/shreysatpathy.github.io",
