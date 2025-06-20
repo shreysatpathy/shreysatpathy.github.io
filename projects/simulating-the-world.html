@@ -62,7 +62,11 @@
 
           <p>I've been playing with agentic IDEs for a while now, and they're amazing for spinning up quick web apps and CRUD interfaces. But I started wondering - could they handle complex numerical analysis software? You know, the kind where one incorrect pointer dereference sends you spiraling into debugging hell for hours.</p>
 
-          <p>I've always had a fascination for simulation of interactions in the world - boiling, flows, plasmas, etc. If you can simulate it, you can optimize it. With all these advanced is LLM assisted coding, can I build any simulation environment without much effort? I decided to test this out with a fun challenge: building a reinforcement learning system to optimize tarmac operations at airports. I'm choosing this problem since it's sufficiently complex to model while providing value even in a simple 2D grid-world like simulation. If I can do this, then imagine what a skilled expert building Navier-Stokes solvers for their day job could do with these kinds of tools. </p>
+          <p>I've always had a fascination for simulation of interactions in the world - boiling, flows, plasmas, etc. If you can simulate it, you can optimize it. With all these advanced is LLM assisted coding, can I build any simulation environment and model some physics without much effort? 
+          </p>
+          
+          <h3>Challenge 1: Simple World Simulation</h3>
+          <p>For the first task I decided to build a reinforcement learning system to optimize tarmac operations at airports. I'm choosing this problem since it's sufficiently complex to model while providing value even in a simple 2D grid-world like simulation. If I can do this, then imagine what a skilled expert building Navier-Stokes solvers for their day job could do with these kinds of tools. </p>
             
           <p>Turns out moving airplanes around is surprisingly complicated, especially with uncertain schedules (Found some work from <a href="https://ntrs.nasa.gov/api/citations/20210016168/downloads/20210016168_MJohnson_VertiportAtmtnConOpsRprt_final_corrected.pdf">NASA Ames on this</a>)! The core problem is that tugs need to shuffle planes around when another aircraft (often a private jet) unexpectedly calls in to land. Ultimately the airport operators need to optimize the schedules of these tugs and planes to minimize the number of moves necessary while parking the maximum number of planes that will buy fuel from the airport. These operate quite like a glorified gas station when you think about it.</p>
 
@@ -75,7 +79,28 @@
 
           <p>Simple enough.</p>
 
-          <p>So far we have a simple world model and interactive game where I can play as the tug and move planes around. Repo link <a href="https://github.com/shreysatpathy/rlexperiments">here</a></p>
+          <p>So far we have a simple world model and interactive game where I can play as the tug and move planes around. I've also implemented a simple Deep Q-Learning agent to learn the optimal tug policy. Lot's of reward shaping still needed but it's learning something! Repo link <a href="https://github.com/shreysatpathy/rlexperiments">here</a></p>
+
+          <h3>Challenge 2: Simple physics</h3>
+          <p>While Newtonian dynamics has largely allowed us to solve most macroscopic collision interactions, can I just ask an llm agent to write code to simulate a simple interaction. I gave it the vaguest of prompts - Simulate a bouncing ball in a Rotating pendulum. </p>
+
+          <p>Here's the output: </p>
+
+          <div class="game-container" style="width: 100%; min-height: 700px; margin: 20px 0; position: relative;">
+            <iframe src="../projects/bouncingBallGame/index.html" width="100%" height="700px" style="border: none; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); resize: both; overflow: hidden;" allowfullscreen></iframe>
+            <div style="text-align: right; font-size: 12px; color: #888; margin-top: 5px;">↘️ Drag the bottom-right corner to resize</div>
+          </div>
+
+          <p>Pretty impressive! We have a complete physics simulation with gravity, air resistance, collision detection, and energy conservation. You can interact with the simulation by clicking inside the hexagon to place the ball and adjust various parameters using the sliders.</p>
+
+          <p>Okay great! But would you trust this <i>simulator</i> to design a lunar landar? </p>
+
+          <p>Verification is the problem!</p>
+
+          <h3>Challenge 3: Finite Element Simulation of a multi-phase flow problem</h3>
+          <p>How about simulating a multi-phase flow problem? </p>
+
+          <p>WIP - simulation still running :)</p>
 
           <div style="padding-bottom: 40px;"></div>
         </div>
