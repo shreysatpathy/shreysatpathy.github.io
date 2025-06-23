@@ -107,9 +107,22 @@
           <p>Verification is the problem!</p>
 
           <h3>Challenge 3: Finite Element Simulation of a multi-phase flow problem</h3>
-          <p>How about simulating a multi-phase flow problem? </p>
 
-          <p>WIP - simulation still running :)</p>
+          <p>For this challenge I wanted to go back to a simpler time, a time when I was an eager graduate student in the Multi-phase Flow lab at NC State hanging out in the old reactor bay dungeons of <a href="https://nrp.ne.ncsu.edu/about/history/">Burlington Nuclear labs</a> studying the flow dynamics inside the core of Pressurized Light Water Reactors. Solving a coupled system of Navier-Stokes equations with heat transfer and phase change would take a skilled graduate student months of work. <a href="https://www.openfoam.com/">OpenFoam</a> was still around but a lot of the academic community was building on top of their existing solvers. My group back then used <a href="https://github.com/PHASTA/phasta">PHASTA</a> - Parallel Hierarchic Adaptive Stabilized Transient Analysis of compressible and incompressible Navier Stokes equations. Essentially a solver that's capabale of solving coupled partial differential equations (conservation of mass, momentum, energy, etc.) on a finite element mesh.</p>
+          
+          <p>I started with my coding agent in chat mode to see what solvers are currently out there that I can use. OpenFoam continues to dominate the space and since it's open source I assume the frontier models have already scooped it up during pre-training. I finalized a basic simulation design in chat mode and then began implementing in agent mode. </p>   
+
+          <div class="video-container" style="position: relative; width: 100%; padding-bottom: 56.25%; margin: 30px 0;">
+            <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);" src="https://www.youtube.com/embed/kRTpt-B3gio?si=SYXx4YBiEZeY7mty" title="OpenFOAM Simulation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+
+          <p>Turns out - yes, software agents can indeed simulate the world - Using our existing state of the art solvers.</p>
+
+          <p>Everything from the mesh generation, to implementing the boundary conditions I asked for, to setting up the visualization environment in paraview was done by the agent with me supervising. There was a part of my Sunday afternoon where I sent the agent to go run a few iterations and check whether things were working as expected. While the agent was hard at work I had to go clean up the mess in the living room made by our pup. The experience made be reflect on the surreal future we find ourselves living in. </p>
+
+          <p>Repo link for this agent built simulation <a href="https://github.com/shreysatpathy/AgenticCFD">here</a></p>
+
+
 
           <div style="padding-bottom: 40px;"></div>
         </div>
