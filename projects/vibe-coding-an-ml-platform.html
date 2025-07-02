@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0290S4QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-GT0290S4QW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe-coding an ML Platform | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../blog/index.html">Blog</a>
+          <a href="index.html" class="active">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="project-content">
+      <div class="container">
+        <!-- Back to projects link -->
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all projects
+        </a>
+
+        <header class="project-header">
+          <h1>Vibe-coding an ML Platform</h1>
+
+          <div class="project-tech">
+            <span class="tech">Machine Learning</span>
+            <span class="tech">DevOps</span>
+            <span class="tech">Platform Engineering</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/shreysatpathy/microPlat" class="btn">View Project</a>
+          </div>
+
+          <div style="margin-top: 30px;"></div>
+
+          <!-- Project image -->
+          <div class="featured-image">
+            <img src="../images/microPlat.jpg" alt="ML Platform visualization" style="width: 100%; border-radius: 8px;">
+          </div>
+        </header>
+
+        <div class="project-body">
+          <h2>Vibe-coding an ML Platform</h2>
+          <p class="date">Published: July 2, 2025</p>
+
+          <p>If you've been following my blog, you know I've been trying to gauge the effectiveness of SWE-agents for a variety of tasks across the stack. Naturally I wanted to see how well they do in helping building and deploying a machine learning platform.</p>
+
+          <p>Before I started, here's what I consider to be the minimalist basics of an ML platform.</p>
+
+          <ul>
+            <li>Experimentation Tools</li>
+            <li>Model Artifact Management</li>
+            <li>Model Serving</li>
+            <li>Model Monitoring</li>
+            <li>Model Versioning</li>
+          </ul>
+
+          <p>What I wanted to build was use combine several open source projects to build a minimalistic ML platform that satisfies the above requirements.</p>
+
+          <p>Within a few hours I had a gitops based cluster managed by ArgoCD that deploys a JupyterHub instance with a Ray Cluster where I can immediately start experimenting at scale for any machine learning use-case. Check out the architecture doc <a href="https://github.com/shreysatpathy/microPlat/blob/main/plan.md">here</a></p>
+
+          <p>This is a work-in-progress and I'll continue to build out more features as I go.</p>
+
+          <div style="padding-bottom: 40px;"></div> 
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Footer will be dynamically loaded here -->
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
