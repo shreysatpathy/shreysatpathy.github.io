@@ -1,5 +1,14 @@
 [
   {
+    "title": "Vibe-Coding an ML Platform",
+    "filename": "vibe-coding-an-ml-platform.html",
+    "description": "An exploration in testing out SWE-Agents for infrastructure as code ",
+    "technologies": ["Machine Learning", "DevOps", "Platform Engineering"],
+    "demoUrl": "projects/vibe-coding-an-ml-platform.html",
+    "sourceUrl": "https://github.com/shreysatpathy/microPlat",
+    "image": "images/microPlat.jpg"
+  },
+  {
     "title": "Can LLM agents simulate the world?",
     "filename": "simulating-the-world.html",
     "description": "CRUD apps are easy, can coding agents build arbitrary simulation environments?",
