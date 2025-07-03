@@ -11,7 +11,7 @@
     "title": "Can LLM agents simulate the world?",
     "filename": "simulating-the-world.html",
     "description": "CRUD apps are easy, can coding agents build arbitrary simulation environments?",
-    "technologies": ["Simulation", "Physics", "Modeling", "Data Visualization"],
+    "technologies": ["Simulation", "Physics", "Reinforcement Learning"],
     "sourceUrl": "https://github.com/shreysatpathy/rlexperiments",
     "image": "images/the_world.png"
   },
