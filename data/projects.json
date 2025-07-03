@@ -4,7 +4,6 @@
     "filename": "vibe-coding-an-ml-platform.html",
     "description": "An exploration in testing out SWE-Agents for infrastructure as code ",
     "technologies": ["Machine Learning", "DevOps", "Platform Engineering"],
-    "demoUrl": "projects/vibe-coding-an-ml-platform.html",
     "sourceUrl": "https://github.com/shreysatpathy/microPlat",
     "image": "images/microPlat.jpg"
   },
@@ -13,7 +12,6 @@
     "filename": "simulating-the-world.html",
     "description": "CRUD apps are easy, can coding agents build arbitrary simulation environments?",
     "technologies": ["Simulation", "Physics", "Modeling", "Data Visualization"],
-    "demoUrl": "projects/simulating-the-world.html",
     "sourceUrl": "https://github.com/shreysatpathy/rlexperiments",
     "image": "images/the_world.png"
   },
@@ -22,7 +20,6 @@
     "filename": "windsurf-personal-website.html",
     "description": "A blog post detailing how I used Windsurf to build this personal website from scratch.",
     "technologies": ["Windsurf", "AI", "Static Site", "GitHub Actions"],
-    "demoUrl": "projects/windsurf-personal-website.html",
     "sourceUrl": "https://github.com/shreysatpathy/shreysatpathy.github.io",
     "image": "images/v0_website.png"
   }
