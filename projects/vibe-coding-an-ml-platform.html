@@ -68,23 +68,25 @@
           <h2>Vibe-coding an ML Platform</h2>
           <p class="date">Published: July 2, 2025</p>
 
-          <p>If you've been following my blog, you know I've been trying to gauge the effectiveness of SWE-agents for a variety of tasks across the stack. Naturally I wanted to see how well they do in helping building and deploying a machine learning platform.</p>
+          <p>If you've been following my blog, you know I've been trying to gauge the effectiveness of SWE-agents for a variety of tasks across the stack. Naturally I wanted to see how well they do in building out infrastructure as code. To test this out, I set out to build a minimalistic ML platform. I think of this as a box of scalable software infrastructure that I can take from one Virtual Private Cloud to another and get a repeatable scalable toolkit.</p>
 
-          <p>Before I started, here's what I consider to be the minimalist basics of an ML platform. There's a lot more on the data side but I'm going to focus on minimalism for now.</p>
+          <p>Before I started, here's what I consider to be the minimalist basics of an ML platform. There's a lot more on the data side but I'm going to focus on minimalism for now. </p>
 
           <ul>
             <li>Experimentation Tools</li>
             <li>Model Artifact Management</li>
             <li>Model Serving</li>
-            <li>Model Monitoring</li>
+            <li>Model Monitoring / Evals</li>
             <li>Model Versioning</li>
           </ul>
+
+          <p>To be honest, not much has changed in the GenAI world compared to traditional ML besides the UX of the tooling. The broader componentary remains the same.</p>   
 
           <p>Essentially I wanted to combine several open source projects to build a minimalistic ML platform that satisfies the above requirements. Additionally I wanted to roll out deployments through a gitops workflow. For example, let's say I needed elastic distributed computing to run hyperparameter tuning experiments for some ML problem. I wanted the ability to make a commit to a repo to introduce a ray cluster as a service to my ML Platform.</p>
 
           <p>To my surprise, within a few hours I had a gitops based kubernetes cluster managed by ArgoCD that deploys a JupyterHub instance with a Ray Cluster where I can immediately start experimenting at scale for any machine learning use-case. Check out the architecture doc <a href="https://github.com/shreysatpathy/microPlat/blob/main/plan.md">here</a></p>
 
-          <p>This is a work-in-progress and I'll continue to build out more features as I go.</p>
+          <p>This is a work-in-progress and I'll continue to build out more features as I go. I also hope to deploy some sample ML / GenAI apps to really put this seminal paper to the test: <a href="https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">Hidden Technical Debt in Machine Learning Systems</a>. The question is - In 2025 with modern open-source abstractions and SWE-Agent driven productivity, can team's (and individuals) be so nimble that technical debt in these systems doesn't really matter anymore. I imagine a world with hyper-personalized deployments, tailored to each use-case built on abstractions that these LLMs <i>understand</i> well.</p>
 
           <div style="padding-bottom: 40px;"></div> 
         </div>
