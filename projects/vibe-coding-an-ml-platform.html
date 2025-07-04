@@ -70,7 +70,7 @@
 
           <p>If you've been following my blog, you know I've been trying to gauge the effectiveness of SWE-agents for a variety of tasks across the stack. Naturally I wanted to see how well they do in helping building and deploying a machine learning platform.</p>
 
-          <p>Before I started, here's what I consider to be the minimalist basics of an ML platform.</p>
+          <p>Before I started, here's what I consider to be the minimalist basics of an ML platform. There's a lot more on the data side but I'm going to focus on minimalism for now.</p>
 
           <ul>
             <li>Experimentation Tools</li>
@@ -80,9 +80,9 @@
             <li>Model Versioning</li>
           </ul>
 
-          <p>What I wanted to build was use combine several open source projects to build a minimalistic ML platform that satisfies the above requirements.</p>
+          <p>Essentially I wanted to combine several open source projects to build a minimalistic ML platform that satisfies the above requirements. Additionally I wanted to roll out deployments through a gitops workflow. For example, let's say I needed elastic distributed computing to run hyperparameter tuning experiments for some ML problem. I wanted the ability to make a commit to a repo to introduce a ray cluster as a service to my ML Platform.</p>
 
-          <p>Within a few hours I had a gitops based cluster managed by ArgoCD that deploys a JupyterHub instance with a Ray Cluster where I can immediately start experimenting at scale for any machine learning use-case. Check out the architecture doc <a href="https://github.com/shreysatpathy/microPlat/blob/main/plan.md">here</a></p>
+          <p>To my surprise, within a few hours I had a gitops based kubernetes cluster managed by ArgoCD that deploys a JupyterHub instance with a Ray Cluster where I can immediately start experimenting at scale for any machine learning use-case. Check out the architecture doc <a href="https://github.com/shreysatpathy/microPlat/blob/main/plan.md">here</a></p>
 
           <p>This is a work-in-progress and I'll continue to build out more features as I go.</p>
 
