@@ -1,5 +1,13 @@
 [
   {
+    "title": "Software - what is it good for?",
+    "filename": "software-what-is-it-good-for.html",
+    "date": "November 8, 2025",
+    "excerpt": "Four fundamental uses of software: math, brokering human interactions, entertainment, and software for software.",
+    "tags": ["Software", "Philosophy"],
+    "image": "images/Apple_II_Plus,_Museum_of_the_Moving_Image.jpg"
+  },
+  {
     "title": "GoodJira: Next Generation Project Management for AI Agents",
     "filename": "goodjira.html",
     "date": "June 18, 2025",
