@@ -393,6 +393,7 @@ img {
   overflow: hidden;
   box-shadow: var(--card-shadow);
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .post-card:hover {
@@ -450,6 +451,7 @@ img {
   overflow: hidden;
   box-shadow: var(--card-shadow);
   transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -633,6 +635,24 @@ img {
 .project-content {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-link i {
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  color: var(--primary-color);
 }
 
 .post-content img,

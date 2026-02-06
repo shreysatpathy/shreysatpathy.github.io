@@ -240,6 +240,16 @@ function createPostCard(post) {
   article.appendChild(imageDiv);
   article.appendChild(contentDiv);
   
+  // Make entire card clickable, but let inner links behave normally
+  article.style.cursor = 'pointer';
+  article.addEventListener('click', (event) => {
+    const target = event.target;
+    if (target.closest('a')) {
+      return;
+    }
+    window.location.href = url;
+  });
+
   return article;
 }
 
