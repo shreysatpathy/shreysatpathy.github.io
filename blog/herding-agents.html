@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0290S4QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GT0290S4QW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Favicon -->
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+        
+        <header class="post-header">
+          <h1>HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents</h1>
+          
+          <div class="post-meta-full">
+            <time datetime="2026-06-14">June 14, 2026</time>
+            <div class="post-tags">
+              <span class="tag">AI</span>
+              <span class="tag">Open Source</span>
+              <span class="tag">Education</span>
+            </div>
+          </div>
+          
+          <div class="featured-image">
+            <img src="../images/herding-agents-boltz.png" alt="Boltz the herding agents mascot" style="width: 100%; border-radius: 8px;">
+            <div class="featured-image-caption">
+              <p>Boltz — the pixel-art mascot of HerdingAgents, here to coach you through every mission.</p>
+            </div>
+          </div>
+        </header>
+        
+        <div class="post-body">
+
+          <p>The promise of AI coding agents is enormous. Tell an agent "build me a CRUD app" and minutes later you have running code. But the reality of working with these agents day-to-day is more nuanced — they need clear instructions, proper context, well-structured tasks, and a lot of hand-holding. Learning to be effective with AI agents is a skill, and like any skill, it requires practice, feedback, and a safe environment to experiment.</p>
+
+          <p>That's exactly what <strong>HerdingAgents</strong> is designed to provide.</p>
+
+          <p>HerdingAgents is a full-stack Next.js application that gives each authenticated user a persistent cloud sandbox (powered by Vercel Sandbox microVMs), a retro-styled desktop interface, and a guided gamified learning path called <strong>Agent Ninja</strong>. It's an interactive curriculum that teaches you how to move from a novice prompt-jockey to someone who can build real applications, schedule automated workflows, and design what I call "digital employees" — persistent, file-system-aware AI agents that can research, create, build, manage credentials, run on schedules, and integrate with external systems.</p>
+
+          <h3>The Retro Desktop Experience</h3>
+
+          <p>When you first log into HerdingAgents, you're greeted by a Windows 95/XP-inspired desktop complete with a taskbar, draggable windows, and a start menu. It's intentionally nostalgic — I wanted the interface to feel playful rather than intimidating. The desktop has icons for the terminal, a workspace file browser, a credential manager, scheduled tasks, and the Agent Ninja learning panel. You can toggle between Windows 95 and Windows XP themes for extra nostalgia points.</p>
+
+          <p>Under the hood, every action in this desktop environment maps to real infrastructure. The terminal opens a persistent microVM sandbox. The file browser shows your actual sandbox filesystem. The credential manager encrypts API keys with AES-256-GCM that get injected into your agent's runtime. It's a toy interface with real engineering underneath.</p>
+
+          <h3>The Agent Ninja Curriculum</h3>
+
+          <p>The core of HerdingAgents is a 10-level gamified curriculum (plus onboarding) that progressively builds your skills:</p>
+
+          <ol>
+            <li><strong>Create Files</strong> — Learn the basics of instructing an agent to generate project files</li>
+            <li><strong>Research Topics</strong> — Use the agent as a research assistant that documents findings</li>
+            <li><strong>Install Agent Skills</strong> — Extend the agent with community-built skills and tools</li>
+            <li><strong>Author Custom Skills</strong> — Write your own reusable skills for the agent</li>
+            <li><strong>Build Browser Apps</strong> — Guide the agent to build complete web applications</li>
+            <li><strong>Create Knowledge Bases</strong> — Provide reference material so the agent works with your domain</li>
+            <li><strong>Manage Credentials</strong> — Securely handle API keys and secrets in agent workflows</li>
+            <li><strong>Build Integrations</strong> — Connect the agent to external services and APIs</li>
+            <li><strong>Schedule Automations</strong> — Set up recurring agent tasks that run on a timer</li>
+            <li><strong>Design a Digital Employee</strong> — Combine everything to build a persistent, autonomous agent</li>
+          </ol>
+
+          <p>Each level is guided by <strong>Boltz</strong>, a pixel-art mascot that acts as challenger, coach, inspector, and narrator. Boltz has multiple poses (standing, sitting, herding, running) and responds to your actions with contextual advice powered by an Anthropic Claude backend. The mascot makes what could feel like a dry tutorial into something genuinely engaging.</p>
+
+          <h3>Built With OpenCode and Vercel Sandboxes</h3>
+
+          <p>For the coding agent itself, HerdingAgents uses <strong>OpenCode</strong> — a CLI-based coding agent framework that runs AI models directly inside the sandbox. OpenCode supports multiple model providers including DeepSeek, Claude, and others, and provides the agent with full filesystem access, command execution, and persistent conversation context. I run it as an <code>npx opencode</code> process inside each user's Vercel Sandbox microVM.</p>
+
+          <p>The Vercel Sandbox integration is what makes the whole thing work. Each authenticated user gets their own persistent Linux environment. When you close the browser and come back later, your sandbox is restored from a snapshot — your files, your agent's conversation history, your installed tools. The sandbox supports hibernation to save resources when idle and can be configured to wake up automatically for scheduled tasks.</p>
+
+          <h3>Beyond Simple Chat</h3>
+
+          <p>What I find most exciting about HerdingAgents is that it treats coding agents as more than just chatbots. The agent has file system access, can run shell commands, install packages, start dev servers, and manage credentials. The scheduled task system lets you set up recurring prompts that run even when you're not at your computer — your agent can check on deployments, monitor logs, or run daily reports at 8am every morning.</p>
+
+          <p>The entire system is instrumented with Langfuse for observability (tracing both Boltz interactions and agent runs) and PostHog for analytics. I wanted to understand how people actually learn to use these agents — where they get stuck, what kinds of prompts work best, which skills are most valuable.</p>
+
+          <h3>What I Learned Building This</h3>
+
+          <p>Building HerdingAgents was itself an exercise in working with AI agents. I used OpenCode extensively during development — the very tool that powers the application's backend. There's something beautifully recursive about using an agent to build a platform that teaches people how to use agents.</p>
+
+          <p>The hardest part was the sandbox lifecycle management. Making sure each user's microVM is spun up on demand, hibernated when idle, snapshotted regularly, and restored seamlessly requires a surprising amount of orchestration. The Vercel Sandbox API provides the primitives, but the state machine connecting login → sandbox creation → agent execution → backup → teardown took several iterations to get right.</p>
+
+          <p>The credential manager was another challenging piece. Storing API keys securely so they're available to the agent at runtime but never exposed in the UI required careful design with AES-256-GCM encryption and strict server-side access controls.</p>
+
+          <h3>Try It Yourself</h3>
+
+          <p>The HerdingAgents source code is available on GitHub at <a href="https://github.com/shreysatpathy/herdingAgents">github.com/shreysatpathy/herdingAgents</a>. It's a Next.js 16 application with Supabase for auth and database, Tailwind CSS for styling, and a heavy dose of retro UI nostalgia. If you want to try running it yourself, you'll need a Vercel account (for sandboxes), a Supabase project, and API keys for your preferred LLM provider.</p>
+
+          <p>Whether you're an experienced developer curious about where agent-assisted coding is headed, or a newcomer trying to understand what all the hype is about, I built HerdingAgents for you. Boltz is waiting.</p>
+
+          <div style="padding-bottom: 40px;"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
