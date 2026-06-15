@@ -9,14 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize any other interactive elements
   setupMobileNavigation();
-  
-  // Make sure dynamic content is loaded
-  if (typeof initializeDynamicContent === 'function') {
-    console.log('Calling initializeDynamicContent from main.js');
-    initializeDynamicContent();
-  } else {
-    console.error('initializeDynamicContent function not found!');
-  }
 });
 
 /**
@@ -72,7 +64,6 @@ function setupMobileNavigation() {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     setupDarkMode,
-    setupMobileNavigation,
-    initializeDynamicContent: typeof initializeDynamicContent !== 'undefined' ? initializeDynamicContent : undefined
+    setupMobileNavigation
   };
 }

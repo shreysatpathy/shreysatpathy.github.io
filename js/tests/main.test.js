@@ -44,8 +44,7 @@ console.error = jest.fn();
 // In a real browser environment, these would be globally available
 const { 
   setupDarkMode, 
-  setupMobileNavigation, 
-  initializeDynamicContent 
+  setupMobileNavigation 
 } = require('../main.js');
 
 describe('setupDarkMode', () => {
@@ -204,42 +203,13 @@ describe('DOM Content Loaded Event', () => {
     // Create mocks for the functions that should be called
     global.setupDarkMode = jest.fn();
     global.setupMobileNavigation = jest.fn();
-    global.initializeDynamicContent = jest.fn();
     
     // Manually call the functions to simulate the DOMContentLoaded event
     global.setupDarkMode();
     global.setupMobileNavigation();
-    global.initializeDynamicContent();
     
     // Assert
     expect(global.setupDarkMode).toHaveBeenCalled();
     expect(global.setupMobileNavigation).toHaveBeenCalled();
-    expect(global.initializeDynamicContent).toHaveBeenCalled();
-  });
-
-  test('should log error when initializeDynamicContent is not defined', () => {
-    // Save the original console.error
-    const originalConsoleError = console.error;
-    
-    // Create a mock for console.error
-    console.error = jest.fn();
-    
-    // Create mocks for the functions
-    global.setupDarkMode = jest.fn();
-    global.setupMobileNavigation = jest.fn();
-    
-    // Set initializeDynamicContent to undefined
-    const originalInitDynamicContent = global.initializeDynamicContent;
-    global.initializeDynamicContent = undefined;
-    
-    // Manually call the error function
-    console.error('initializeDynamicContent function not found!');
-    
-    // Assert
-    expect(console.error).toHaveBeenCalledWith('initializeDynamicContent function not found!');
-    
-    // Restore original functions
-    console.error = originalConsoleError;
-    global.initializeDynamicContent = originalInitDynamicContent;
   });
 });

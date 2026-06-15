@@ -37,8 +37,7 @@ const {
   createProjectCard, 
   renderPosts, 
   renderProjects, 
-  fixFooterLinks, 
-  initializeDynamicContent 
+  fixFooterLinks
 } = require('../components.js');
 
 describe('loadComponent', () => {
@@ -445,118 +444,4 @@ describe('fixFooterLinks', () => {
   });
 });
 
-describe('initializeDynamicContent', () => {
-  beforeEach(() => {
-    // Reset DOM and mocks before each test
-    document.body.innerHTML = '';
-    jest.clearAllMocks();
-    
-    // Reset fetch mock
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve([
-          {
-            title: "Test Post",
-            url: "./blog/test-post.html",
-            date: "May 20, 2025",
-            excerpt: "Test excerpt",
-            tags: ["Tag1", "Tag2"],
-            image: "T"
-          }
-        ])
-      })
-    );
-  });
 
-  test('should load and render posts when post grid exists', async () => {
-    // Arrange
-    const postGrid = document.createElement('div');
-    postGrid.className = 'post-grid';
-    document.body.appendChild(postGrid);
-    
-    // Mock window location
-    delete window.location;
-    window.location = { pathname: '/' };
-    
-    // Mock createPostCard to ensure it's called
-    const originalCreatePostCard = createPostCard;
-    global.createPostCard = jest.fn().mockImplementation((post) => {
-      const div = document.createElement('div');
-      div.className = 'post-card';
-      return div;
-    });
-    
-    // Act
-    await initializeDynamicContent();
-    
-    // Assert
-    expect(fetch).toHaveBeenCalledWith('data/posts.json');
-    expect(document.querySelectorAll('.post-card').length).toBeGreaterThan(0);
-    
-    // Restore original function
-    global.createPostCard = originalCreatePostCard;
-  });
-
-  test('should load and render projects when project grid exists', async () => {
-    // Arrange
-    const projectGrid = document.createElement('div');
-    projectGrid.className = 'project-grid';
-    document.body.appendChild(projectGrid);
-    
-    // Mock window location
-    delete window.location;
-    window.location = { pathname: '/' };
-    
-    // Mock createProjectCard to ensure it's called
-    const originalCreateProjectCard = createProjectCard;
-    global.createProjectCard = jest.fn().mockImplementation((project) => {
-      const div = document.createElement('div');
-      div.className = 'project-card';
-      return div;
-    });
-    
-    // Act
-    await initializeDynamicContent();
-    
-    // Assert
-    expect(fetch).toHaveBeenCalledWith('data/projects.json');
-    expect(document.querySelectorAll('.project-card').length).toBeGreaterThan(0);
-    
-    // Restore original function
-    global.createProjectCard = originalCreateProjectCard;
-  });
-
-  test('should handle fetch failure gracefully', async () => {
-    // Arrange
-    const postGrid = document.createElement('div');
-    postGrid.className = 'post-grid';
-    document.body.appendChild(postGrid);
-    
-    // Mock fetch to fail
-    global.fetch = jest.fn(() =>
-      Promise.resolve({
-        ok: false
-      })
-    );
-    
-    // Mock createPostCard to ensure it's called
-    const originalCreatePostCard = createPostCard;
-    global.createPostCard = jest.fn().mockImplementation((post) => {
-      const div = document.createElement('div');
-      div.className = 'post-card';
-      return div;
-    });
-    
-    // Act
-    await initializeDynamicContent();
-    
-    // Assert
-    expect(console.warn).toHaveBeenCalled();
-    // Since fallback data is now empty, we expect no post cards to be rendered
-    expect(document.querySelectorAll('.post-card').length).toBe(0);
-    
-    // Restore original function
-    global.createPostCard = originalCreatePostCard;
-  });
-});

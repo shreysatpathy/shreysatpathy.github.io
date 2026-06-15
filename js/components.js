@@ -393,7 +393,7 @@ function createProjectCard(project) {
  */
 function renderPosts(posts, targetSelector) {
   const container = document.querySelector(targetSelector);
-  if (!container) return;
+  if (!container || !posts || posts.length === 0) return;
   
   // Clear existing content
   container.innerHTML = '';
@@ -412,7 +412,7 @@ function renderPosts(posts, targetSelector) {
  */
 function renderProjects(projects, targetSelector) {
   const container = document.querySelector(targetSelector);
-  if (!container) return;
+  if (!container || !projects || projects.length === 0) return;
   
   // Clear existing content
   container.innerHTML = '';
@@ -466,153 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const footerPath = isInSubdirectory ? '../components/footer.html' : 'components/footer.html';
   loadComponent(footerPath, '#footer-placeholder');
   
-  // Initialize dynamic content if data files exist
-  initializeDynamicContent();
 });
-
-/**
- * Initialize dynamic content from data files
- */
-async function initializeDynamicContent() {
-  console.log('Initializing dynamic content...');
-  
-  // Fallback data in case JSON files can't be loaded
-  const fallbackPosts = [
-    // {
-    //   title: "Getting Started with Next.js",
-    //   filename: "getting-started-with-nextjs.html",
-    //   date: "May 20, 2025",
-    //   excerpt: "Learn how to build modern web applications with Next.js, a powerful React framework.",
-    //   tags: ["Next.js", "React", "Web Development"],
-    //   image: "N"
-    // },
-    // {
-    //   title: "Building Scalable ML Systems",
-    //   filename: "building-scalable-ml-systems.html",
-    //   date: "May 15, 2025",
-    //   excerpt: "Strategies for designing and implementing production-grade machine learning systems that scale.",
-    //   tags: ["Machine Learning", "Scalability", "Production"],
-    //   image: "M"
-    // }
-  ];
-  
-  const fallbackProjects = [
-    // {
-    //   title: "E-commerce Platform",
-    //   filename: "ecommerce-platform.html",
-    //   description: "A full-featured e-commerce platform built with modern web technologies.",
-    //   technologies: ["React", "Node.js", "MongoDB"],
-    //   demoUrl: "#",
-    //   sourceUrl: "#",
-    //   image: "E"
-    // },
-    // {
-    //   title: "AI-Powered Reliability System",
-    //   filename: "ai-reliability-system.html",
-    //   description: "Predictive maintenance system using machine learning to forecast equipment failures.",
-    //   technologies: ["Python", "TensorFlow", "Time Series Analysis"],
-    //   demoUrl: "#",
-    //   sourceUrl: "#",
-    //   image: "R"
-    // }
-  ];
-  
-  try {
-    // Check if we're on the homepage where these grids exist
-    const postGrid = document.querySelector('.post-grid');
-    const projectGrid = document.querySelector('.project-grid');
-    
-    if (postGrid) {
-      console.log('Found post grid, loading posts...');
-      try {
-        // Determine if we're on the blog index page or the home page
-        const isBlogIndexPage = window.location.pathname.includes('/blog/index.html') || 
-                               window.location.pathname.endsWith('/blog/');
-        console.log('Is blog index page:', isBlogIndexPage);
-        
-        // Adjust the path for data file based on current location
-        let dataPath = 'data/posts.json';
-        if (isBlogIndexPage) {
-          dataPath = '../data/posts.json';
-        }
-        
-        // Try to load posts data
-        const postsResponse = await fetch(dataPath);
-        console.log('Posts response status:', postsResponse.status);
-        
-        if (postsResponse.ok) {
-          const postsData = await postsResponse.json();
-          console.log('Posts data loaded:', postsData.length, 'posts');
-          
-          if (isBlogIndexPage) {
-            // On blog index page, show all posts
-            renderPosts(postsData, '.post-grid');
-          } else {
-            // On home page, show only featured posts (first 3 or fewer)
-            const featuredPosts = postsData.slice(0, 3);
-            renderPosts(featuredPosts, '.post-grid');
-          }
-        } else {
-          console.warn('Could not load posts.json, using fallback data');
-          renderPosts(fallbackPosts, '.post-grid');
-        }
-      } catch (postError) {
-        console.error('Error loading posts:', postError);
-        renderPosts(fallbackPosts, '.post-grid');
-      }
-    }
-    
-    if (projectGrid) {
-      console.log('Found project grid, loading projects...');
-      try {
-        // Determine if we're on the projects index page or the home page
-        const isProjectsIndexPage = window.location.pathname.includes('/projects/index.html') || 
-                                  window.location.pathname.endsWith('/projects/');
-        console.log('Is projects index page:', isProjectsIndexPage);
-        
-        // Adjust the path for data file based on current location
-        let dataPath = 'data/projects.json';
-        if (isProjectsIndexPage) {
-          dataPath = '../data/projects.json';
-        }
-        
-        // Try to load projects data
-        const projectsResponse = await fetch(dataPath);
-        console.log('Projects response status:', projectsResponse.status);
-        
-        if (projectsResponse.ok) {
-          const projectsData = await projectsResponse.json();
-          console.log('Projects data loaded:', projectsData.length, 'projects');
-          
-          if (isProjectsIndexPage) {
-            // On projects index page, show all projects
-            renderProjects(projectsData, '.project-grid');
-          } else {
-            // On home page, show only featured projects (first 3 or fewer)
-            const featuredProjects = projectsData.slice(0, 3);
-            renderProjects(featuredProjects, '.project-grid');
-          }
-        } else {
-          console.warn('Could not load projects.json, using fallback data');
-          renderProjects(fallbackProjects, '.project-grid');
-        }
-      } catch (projectError) {
-        console.error('Error loading projects:', projectError);
-        renderProjects(fallbackProjects, '.project-grid');
-      }
-    }
-  } catch (error) {
-    console.error('Error initializing dynamic content:', error);
-    
-    // Use fallback data if available
-    try {
-      renderPosts(fallbackPosts, '.post-grid');
-      renderProjects(fallbackProjects, '.project-grid');
-    } catch (fallbackError) {
-      console.error('Error rendering fallback content:', fallbackError);
-    }
-  }
-}
 
 // Export functions for testing in Node.js environment
 if (typeof module !== 'undefined' && module.exports) {
@@ -623,7 +477,6 @@ if (typeof module !== 'undefined' && module.exports) {
     createProjectCard,
     renderPosts,
     renderProjects,
-    fixFooterLinks,
-    initializeDynamicContent
+    fixFooterLinks
   };
 }

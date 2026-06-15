@@ -12,7 +12,23 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Shrey's Blog</title>
+  <meta name="description" content="Projects by Shrey Satpathy — AI, machine learning, simulation, and software engineering projects." />
+  <link rel="canonical" href="https://shreysatpathy.github.io/projects/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Projects | Shrey Satpathy" />
+  <meta property="og:description" content="Projects by Shrey Satpathy — AI, machine learning, simulation, and software engineering." />
+  <meta property="og:url" content="https://shreysatpathy.github.io/projects/" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/me.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects | Shrey Satpathy" />
+  <meta name="twitter:description" content="Projects by Shrey Satpathy — AI, machine learning, simulation, and software engineering." />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/me.jpg" />
+
+  <title>Projects | Shrey Satpathy</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Favicon -->
@@ -48,8 +64,75 @@
     <section class="projects-list">
       <div class="container">
         <div class="project-grid">
-          <!-- Projects will be dynamically loaded here from data/projects.json -->
-          <div class="loading-placeholder">Loading projects...</div>
+          <article class="project-card">
+            <div class="project-card-image">
+              <img src="../images/herding-agents-boltz.png" alt="HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <div class="project-card-content">
+              <h3><a href="herding-agents.html">HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents</a></h3>
+              <p class="project-description">An interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.</p>
+              <div class="project-tech">
+                <span class="tech">AI</span>
+                <span class="tech">Open Source</span>
+                <span class="tech">Education</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/shreysatpathy/herdingAgents" class="btn btn-sm btn-outline">Source Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-image">
+              <img src="../images/microPlat.jpg" alt="Vibe-Coding an ML Platform" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <div class="project-card-content">
+              <h3><a href="vibe-coding-an-ml-platform.html">Vibe-Coding an ML Platform</a></h3>
+              <p class="project-description">An exploration in testing out SWE-Agents for infrastructure as code</p>
+              <div class="project-tech">
+                <span class="tech">Machine Learning</span>
+                <span class="tech">DevOps</span>
+                <span class="tech">Platform Engineering</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/shreysatpathy/microPlat" class="btn btn-sm btn-outline">Source Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-image">
+              <img src="../images/the_world.png" alt="Can LLM agents simulate the world?" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <div class="project-card-content">
+              <h3><a href="simulating-the-world.html">Can LLM agents simulate the world?</a></h3>
+              <p class="project-description">CRUD apps are easy, can coding agents build arbitrary simulation environments?</p>
+              <div class="project-tech">
+                <span class="tech">Simulation</span>
+                <span class="tech">Physics</span>
+                <span class="tech">Reinforcement Learning</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/shreysatpathy/rlexperiments" class="btn btn-sm btn-outline">Source Code</a>
+              </div>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-card-image">
+              <img src="../images/v0_website.png" alt="Is this meta programming?" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <div class="project-card-content">
+              <h3><a href="windsurf-personal-website.html">Is this meta programming?</a></h3>
+              <p class="project-description">A blog post detailing how I used Windsurf to build this personal website from scratch.</p>
+              <div class="project-tech">
+                <span class="tech">Windsurf</span>
+                <span class="tech">AI</span>
+                <span class="tech">Static Site</span>
+                <span class="tech">GitHub Actions</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/shreysatpathy/shreysatpathy.github.io" class="btn btn-sm btn-outline">Source Code</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
