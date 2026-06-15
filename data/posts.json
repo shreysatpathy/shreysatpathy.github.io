@@ -1,13 +1,5 @@
 [
   {
-    "title": "HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents",
-    "filename": "herding-agents.html",
-    "date": "June 14, 2026",
-    "excerpt": "Building an interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.",
-    "tags": ["AI", "Open Source", "Education"],
-    "image": "images/herding-agents-boltz.png"
-  },
-  {
     "title": "Software - what is it good for?",
     "filename": "software-what-is-it-good-for.html",
     "date": "November 8, 2025",
