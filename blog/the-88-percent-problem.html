@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0290S4QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GT0290S4QW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="88% of AI agent pilots never reach production. A PM's perspective on why enterprise agent deployment stalls at governance, not model quality." />
+  <link rel="canonical" href="https://shreysatpathy.github.io/blog/the-88-percent-problem.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The 88% Problem: Why Most AI Agent Pilots Never Reach Production | Shrey Satpathy" />
+  <meta property="og:description" content="88% of AI agent pilots never reach production. A PM's perspective on why enterprise agent deployment stalls at governance, not model quality." />
+  <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-88-percent-problem.html" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/golden_gate_bridge_in_san_francisco.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The 88% Problem: Why Most AI Agent Pilots Never Reach Production | Shrey Satpathy" />
+  <meta name="twitter:description" content="88% of AI agent pilots never reach production. A PM's perspective on why enterprise agent deployment stalls at governance, not model quality." />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/golden_gate_bridge_in_san_francisco.jpg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The 88% Problem: Why Most AI Agent Pilots Never Reach Production",
+    "description": "88% of AI agent pilots never reach production. A PM's perspective on why enterprise agent deployment stalls at governance, not model quality.",
+    "url": "https://shreysatpathy.github.io/blog/the-88-percent-problem.html",
+    "datePublished": "2026-06-15",
+    "author": {
+      "@type": "Person",
+      "name": "Shrey Satpathy",
+      "url": "https://shreysatpathy.github.io/"
+    }
+  }
+  </script>
+  <title>The 88% Problem: Why Most AI Agent Pilots Never Reach Production | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+
+        <header class="post-header">
+          <h1>The 88% Problem: Why Most AI Agent Pilots Never Reach Production</h1>
+          <div class="post-meta-full">
+            <time datetime="2026-06-15">June 15, 2026</time>
+            <div class="post-tags">
+              <span class="tag">AI</span>
+              <span class="tag">Agents</span>
+              <span class="tag">Product Management</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="post-body">
+
+          <p>I've spent the last year running AI agent pilots — coding agents, triage bots, automated project managers — across a dozen different product contexts. The technology feels miraculous in a demo. In production, something breaks. And it's almost never the model.</p>
+
+          <p>The data backs this up. Northflank's 2026 survey found that <strong>88% of enterprise AI agent pilots never reach production</strong>. Gartner predicts over 40% of agentic AI projects will be canceled by end of 2027. McKinsey reports that while nearly two-thirds of enterprises have experimented with agents, fewer than 10% have scaled them to measurable value.</p>
+
+          <p>Meanwhile, the models themselves are spectacular. Claude Code hits 80.8% on SWE-bench. Codex rewrites itself in Rust. Cursor ships Cloud Agents. The model quality problem is solved — or close enough.</p>
+
+          <p>So what's actually blocking production?</p>
+
+          <h3>It's not the agent. It's the infrastructure around it.</h3>
+
+          <p>Every stalled pilot I've seen shares the same pattern: the agent works beautifully in isolation, then fails the enterprise security review. The questions aren't about accuracy. They're about identity, audit trails, data residency, and cost controls.</p>
+
+          <p>Can the agent check out code without a human credential? Can we log every token it spends? What happens when it writes a destructive SQL migration? Who approves the PR an agent generates at 3am?</p>
+
+          <p>These are not AI problems. They're <em>product</em> problems. And they're the ones that actually determine whether an agent ships or gets shut down after Q3 review.</p>
+
+          <h3>The three layers of agent readiness</h3>
+
+          <p>After enough post-mortems, I've started thinking about agent deployment in three layers:</p>
+
+          <p><strong>Layer 1 — Model capability.</strong> Can the agent do the thing? SWE-bench scores, latency, context windows. This is where most of the industry attention lives. It's also the least interesting failure mode in 2026.</p>
+
+          <p><strong>Layer 2 — Workflow integration.</strong> Does the agent fit into existing processes? Can it read your Jira tickets, check your on-call rotation, post to your Slack channels, respect your code review policies? This is where pilots live or die.</p>
+
+          <p><strong>Layer 3 — Governance and risk.</strong> Can you sleep at night while the agent runs? Audit trails, cost controls, blast radius limits, approval gates, rollback plans. This is the layer that separates a demo from a production system.</p>
+
+          <p>Most teams pour 90% of their energy into Layer 1 and wonder why Layer 3 kills them.</p>
+
+          <h3>The productivity paradox</h3>
+
+          <p>Stanford's 2026 AI Index Report surfaced something curious: developers <em>report</em> massive productivity gains from AI coding agents, but controlled studies show much smaller measured improvements. The gap isn't necessarily deception — it's that productivity in practice depends on the entire system, not just the code-writing part.</p>
+
+          <p>You can generate PRs 10x faster. But if those PRs need 3x more review time because the reviewer doesn't trust the agent, or if your deployment pipeline rejects half of them, or if compliance reviews take two weeks — you haven't actually accelerated anything. You've just shifted the bottleneck.</p>
+
+          <p>This is what I call the <strong>deployment tax</strong>: the overhead of governance, integration, and trust-building that every agent must pay before it can deliver value at scale.</p>
+
+          <h3>What production-ready actually looks like</h3>
+
+          <p>The teams I've seen successfully scale agents past pilot share a few patterns:</p>
+
+          <p><strong>Start with constrained scope.</strong> Not "the agent can do anything" but "the agent can triage this specific class of incident, post findings to Slack, and suggest a fix — but a human hits merge." Let trust build incrementally.</p>
+
+          <p><strong>Invest in observability.</strong> Treat your agents like distributed systems. Log every action, trace every decision, measure time-to-completion and error rates. If you can't see what the agent did last night, you won't let it run tomorrow.</p>
+
+          <p><strong>Design the human loop, not the automation.</strong> The best agent workflows don't remove humans — they make humans more effective. An agent that drafts the first pass and presents options is more valuable than one that silently commits. Your PM intuition about trust and verification (I wrote about this in <a href="goodjira.html">GoodJira</a>) applies to agents too.</p>
+
+          <p><strong>Price for reality.</strong> The Gartner projection of $2.52 trillion in global AI spending for 2026 will attract a lot of pilots. Production deployments will go to the teams that understand that agent costs aren't just API fees — they're review time, integration maintenance, incident response, and governance overhead.</p>
+
+          <h3>Where we go from here</h3>
+
+          <p>The 88% failure rate sounds bad until you remember that most new technologies follow this curve. Cloud computing had its "pilot graveyard." Microservices did too. The difference is that agentic AI's cycle time is faster — we're compressing years of adoption learning into quarters.</p>
+
+          <p>The agents themselves will keep getting better. The real unlock isn't another 5% on SWE-bench. It's the boring infrastructure of production: audit logs, approval workflows, cost dashboards, and the organizational trust that grows when humans see agents deliver reliably, incrementally, over months.</p>
+
+          <p>That's the product work that actually matters right now. And it doesn't look like AI research. It looks like good product management.</p>
+
+          <p>What's stopping your agent pilots from shipping? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
+
+          <div style="padding-bottom: 40px;"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
