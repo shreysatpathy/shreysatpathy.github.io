@@ -1,5 +1,13 @@
 [
   {
+    "title": "HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents",
+    "filename": "herding-agents.html",
+    "description": "An interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.",
+    "technologies": ["AI", "Open Source", "Education"],
+    "sourceUrl": "https://github.com/shreysatpathy/herdingAgents",
+    "image": "images/herding-agents-boltz.png"
+  },
+  {
     "title": "Vibe-Coding an ML Platform",
     "filename": "vibe-coding-an-ml-platform.html",
     "description": "An exploration in testing out SWE-Agents for infrastructure as code ",
@@ -22,13 +30,5 @@
     "technologies": ["Windsurf", "AI", "Static Site", "GitHub Actions"],
     "sourceUrl": "https://github.com/shreysatpathy/shreysatpathy.github.io",
     "image": "images/v0_website.png"
-  },
-  {
-    "title": "HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents",
-    "filename": "herding-agents.html",
-    "description": "An interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.",
-    "technologies": ["AI", "Open Source", "Education"],
-    "sourceUrl": "https://github.com/shreysatpathy/herdingAgents",
-    "image": "images/herding-agents-boltz.png"
   }
 ]
