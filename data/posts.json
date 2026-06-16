@@ -1,5 +1,157 @@
 [
   {
+    "title": "The Redesign Gap: Why 66% of Enterprises Are Using AI Without Changing How Work Gets Done",
+    "filename": "the-redesign-gap.html",
+    "date": "June 23, 2026",
+    "excerpt": "66% of enterprises use AI without redesigning a single process. Only 34% are truly reimagining workflows. Why the redesign gap is the most expensive invisible cost in enterprise AI.",
+    "tags": ["AI", "Product Management", "Workforce", "Strategy"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Supply Chain Gap: Why 200,000 AI Agent Instances Are Sitting on 150 Million Borrowed Trust",
+    "filename": "the-supply-chain-gap.html",
+    "date": "June 22, 2026",
+    "excerpt": "150M+ MCP SDK downloads, 200,000+ vulnerable instances, 40% of servers with zero authentication. The AI agent supply chain is the largest unsecured attack surface in enterprise history.",
+    "tags": ["AI", "Security", "Infrastructure", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Coordination Gap: Why 57% of Enterprises Deploy Multi-Agent Systems But Only 12% Coordinate Them Well",
+    "filename": "the-coordination-gap.html",
+    "date": "June 20, 2026",
+    "excerpt": "57% of enterprises have multi-agent systems in production but 40% fail within six months. Why coordination complexity is the new bottleneck in enterprise AI.",
+    "tags": ["AI", "Agents", "Architecture", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Runtime Gap: Why 82% of Enterprise AI Never Reaches Production",
+    "filename": "the-runtime-gap.html",
+    "date": "June 19, 2026",
+    "excerpt": "82% of enterprise AI agents never reach production. 83% of those that do fail at scale due to infrastructure. Why the runtime — not the model — is the real bottleneck.",
+    "tags": ["AI", "Infrastructure", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Injection Gap: Why 85% of AI Coding Agents Execute Stranger Instructions",
+    "filename": "the-injection-gap.html",
+    "date": "June 18, 2026",
+    "excerpt": "85% of AI coding agents follow injected instructions from fake error logs. 2,388 organizations exposed. Why prompt injection is the new software supply chain attack — and why the agent runtime is the only place to fix it.",
+    "tags": ["AI", "Security", "Governance", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Identity Gap: Why 80% of AI Agents Are Running on Borrowed Credentials",
+    "filename": "the-identity-gap.html",
+    "date": "June 17, 2026",
+    "excerpt": "80% of AI agents bypass IAM controls and only 21.9% have unique identities. The identity gap is the biggest security blindspot in enterprise AI.",
+    "tags": ["AI", "Security", "Governance", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Sprawl Gap: Why 94% of Enterprises Fear AI Agent Proliferation — And Only 13% Are Ready for 150,000 Agents",
+    "filename": "the-sprawl-gap.html",
+    "date": "June 16, 2026",
+    "excerpt": "94% of organizations fear AI agent sprawl. Gartner predicts Fortune 500 enterprises will go from 15 agents to 150,000+ by 2028. Why agent proliferation is IT's next crisis — and the six-step framework nobody's following.",
+    "tags": ["AI", "Governance", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Evaluation Gap: Why 64% of Enterprises Can't Tell If Their AI Agents Are Actually Working",
+    "filename": "the-evaluation-gap.html",
+    "date": "June 16, 2026",
+    "excerpt": "64% of leaders cite evaluation gaps as the top blocker for AI agent production. Only 31% of organizations have a measurement framework. Why most teams are flying blind on agent performance — and the three-layer framework that separates the 12% who ship from the 88% who don't.",
+    "tags": ["AI", "Evaluation", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Data Debt: Why 85% of Leaders Say Data Gaps Are Killing Their AI Value",
+    "filename": "the-data-debt.html",
+    "date": "June 16, 2026",
+    "excerpt": "85% of leaders say enterprise debts limit AI value. Only 33% of enterprise data is AI-ready. Why the data foundation is the biggest unbudgeted liability in enterprise AI — and what the 6% of winners do differently.",
+    "tags": ["AI", "Data", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Fluency Gap: Why 79% of Enterprises Have the AI Budget but Not the AI Literacy to Use It",
+    "filename": "the-fluency-gap.html",
+    "date": "June 16, 2026",
+    "excerpt": "79% of organizations face AI adoption challenges despite record budgets. The problem isn't the technology — it's that nobody invested in AI literacy. A PM's take on the fluency gap.",
+    "tags": ["AI", "Workforce", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Value Chasm: Why 90% of Companies Are Doubling AI Budgets While Returns Stay Flat",
+    "filename": "the-value-chasm.html",
+    "date": "June 16, 2026",
+    "excerpt": "Nearly 40% of companies that measured AI cost savings landed below 10%. Yet 90% are increasing budgets again. The AI value gap is an organizational problem, not a technology problem.",
+    "tags": ["AI", "Economics", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Deprecation Crisis: Why Model Version Churn Is the Hidden Cost Nobody Budgeted For",
+    "filename": "the-deprecation-crisis.html",
+    "date": "June 16, 2026",
+    "excerpt": "Model versions are being deprecated faster than enterprises can re-deploy against them. Why version churn is quietly becoming your biggest unbudgeted AI cost.",
+    "tags": ["AI", "FinOps", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents",
+    "filename": "the-observability-blindspot.html",
+    "date": "June 16, 2026",
+    "excerpt": "Enterprises are shipping AI agents without the monitoring infrastructure to understand when they break. Why observability is the next bottleneck after governance.",
+    "tags": ["AI", "Observability", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Mandate Trap: Why Performance Reviews Can't Force AI Adoption",
+    "filename": "the-mandate-trap.html",
+    "date": "June 16, 2026",
+    "excerpt": "Meta made AI-driven impact a core performance criterion. Google is following. Why performance mandates won't close the AI adoption gap — and what actually will.",
+    "tags": ["AI", "Workforce", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
+    "title": "The Enforcement Gap: Why 82% of Execs Trust Their AI Policies But Only 14% Can Enforce Them",
+    "filename": "the-enforcement-gap.html",
+    "date": "June 16, 2026",
+    "excerpt": "82% of executives trust their AI policies. Only 14% of organizations have enforcement at runtime. The 68-point enforcement gap is the real reason agent pilots fail.",
+    "tags": ["AI", "Governance", "Security", "Product Management"],
+    "image": "images/the-enforcement-gap.jpg"
+  },
+  {
+    "title": "The Great Cheapening: How 280x Cheaper Inference Rewrote the Economics of AI",
+    "filename": "the-great-cheapening.html",
+    "date": "June 15, 2026",
+    "excerpt": "Inference costs dropped 280x from late 2022 to 2026. This single economic shift explains the AI adoption boom, the agentic turn, the governance crisis, and the $172B consumer windfall nobody is properly accounting for.",
+    "tags": ["AI", "Economics", "Product Management"],
+    "image": "images/the-great-cheapening.jpg"
+  },
+  {
+    "title": "The 68-Point Gap: Why 88% of Companies Say They Use AI But Only 20% Actually Do",
+    "filename": "the-68-point-gap.html",
+    "date": "June 15, 2026",
+    "excerpt": "88% of organizations report using AI. The US Census Bureau says only 19.8% of businesses actually do. A PM's look at the biggest gap nobody's talking about.",
+    "tags": ["AI", "Adoption", "Product Management"],
+    "image": "images/the-68-point-gap.jpg"
+  },
+  {
+    "title": "The Governance Multiplier: Why AI Governance Pushes 12x More Projects to Production",
+    "filename": "the-governance-multiplier.html",
+    "date": "June 15, 2026",
+    "excerpt": "Companies with AI governance ship 12x more agentic projects to production. A PM's take on why governance is the hidden multiplier in enterprise AI.",
+    "tags": ["AI", "Governance", "Product Management"],
+    "image": "images/the-governance-multiplier.jpg"
+  },
+  {
+    "title": "The 88% Problem: Why Most AI Agent Pilots Never Reach Production",
+    "filename": "the-88-percent-problem.html",
+    "date": "June 15, 2026",
+    "excerpt": "88% of AI agent pilots never reach production. A PM's perspective on why enterprise agent deployment stalls at governance, not model quality.",
+    "tags": ["AI", "Agents", "Product Management"],
+    "image": "images/the-88-percent-problem.jpg"
+  },
+  {
     "title": "Software - what is it good for?",
     "filename": "software-what-is-it-good-for.html",
     "date": "November 8, 2025",
