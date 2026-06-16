@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a1a2e"/>
+  <circle cx="300" cy="315" r="120" fill="none" stroke="#e94560" stroke-width="4"/>
+  <circle cx="600" cy="315" r="120" fill="none" stroke="#0f3460" stroke-width="4"/>
+  <circle cx="900" cy="315" r="120" fill="none" stroke="#16213e" stroke-width="4"/>
+  <line x1="420" y1="315" x2="480" y2="315" stroke="#e94560" stroke-width="3" stroke-dasharray="8,8"/>
+  <line x1="720" y1="315" x2="780" y2="315" stroke="#e94560" stroke-width="3" stroke-dasharray="8,8"/>
+  <text x="300" y="320" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="24">Old</text>
+  <text x="600" y="320" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="24">AI</text>
+  <text x="900" y="320" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="24">New</text>
+  <text x="600" y="500" text-anchor="middle" fill="#e94560" font-family="sans-serif" font-size="36" font-weight="bold">Redesign Gap</text>
+</svg>

@@ -19,13 +19,13 @@
   <meta property="og:title" content="The Great Cheapening: How 280x Cheaper Inference Rewrote the Economics of AI | Shrey Satpathy" />
   <meta property="og:description" content="Inference costs dropped 280x from late 2022 to 2026. This single economic shift explains the AI adoption boom, the agentic turn, the governance crisis, and the $172B consumer windfall nobody is properly accounting for." />
   <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-great-cheapening.html" />
-  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/cheapening.svg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Great Cheapening: How 280x Cheaper Inference Rewrote the Economics of AI | Shrey Satpathy" />
   <meta name="twitter:description" content="Inference costs dropped 280x from late 2022 to 2026. This single economic shift explains the AI adoption boom, the agentic turn, the governance crisis, and the $172B consumer windfall nobody is properly accounting for." />
-  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/cheapening.svg" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -87,55 +87,43 @@
 
         <div class="post-body">
 
-          <p>The most important number in AI right now isn't accuracy on a benchmark. It's $0.07.</p>
+          <p>The most important number in AI right now isn't a benchmark score. It's $0.07.</p>
 
-          <p>That's the approximate cost per million tokens for inference on a frontier model in early 2026, down from roughly $20 in late 2022. A <strong>280x reduction</strong> in less than four calendar years. Stanford HAI tracks this in their <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report">2026 AI Index Report</a>, and it's the closest thing we have to a prime mover for everything that's happened since.</p>
-
-          <p>The 88% adoption rate McKinsey reports, the agentic explosion, the $172 billion in consumer surplus, even the governance crisis I wrote about in <a href="the-governance-multiplier.html">The Governance Multiplier</a> — all of it traces back to this single economic curve.</p>
+          <p>That's roughly the cost per million tokens for inference on a frontier model in early 2026. Down from about $20 in late 2022. A 280x drop in under four years. This single curve explains almost everything that's happened since — the explosion in adoption, the agentic turn, even the governance mess we're all dealing with.</p>
 
           <p>When something gets 280x cheaper, the set of things you can do with it changes categorically. Not linearly. Categorically.</p>
 
-          <h3>From luxury to utility in 18 months</h3>
+          <h3>From luxury to utility</h3>
 
-          <p>In late 2022, every API call cost roughly $0.02 per thousand tokens. You thought carefully before making one. A multi-step agent looping through five reasoning steps before answering? That cost $0.10 before it even returned a result. Agentic systems weren't just technically immature — they were <em>economically irrational</em>.</p>
+          <p>In late 2022, you thought carefully before every API call. A multi-step agent looping through five reasoning steps before answering? That cost real money before it even returned a result. Agentic systems weren't just technically immature — they were economically irrational.</p>
 
-          <p>At $0.07 per million tokens, a five-step agentic loop costs roughly $0.00035. That's noise. At this price, you can afford to fail, retry, explore multiple paths, and discard bad branches without watching the API bill. The economic precondition for agentic AI wasn't better reasoning — it was cheaper tokens.</p>
+          <p>At today's prices, that same loop costs basically nothing. You can afford to fail, retry, explore multiple paths, and discard bad branches without watching the bill. The economic precondition for agentic AI wasn't better reasoning. It was cheaper tokens.</p>
 
-          <p>Flexera's <a href="https://info.flexera.com/FLX1-REPORT-AI-Pulse">2026 AI Pulse Report</a> confirms the downstream effect: 99% of organizations are now using or experimenting with GenAI, and 81% are actively integrating AI/ML into their tech stacks. But here's the part that keeps me up at night — 36% report overspending on AI applications, and 14% cite wasted AI spend. The cheapening created the boom. It didn't create the discipline.</p>
+          <p>But here's what keeps me up: the cheapening created the boom. It didn't create the discipline.</p>
 
-          <h3>The $172 billion shadow economy</h3>
+          <h3>The shadow economy</h3>
 
-          <p>Stanford HAI estimates the value of generative AI tools to US consumers reached $172 billion annually by early 2026, with the median value <em>per user</em> tripling between 2025 and 2026. That's roughly equivalent to the GDP of Hungary, flowing as surplus to people using free and low-cost AI tools.</p>
+          <p>Stanford HAI estimates the value of generative AI tools to US consumers reached $172 billion annually by early 2026. That's roughly Hungary's GDP, flowing as surplus to people using free and low-cost AI tools.</p>
 
-          <p>This number is stunning, and almost nobody in enterprise talks about it. Every board conversation I've sat in frames AI value through cost reduction or revenue generation. Almost none ask: what is the consumer surplus our employees are capturing with personal accounts, and how do we harness that for the business?</p>
+          <p>Almost nobody in enterprise talks about this. Every board conversation I've sat in frames AI value through cost reduction or revenue generation. Almost none ask: what value are our employees already capturing with personal accounts, and how do we harness that?</p>
 
-          <p>Because here's the uncomfortable truth: employees are already getting massive value from AI — on their own time, with their own tools, outside procurement's view. The median user's value tripling in a year tells me the gap between consumer-grade and enterprise-grade AI experience is widening, not narrowing. Enterprise tools go through security review, procurement, integration, and training. Consumer tools just work.</p>
+          <p>Employees are getting massive value from AI on their own time with their own tools. Enterprise tools go through security review, procurement, integration, training. Consumer tools just work. The gap between the two is widening, not narrowing.</p>
 
-          <p>Deloitte's <a href="https://www.deloitte.com/us/en/what-we-do/capabilities/applied-artificial-intelligence/blogs/pulse-check-series-latest-ai-developments/ai-transformation-predictions-2026.html">AI Pulse Check</a> found that 48% of organizations introduced AI without redesigning workflows or roles. Those organizations aren't capturing the $172 billion — they're subsidizing it. Employees get the productivity boost personally. The company pays for the licenses and gets marginal workflow improvement.</p>
+          <h3>The trap</h3>
 
-          <h3>What the cheapening conceals</h3>
+          <p>The 280x drop is a blessing and a trap. Cheap inference makes bad architecture survivable. I've seen teams build agentic loops that call the model five times when a single call with a better prompt would do. The cost is negligible, so nobody optimizes. But the latency, the error surface, the maintenance burden — all of it compounds.</p>
 
-          <p>The 280x drop is a blessing and a trap. Here's the trap: cheap inference makes bad architecture survivable. I've seen teams build agentic loops that call the model five times when a single call with a better prompt would do. The cost is negligible, so nobody optimizes. But the latency, the error surface, the maintenance burden — all of it compounds.</p>
+          <p>In the old era, you had to be surgical. Every API call had a budget. Now that forcing function is gone, and with it went a lot of good design habits.</p>
 
-          <p>In the pre-cheapening era, you had to be surgical. Every API call had a budget. Now the budget constraint is gone, and with it, a forcing function for good design.</p>
-
-          <p>This is the hidden narrative behind the 68-point gap I wrote about in <a href="the-68-point-gap.html">The 68-Point Gap</a>. The Census Bureau says only 19.8% of businesses use AI operationally. Cheap inference made experimentation free, so everyone experimented. But making the leap from "cheap enough to try" to "valuable enough to depend on" requires the redesign work most organizations haven't done.</p>
-
-          <p>McKinsey's data supports this: only 6% of organizations qualify as "AI high performers" — the ones that see real EBIT impact. The other 82% are generating activity, not value. Cheap inference gave them volume. It didn't give them transformation.</p>
+          <p>Cheap inference gave everyone volume. It didn't give anyone transformation.</p>
 
           <h3>What I'm watching next</h3>
 
-          <p>The cheapening narrative has one more act. Inference costs are still falling. If the curve continues — and there's no reason to think it won't — we'll hit $0.01 per million tokens within 12-18 months. At that price, the economic distinction between "think about calling AI" and "always call AI" disappears entirely.</p>
+          <p>Inference costs are still falling. We'll probably hit $0.01 per million tokens within a year. At that price, the distinction between "think about calling AI" and "always call AI" disappears entirely.</p>
 
-          <p>When that happens, three things shift:</p>
+          <p>When that happens, three things shift. Agents become background processes running constantly. The governance gap becomes existential — if AI is always on, the blast radius of ungoverned agents is enormous. And value capture becomes the only differentiator. When inference is free, every company has access to the same capability. The winners will be the ones who can answer "what did this AI spend actually produce?"</p>
 
-          <p><strong>1. Agents become background processes.</strong> The cost of running continuous, monitoring-style agents that watch data streams and intervene when needed drops to zero. The default state shifts from "call AI when asked" to "AI is always evaluating."</p>
-
-          <p><strong>2. The governance gap becomes existential.</strong> If AI is running all the time, the blast radius of ungoverned agents expands dramatically. The 1-in-5 organizations with mature agent governance today (per Deloitte) will be at a catastrophic disadvantage.</p>
-
-          <p><strong>3. Value capture becomes the only differentiator.</strong> When inference is free, every company has access to the same capability. Competitive advantage shifts entirely to workflow design, data moats, and measurement infrastructure. The companies that can answer "what did this AI spend actually produce?" will win. The ones tracking API costs without tracking outcome value — which is most of them — won't.</p>
-
-          <p>The 280x cheapening created the AI industry we have today. But it also created a generation of product decisions that were shaped by abundance rather than intentionality. The next phase won't be about making AI cheaper. It'll be about making it count.</p>
+          <p>The 280x cheapening created the AI industry we have today. But it also created a generation of product decisions shaped by abundance rather than intentionality. The next phase won't be about making AI cheaper. It'll be about making it count.</p>
 
           <p>What's your organization's cost per unit of value from AI? I genuinely don't know how most companies would answer that. I'd love to hear if yours can — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
 

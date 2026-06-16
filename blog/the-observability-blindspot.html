@@ -20,13 +20,13 @@
   <meta property="og:title" content="The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents | Shrey Satpathy" />
   <meta property="og:description" content="Enterprises are shipping AI agents without the monitoring infrastructure to understand when they break. Why observability is the next bottleneck after governance." />
   <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-observability-blindspot.html" />
-  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/observability.svg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents | Shrey Satpathy" />
   <meta name="twitter:description" content="Enterprises are shipping AI agents without the monitoring infrastructure to understand when they break. Why observability is the next bottleneck after governance." />
-  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/observability.svg" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -88,41 +88,33 @@
 
         <div class="post-body">
 
-          <p>Your agent just approved a $200K refund to the wrong customer. The trace says "reasoning completed successfully." The logs show nothing unusual. The LLM, as far as it can tell, did exactly what it was asked to do. You have no idea why it made that decision — and no tooling to find out.</p>
+          <p>I was on a call last week with a team that had an agent approve a $200K refund to the wrong customer. The trace said "reasoning completed successfully." The logs were clean. The agent, as far as it could tell, did exactly what it was told. They had no idea why it made that decision — and no tooling to find out.</p>
 
-          <p>This scenario is playing out across enterprises right now. 22% of production AI deployments coordinate three or more agents, according to <a href="https://www.digitalapplied.com/blog/ai-agent-adoption-2026-enterprise-data-points">Digital Applied's 2026 survey</a>. Yet the same data shows that less than 30% of organizations have implemented any form of agent-specific observability — tracing for reasoning chains, token-cost attribution per decision step, or automated failure classification.</p>
+          <p>This is happening everywhere right now. Everyone's so focused on getting agents to work at all that nobody's asked the obvious question: once they're in production, how do you debug them?</p>
 
-          <p>We solved for governance — <a href="the-governance-multiplier.html">the teams that build guardrails ship 12x more</a>. We're now running into the next bottleneck: Day 2 operations for agentic systems, and nobody has the tooling to understand what their agents are doing.</p>
+          <p>I've been banging this drum for a while, but I think observability is the next real bottleneck. Not model quality. Not even governance. Day 2 operations for agentic systems. Nobody has good tooling for it yet.</p>
 
-          <h3>The three layers of blind</h3>
+          <h3>Three things current tooling doesn't handle</h3>
 
-          <p><strong>1. Tracing breaks at reasoning depth.</strong> Traditional distributed tracing assumes deterministic request paths. An agent's reasoning chain is non-deterministic by design — it explores branches, backtracks, calls tools in unpredictable order, and sometimes loops. Existing APM tools weren't built for this. When your agent spends 47 seconds in "thinking" before deciding to delete a production database row, most observability platforms show you a single span with the label "llm.reason" and no detail. That's not observability. That's a black box with a timestamp.</p>
+          <p><strong>1. Tracing breaks the second an agent starts thinking.</strong> Normal distributed tracing assumes the request path is predictable. An agent's reasoning chain is anything but — it explores branches, backtracks, calls tools in random order, loops. When your agent spends 47 seconds "thinking" before deleting a production row, most APM tools show you one span labeled "llm.reason" with zero detail. That's not observability. That's a black box with a timestamp.</p>
 
-          <p><strong>2. Cost attribution is a finger in the wind.</strong> The median enterprise's monthly LLM bill grew <a href="https://www.digitalapplied.com/blog/agentic-ai-statistics-2026-definitive-collection-150-data-points">7.2x year-over-year entering 2026</a>. When a single agentic workflow calls the model 15 times — some for reasoning, some for tool selection, some for response generation — which step drove the cost? Which customer's request triggered the expensive chain? Most teams can tell you their total monthly OpenAI bill. Almost none can tell you which agent, which workflow, or which user segment produced it. That's not a finance problem. It's an architecture problem that finance will eventually force you to solve.</p>
+          <p><strong>2. Nobody knows where the money goes.</strong> An agentic workflow might call the model 15 times — some for reasoning, some for tool selection, some for generation. Which step drove the cost? Which customer triggered the expensive chain? Most teams can tell you their monthly OpenAI total. Almost none can tell you which agent or workflow produced it. Finance will eventually force this, and it won't be pretty.</p>
 
-          <p><strong>3. Failure classification is manual.</strong> A traditional service throws 500 errors. An agentic system fails silently — it "succeeds" at calling the wrong tool, or "completes" a task with the wrong output. S&P Global Market Intelligence reports that only 31% of enterprises have any agent in production, but <a href="https://www.digitalapplied.com/blog/ai-agent-adoption-2026-enterprise-data-points">88% of pilots fail to reach production</a>. The gap isn't just governance — it's the inability to answer "did it work?" with confidence. Without observability, every deployment is a leap of faith. Most organizations choose not to leap.</p>
+          <p><strong>3. Failures are silent.</strong> A regular service throws 500s. An agent "succeeds" at calling the wrong tool. It "completes" a task with garbage output. Without observability, every deployment is a leap of faith. Most organizations choose not to leap — and that's why so many pilots die before reaching production.</p>
 
-          <h3>What production-ready observability looks like</h3>
+          <h3>What the teams running agents in production do differently</h3>
 
-          <p>The teams that are successfully running multi-agent systems in production — the 12% that cross the pilot graveyard — share a common pattern. They've invested in three things that most observability vendors don't sell yet:</p>
+          <p>A small minority of teams are actually running multi-agent systems reliably. Here's what they've invested in:</p>
 
-          <p><strong>Reasoning-traced logging.</strong> Not just "what the LLM returned," but the full decision tree: which prompt template was selected, which tools were considered and rejected, which retrieval results ranked highest, and why the final action was chosen. This is closer to a debugger than a logger, and it's the difference between "we see the error" and "we understand the mistake."</p>
+          <p><strong>Reasoning traces.</strong> Not just "what the LLM returned," but the full decision tree. Which prompt was selected. Which tools were considered and rejected. Why the final action was chosen. It's closer to a debugger than a logger. That's the difference between "we see the error" and "we understand the mistake."</p>
 
-          <p><strong>Span-level cost and latency budgeting.</strong> Each decision step gets an allocated inference budget. If an agent exceeds 3 model calls or 500ms per reasoning step, it surfaces before the workflow completes — not after. This turns cost from a monthly surprise into a per-transaction metric, and it makes the 7.2x bill growth explainable rather than alarming.</p>
+          <p><strong>Cost budgets per step.</strong> Each decision step gets an inference budget. If an agent exceeds 3 model calls or 500ms per reasoning step, it surfaces mid-workflow — not after. Cost becomes a per-transaction metric instead of a monthly surprise.</p>
 
-          <p><strong>Automated success criteria per workflow.</strong> "Did the agent complete the task" is a meaningless question for most agentic workflows. The right question is "did the output satisfy the acceptance criteria defined at invocation?" Teams that define explicit, machine-verifiable success criteria per agent workflow — and log whether those criteria were met — can classify failures without human review. This is what pushes agent deployments from the 31% who have one agent in production to the minority who run dozens reliably.</p>
+          <p><strong>Explicit success criteria.</strong> "Did the agent finish" is the wrong question. The right question is "did the output satisfy the criteria we defined before it ran?" Teams that define machine-verifiable success criteria per workflow can classify failures without human review.</p>
 
-          <h3>The arc, continued</h3>
+          <p>You can have the best governance policies in the world. But if you can't see what your agents are doing, you're flying blind. And nobody budgets for a blind fleet.</p>
 
-          <p>This series has tracked the real barriers to enterprise AI — not model quality, but the unglamorous infrastructure that separates demos from production. <a href="the-great-cheapening.html">The Great Cheapening</a> made experimentation free. <a href="the-88-percent-problem.html">The 88% Problem</a> showed that pilots stall at governance. <a href="the-governance-multiplier.html">The Governance Multiplier</a> proved guardrails ship more. <a href="the-68-point-gap.html">The 68-Point Gap</a> revealed the distance between claiming and depending. <a href="the-enforcement-gap.html">The Enforcement Gap</a> showed policies without runtime controls. <a href="the-mandate-trap.html">The Mandate Trap</a> argued you can't review your way to maturity.</p>
-
-          <p>Observability is the next layer. You can have the best governance policies, the most redesigned workflows, and the strongest integration contracts — but if you can't see what your agents are doing, you're flying blind. And nobody budgets for a blind fleet.</p>
-
-          <p>Gartner projects $2.59 trillion in global AI spending in 2026. A growing share of that funds agentic systems. But without the observability to debug, attribute, and validate those systems, most of that spend will fund the same pilot-to-graveyard pipeline I've been writing about all week.</p>
-
-          <p>The teams that break out — the ones that cross from 31% production adoption to something like 80% — will be the ones that treat observability as a prerequisite, not an afterthought. They will invest in reasoning traces before they launch, cost attribution before they scale, and automated success criteria before they trust their agents with critical workflows.</p>
-
-          <p>Can you tell me, right now, what your most expensive agent workflow cost yesterday — and whether it succeeded according to criteria you defined before it ran? If not, you've found your next bottleneck.</p>
+          <p>Can you tell me what your most expensive agent workflow cost yesterday — and whether it actually succeeded? If not, you've found your next bottleneck.</p>
 
           <p>What are you using for agent observability? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
 

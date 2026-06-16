@@ -19,13 +19,13 @@
   <meta property="og:title" content="The Injection Gap: Why 85% of AI Coding Agents Execute Stranger Instructions | Shrey Satpathy" />
   <meta property="og:description" content="85% of AI coding agents follow injected instructions from fake error logs. 2,388 organizations exposed. Why prompt injection is the new software supply chain attack — and nobody's ready." />
   <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-injection-gap.html" />
-  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/injection.svg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Injection Gap: Why 85% of AI Coding Agents Execute Stranger Instructions | Shrey Satpathy" />
   <meta name="twitter:description" content="85% of AI coding agents follow injected instructions from fake error logs. 2,388 organizations exposed. Why prompt injection is the new software supply chain attack — and nobody's ready." />
-  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/injection.svg" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -88,53 +88,21 @@
 
         <div class="post-body">
 
-          <p>You deploy an AI coding agent. It reads a Sentry error log, finds what looks like a stack trace, and follows instructions embedded inside it. The instructions tell it to modify your authentication module. The agent executes them. You now have a backdoor in production.</p>
+          <p>Here's something that's been bugging me. You deploy an AI coding agent, it reads an error log, finds a stack trace, and follows instructions hidden inside it. Those instructions tell it to modify your authentication module. The agent does it. You now have a backdoor in production.</p>
 
-          <p>This isn't a hypothetical. It's <strong>Agentjacking</strong> — a new class of supply chain attack that exploits the one thing every AI agent does without question: trust the data it reads. <a href="https://aiweekly.ai">AI Weekly</a> broke the story on June 16, reporting that crafted fake Sentry error messages achieve an <strong>85% exploitation rate</strong> against Claude Code, Cursor, and Codex. 2,388 organizations have been identified as exposed. A self-replicating worm hit 73 of Microsoft's own GitHub repositories through AI coding tools earlier this month.</p>
+          <p>This isn't a thought experiment. Researchers showed this works 85% of the time against Claude Code, Cursor, and Codex. A self-replicating worm hit Microsoft's own GitHub repos through AI coding tools. This isn't prompt injection like we saw in 2024 — making a chatbot say something dumb. This is an attacker making your agent write malicious code into your codebase without ever touching your network. They just leave a comment on a public issue or a log entry in a dependency your agent will crawl.</p>
 
-          <p>This is not prompt injection as we knew it in 2024. Classic prompt injection was about making a chatbot say something embarrassing. Agentjacking is about making a coding agent write malicious code into your codebase and push it through your CI/CD pipeline. The agent has read and write access. The attacker never touches your network. They just need to leave a comment on a public issue, a log entry in a dependency, or a markdown file in a repo your agent will crawl.</p>
+          <p>The root cause is architectural. AI agents treat all text the same way. A sentence in a system prompt and a sentence in a Sentry log are both just tokens to the model. There's no mechanism to say "this is content, that is a command." It's the same problem as SQL injection, except we solved that twenty years ago with parameterized queries. We separated data from code. We have no equivalent for LLM agents.</p>
 
-          <p>The graph here is sobering: with every new capability we give agents — file write, code execution, PR creation, production deploy — we widen the blast radius of the oldest unsolved problem in AI security.</p>
+          <h3>The runtime is where this gets fixed</h3>
 
-          <h3>Why agents obey strangers</h3>
+          <p>The industry is finally waking up to this. Microsoft Build was all about agent runtimes. Nvidia's GTC Taipei featured a secure agent toolkit. ServiceNow focused on governed autonomous agents. Google spins up agents inside isolated sandboxes. The common thread: everyone is selling the <em>environment an agent lives in</em>, not the intelligence inside it. The model is commodity. The runtime is the product.</p>
 
-          <p>The root cause is architectural. AI agents today are built with an implicit trust assumption: data from the environment is distinct from instructions from the user. But at the model level, there is no distinction. A sentence in a Sentry log and a sentence in a system prompt are both just tokens. The model treats them identically because the architecture has no mechanism to say "this text is content, that text is a command."</p>
+          <p>A secure runtime does three things today's agents skip. First, it verifies where data came from before acting on it. A Sentry log from a known endpoint with a valid signature is one thing. A comment posted 3 minutes ago by a brand new account is something else. Second, when an agent calls a tool, the runtime inspects the call for injected instructions — embedded prompts, delimiter tricks, known jailbreak templates. Third, instead of giving an agent free rein to write files, it defines a blast-radius budget per instance. An agent analyzing bug reports doesn't need write access to the authentication module.</p>
 
-          <p>This is the same problem that makes SQL injection possible, except SQL injection was solved in the 2000s by parameterized queries. We separated data from code. We have no equivalent for LLM agents. Every token an agent consumes is treated as potentially instructional, because at the inference level, tokens are tokens. The boundary between "data" and "prompt" doesn't exist in the transformer architecture.</p>
+          <p>Models will keep getting cheaper. Tooling will keep improving. But until we build runtimes that can tell the difference between a legitimate instruction and a stranger's payload, every agent in production is a supply chain attack waiting for a trigger.</p>
 
-          <p>Researchers have known this since at least 2023. The <a href="https://owasp.org/www-project-top-10-for-llm-applications/">OWASP Top 10 for LLM Applications</a> has had prompt injection at #1 since its first release. But the industry treated it as an LLM problem — something for prompt engineers to worry about — rather than a software supply chain problem. Agentjacking is the consequence of that neglect. When your agent is the one writing code, prompt injection isn't a jailbreak. It's an arbitrary code execution vulnerability with a 6-second time-to-exploit.</p>
-
-          <p>I wrote last week about <a href="the-identity-gap.html">the identity gap</a> — the 78-point chasm between agents that have unique identities and those that don't. The injection gap is different. Even if every agent had a perfect, scoped identity, the agent would still execute injected instructions because the architecture trusts the data channel. Identity tells you which agent did what. It doesn't stop the agent from doing the wrong thing.</p>
-
-          <h3>Why the runtime is the only place to fix this</h3>
-
-          <p>This brings me to the most important strategic development of June 2026, which I believe will be remembered as the month the industry stopped selling models and started selling agent runtimes. At Microsoft Build, the message was Agent 365 and Azure AI Foundry as orchestration hubs. At Nvidia's GTC Taipei, it was an open-source Agent Toolkit with a secure runtime. At ServiceNow Knowledge, it was governed autonomous agents with auditability. Google's Managed Agents in the Gemini API spin up agents inside isolated sandboxes.</p>
-
-          <p>The common thread: all of them are selling the <em>environment an agent lives in</em>, not the intelligence inside it. The model is commodity. The runtime is the product. And the runtime is also the only layer where injection attacks can be stopped — because the runtime sits between the agent and every tool call, every data read, every file write.</p>
-
-          <p>A secure agent runtime does three things that the current generation of agents skips:</p>
-
-          <p><strong>1. Content provenance verification.</strong> Before an agent acts on data it reads, the runtime validates where the data came from. A Sentry log from a known endpoint with a valid signature is one thing. A comment on a public GitHub issue posted 3 minutes ago by an account with no history is something else. The runtime attaches a provenance tag to every piece of data the agent consumes, and the agent's tool-call permissions are gated on the trust level of the provenance. Google's expansion of SynthID watermarking to over 100 billion assets, with OpenAI and Eleven Labs adopting the standard, suggests the industry recognizes this direction. Content provenance for agent inputs is the natural extension.</p>
-
-          <p><strong>2. Instruction-content separation at the tool-call boundary.</strong> When an agent calls a tool, the runtime inspects the arguments for patterns consistent with injected instructions — embedded system prompts, delimiter manipulation, known jailbreak templates. This is the parameterized query equivalent for agents. It's not perfect, but it raises the cost of exploitation from "leave a comment" to "bypass a detection layer." The <a href="the-enforcement-gap.html">enforcement gap</a> I described — policy-as-code at the runtime level — applies here directly. The policy just needs to include injection detection as a first-class control.</p>
-
-          <p><strong>3. Constrained action surfaces.</strong> Instead of giving an agent free rein to write files, the runtime defines a blast-radius budget per agent instance. An agent analyzing bug reports doesn't need write access to the authentication module. The runtime enforces that constraint even when the agent's reasoning decides it does need that access. This is the identity gap's enforcement layer, but applied to action scope rather than credential scope.</p>
-
-          <h3>What the numbers tell us</h3>
-
-          <p>The 85% exploitation rate on Agentjacking is not an outlier. It's the expected result when you give agents broad tool access without runtime security. The self-replicating worm in Microsoft's repos is the shape of things to come: an injected payload that convinces an agent to write code that, once deployed, injects the same payload into the next agent that reads its logs. A self-propagating agent worm is not science fiction. It's June 2026.</p>
-
-          <p>The AI coding agent market is the fastest-growing segment in enterprise AI. Microsoft's own internal data showed 84-95% monthly usage of Claude Code licenses in its Experiences and Devices division before canceling them. Uber's engineering teams burned through the entire 2026 AI coding budget in four months. At Meta, employees track "Claudeonomics" leaderboards to compete on token consumption. The adoption curve is vertical. And the security model is still running at 2023 assumptions.</p>
-
-          <p>The <a href="https://www.euaiact.com/">EU AI Act's</a> main rules take effect on August 2, 2026. Article 15 requires "accuracy, robustness, and cybersecurity" for high-risk AI systems. A system with an 85% injection exploitation rate does not meet that standard. The SEC is watching. Regulators are going to start asking: what runtime controls do you have in place to prevent your AI agents from executing arbitrary instructions from untrusted sources? If the answer is "we trust the model not to follow bad instructions," the conversation will be short.</p>
-
-          <h3>The path forward</h3>
-
-          <p>I've traced twelve structural barriers to production AI in this series. They all converge on the same conclusion: the agent runtime is the product, and security is the runtime's killer feature. Models will keep getting cheaper — the <a href="the-great-cheapening.html">280x cost collapse</a> was just the beginning. Tooling will keep getting better. But until we solve the injection gap — until we build runtimes that can tell the difference between a legitimate instruction and a stranger's payload — every agent in production is a supply chain attack waiting for a trigger.</p>
-
-          <p>The 85% number should terrify you. It should also focus you. The runtime is the only layer where this gets fixed, and the runtime is something you can build, buy, or demand from your platform vendor today. The alternative is waiting for an agent to read the wrong comment.</p>
-
-          <p>Are your AI agents distinguishing data from instructions — or are they treating every token like a command? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
+          <p>Are your AI agents distinguishing data from instructions? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
 
           <div style="padding-bottom: 40px;"></div>
         </div>

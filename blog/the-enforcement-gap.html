@@ -19,13 +19,13 @@
   <meta property="og:title" content="The Enforcement Gap: Why 82% of Execs Trust Their AI Policies But Only 14% Can Enforce Them | Shrey Satpathy" />
   <meta property="og:description" content="82% of executives trust their AI policies. Only 14% of organizations have enforcement at runtime. The 68-point enforcement gap is the real reason agent pilots fail." />
   <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-enforcement-gap.html" />
-  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/enforcement.svg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The Enforcement Gap: Why 82% of Execs Trust Their AI Policies But Only 14% Can Enforce Them | Shrey Satpathy" />
   <meta name="twitter:description" content="82% of executives trust their AI policies. Only 14% of organizations have enforcement at runtime. The 68-point enforcement gap is the real reason agent pilots fail." />
-  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/enforcement.svg" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -88,65 +88,43 @@
 
         <div class="post-body">
 
-          <p>I wrote recently about how <a href="the-governance-multiplier.html">governance unlocks 12x more production deployments</a>. The response was mostly agreement — yes, governance matters — followed by a quieter confession: "we have a governance policy, but we don't actually enforce it."</p>
+          <p>I've been talking to a lot of teams about AI governance lately. The conversation usually starts with "yes, we have a policy" and ends with "...but we don't really enforce it."</p>
 
-          <p>Turns out, they're not alone. Gravitee's <a href="https://www.gravitee.io/state-of-ai-agent-security">State of AI Agent Security 2026</a> survey of 919 executives and practitioners found that <strong>82% of executives are confident their policies protect against unauthorized agent actions</strong>. Yet only <strong>14.4% of organizations have actually achieved full IT and security approval for their agent fleet</strong>.</p>
+          <p>Turns out, that's most organizations. Something like 82% of executives are confident their policies protect against unauthorized agent actions. But way fewer have actual enforcement at runtime. That's a massive gap between confidence and reality.</p>
 
-          <p>That's a 68-point gap. Not between pilot and production this time — between confidence and enforcement.</p>
+          <p>And it's worse than it looks. Most companies enforce AI security through written policies and the honor system. Another big chunk relies on post-event scanning — catching violations after the damage is done. We're building at production speed on a governance foundation that barely exists.</p>
 
-          <p>And it's worse than it looks. The Cybersecurity Insiders <a href="https://www.cybersecurity-insiders.com/ai-risk-and-readiness-report-2026/">AI Risk and Readiness Report</a>, surveying 1,253 security professionals in early 2026, found that 73% of organizations have deployed AI tools — but only 7% have real-time governance enforcement. A 66-point structural deficit between deployment and control. Nearly a third enforce AI security through written policies and the honor system. Another 20% rely on post-event API scanning, catching violations only after the damage is done.</p>
+          <h3>The three numbers that bother me</h3>
 
-          <p>We're building at production speed on a governance foundation that barely exists.</p>
+          <p><strong>High confidence, low enforcement.</strong> Executives believe their policies work, but the technical controls to enforce them simply aren't deployed. Meanwhile, most enterprises have unknown AI agents running in their environments. You can't enforce policy against agents you don't know exist.</p>
 
-          <h3>The three numbers that keep me up at night</h3>
+          <p><strong>Lots of incidents, almost no visibility.</strong> Most organizations have confirmed or suspected AI agent security incidents. Yet only a fraction have runtime visibility into what their agents are actually doing. Most are discovering violations through post-mortems rather than prevention.</p>
 
-          <p>Multiple surveys across 2026 converge on the same uncomfortable picture. I've been tracking three numbers in particular:</p>
+          <p><strong>Scope violations everywhere, almost no automatic blocks.</strong> Over half of organizations have had AI agents exceed their intended permissions. When scope violations occur, almost nobody automatically blocks the action. They rely on human review — after the agent has already acted.</p>
 
-          <p><strong>82% confidence, 14% enforcement.</strong> Gravitee's data reveals the core paradox: executives believe their policies work, but the technical controls to enforce them simply aren't deployed. The Cloud Security Alliance <a href="https://cloudsecurityalliance.org/press-releases/2026/04/21/new-cloud-security-alliance-survey-reveals-82-of-enterprises-have-unknown-ai-agents-in-their-environments">found that 82% of enterprises have unknown AI agents running in their environments</a>. You can't enforce policy against agents you don't know exist.</p>
+          <p>The pattern is clear. We have dashboards. We do not have guardrails.</p>
 
-          <p><strong>88% report incidents, only 21% have runtime visibility.</strong> Gravitee again: 88% of organizations confirmed or suspected AI agent security incidents in the past 12 months. The Cloud Security Alliance found 65% experienced AI agent-related incidents, with 61% reporting data exposure and 35% financial losses. Yet only 21% have runtime visibility into what their agents are actually doing. Most organizations are flying blind, discovering violations through post-mortems rather than prevention.</p>
+          <h3>Why enforcement is harder than writing a policy</h3>
 
-          <p><strong>53% scope violations, 11% automatic blocks.</strong> The CSA's <a href="https://cloudsecurityalliance.org/press-releases/2026/04/16/more-than-half-of-organizations-experience-ai-agent-scope-violations-cloud-security-alliance-study-finds">April 2026 study</a> found that 53% of organizations have had AI agents exceed their intended permissions. Only 8% said agents never exceed their scope. When scope violations do occur, only 11% of organizations automatically block the action. The rest rely on human review or post-hoc logging — after the agent has already acted.</p>
+          <p>Writing an AI governance policy is an exercise in words. Enforcing it is an exercise in architecture. That difference is where the risk lives.</p>
 
-          <p>The pattern is unmistakable. We have dashboards. We do not have guardrails.</p>
+          <p>A policy says "agents must not exceed their approved scope." Enforcement requires answering: what is scope? How do you measure it at runtime? What happens when it's breached — log, warn, or halt? Every layer of the stack — identity, authorization, observability — must be wired together in real time. Most enterprises haven't done this wiring because the pressure to ship outpaced the infrastructure to govern.</p>
 
-          <h3>Why enforcement is harder than policy</h3>
+          <p>This is the hidden reason so many AI pilots fail. Not because the policy doesn't exist. Because when security asks "how do we actually enforce this?" the answer is "we'll figure that out in production." And production never comes.</p>
 
-          <p>Writing an AI governance policy is an exercise in words. Enforcing it is an exercise in architecture. The difference between the two is where most of the risk lives.</p>
+          <h3>What real enforcement looks like</h3>
 
-          <p>A policy document says "agents must not exceed their approved scope." Enforcement requires answering: what is scope? How do you measure it at runtime? What happens when it's breached — do you log, warn, or halt? Who owns the response? Every layer of the stack — identity, authorization, observability, cost controls — must be wired together in real time. Most enterprises haven't done this wiring because the tooling didn't exist until recently, and the organizational pressure to ship outpaced the infrastructure to govern.</p>
+          <p>The minority that actually enforces governance at runtime shares three patterns:</p>
 
-          <p>The VentureBeat <a href="https://venturebeat.com/resources/the-agentic-reckoning-enterprise-ai-organizations-have-a-runtime-problem-not-a-model-problem">Agentic Reckoning report</a> found that teams are spending more engineering time on infrastructure plumbing — manual retries, state persistence, checkpointing — than on agent intelligence. The same pattern holds for governance: teams are spending time writing policy documents instead of building enforcement mechanisms. The document is visible and measurable. The enforcement layer is invisible and hard to scope. So the document gets done, and the enforcement doesn't.</p>
+          <p><strong>Pre-execution controls.</strong> Every model call, tool invocation, and side effect is checked against policy before it executes. If the agent lacks authorization, it gets a DENY before it acts. Not a log entry after.</p>
 
-          <p>This is the hidden reason behind <a href="the-88-percent-problem.html">the 88% pilot failure rate</a>. Pilots don't fail because the governance policy doesn't exist. They fail because when the security team asks "how do we actually enforce this?" the answer is "we'll figure that out in production." And production never comes.</p>
+          <p><strong>Agent identity.</strong> Every agent gets a unique, scoped identity — just like a human engineer. Every action ties back to that identity. No shared API keys. No standing credentials.</p>
 
-          <h3>What enforcement actually looks like</h3>
+          <p><strong>Automatic containment.</strong> When scope violations happen — and they will — they don't just log it. They halt the agent, revoke its session, or throttle it to read-only. The rest are one bad agent loop away from an incident that kills the whole program.</p>
 
-          <p>So if the document isn't enough, what is? Across the organizations that are actually enforcing governance at runtime — that 7-14% minority — three patterns separate them from everyone else:</p>
+          <p>The common thread: these organizations treat enforcement as infrastructure, not policy. They build it into the runtime layer so governance isn't something humans remember to do. It's automatic.</p>
 
-          <p><strong>Pre-execution controls, not post-hoc dashboards.</strong> Every consequential action — model call, tool invocation, side effect — is checked against policy before it executes. Budget is reserved atomically. Permissions are validated inline. If the agent lacks authorization, it gets a DENY before it acts, not a log entry after. This is the difference between "we saw what happened" and "it never happened."</p>
-
-          <p><strong>Agent identity as a first-class primitive.</strong> Gravitee found that only 21.9% of organizations treat AI agents as independent, identity-bearing entities. Akeyless's <a href="https://www.akeyless.io/blog/2026-ai-agent-identity-security-survey/">2026 survey</a> found that fewer than half of organizations know where all AI agent credentials are stored, and over 80% admit agents regularly bypass IAM controls. The enforcement-capable minority gives every agent a unique, scoped identity — just like a human engineer — and ties every action back to that identity. No shared API keys. No standing credentials.</p>
-
-          <p><strong>Automatic containment on violation.</strong> When scope violations happen — and they will, the data says over half of organizations experience them — enforcement-capable organizations don't just log the event. They halt the agent, revoke its session, or throttle it to read-only. The CSA found that only 11% automatically block scoped violations. The other 89% are one bad agent loop away from the kind of incident that <a href="https://venturebeat.com/security/most-enterprises-cant-stop-stage-three-ai-agent-threats-venturebeat-survey-finds">kills an AI program</a>.</p>
-
-          <p>The common thread? These organizations treat enforcement as infrastructure, not policy. They build it into the runtime layer, beneath the application code, so that governance isn't something humans remember to do. It's something the system enforces automatically.</p>
-
-          <h3>The regulatory reckoning is coming</h3>
-
-          <p>The EU AI Act is in effect. ISO 42001 adoption is accelerating — 31% of enterprises now hold certification, with 47% actively pursuing it. The SEC is paying attention. Yet 69.2% of executives surveyed by Gravitee believe existing regulations are already sufficient to address agentic AI risks. The same data shows that regulatory confidence is masking a funding gap: nearly as many organizations expect their AI security investment to decrease as increase over the next 12 months.</p>
-
-          <p>This is the mirror image of <a href="the-great-cheapening.html">the cheapening paradox I wrote about last</a>. Cheap inference made experimentation free, but it didn't build discipline. Now cheap compliance — relying on existing policy documents and familiar frameworks — is making organizations feel governed without actually being governed. The regulatory exam won't ask to see your policy manual. It will ask for audit trails, runtime controls, and evidence of enforcement.</p>
-
-          <p>Gartner's prediction that over 40% of agentic AI projects will be canceled by end of 2027 cited "inadequate risk controls" as one of three root causes. Not model accuracy. Not even cost. Inadequate runtime controls. The enforcement gap isn't a security problem — it's a program-killer.</p>
-
-          <h3>Where the gap closes</h3>
-
-          <p>The enforcement gap exists because the industry treated governance as a documentation exercise rather than an infrastructure investment. The teams closing it are the ones that recognized: a policy you can't enforce is not a policy. It's a hope.</p>
-
-          <p>The fix isn't complicated, but it's structural. Pre-execution authorization. Scoped agent identity. Automatic containment on violation. These are not AI-specific innovations. They're the same controls we've used for decades in identity and access management, applied to a new kind of actor that moves faster and has broader reach than any human employee.</p>
-
-          <p>The cost of building enforcement infrastructure now is real. The cost of a regulatory failure, a data exposure, or a $47,000 agent loop that runs all weekend without a kill switch is higher. The 82% of executives who trust their policies today — I hope they're right. The data says they probably aren't.</p>
+          <p>A policy you can't enforce is not a policy. It's a hope.</p>
 
           <p>Does your organization enforce AI governance at runtime, or just on paper? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
 

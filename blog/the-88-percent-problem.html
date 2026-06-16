@@ -19,13 +19,13 @@
   <meta property="og:title" content="The 88% Problem: Why Most AI Agent Pilots Never Reach Production | Shrey Satpathy" />
   <meta property="og:description" content="88% of AI agent pilots never reach production. A PM's perspective on why enterprise agent deployment stalls at governance, not model quality." />
   <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-88-percent-problem.html" />
-  <meta property="og:image" content="https://shreysatpathy.github.io/images/golden_gate_bridge_in_san_francisco.jpg" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/88-percent-problem.svg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="The 88% Problem: Why Most AI Agent Pilots Never Reach Production | Shrey Satpathy" />
   <meta name="twitter:description" content="88% of AI agent pilots never reach production. A PM's perspective on why enterprise agent deployment stalls at governance, not model quality." />
-  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/golden_gate_bridge_in_san_francisco.jpg" />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/88-percent-problem.svg" />
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -87,61 +87,61 @@
 
         <div class="post-body">
 
-          <p>I've spent the last year running AI agent pilots — coding agents, triage bots, automated project managers — across a dozen different product contexts. The technology feels miraculous in a demo. In production, something breaks. And it's almost never the model.</p>
+          <p>I've spent the last year running AI agent pilots — coding agents, triage bots, automated PMs — across a dozen different product contexts. In a demo, the technology feels like magic. In production, something breaks.</p>
 
-          <p>The data backs this up. Northflank's 2026 survey found that <strong>88% of enterprise AI agent pilots never reach production</strong>. Gartner predicts over 40% of agentic AI projects will be canceled by end of 2027. McKinsey reports that while nearly two-thirds of enterprises have experimented with agents, fewer than 10% have scaled them to measurable value.</p>
+          <p>And it's almost never the model.</p>
 
-          <p>Meanwhile, the models themselves are spectacular. Claude Code hits 80.8% on SWE-bench. Codex rewrites itself in Rust. Cursor ships Cloud Agents. The model quality problem is solved — or close enough.</p>
+          <p>The data backs this up. Northflank found that 88% of enterprise AI agent pilots never reach production. Gartner predicts over 40% of agentic projects will be canceled. Most enterprises experiment but never scale.</p>
+
+          <p>Meanwhile the models are spectacular. Claude Code hits 80% on SWE-bench. Cursor ships Cloud Agents. The model problem is effectively solved.</p>
 
           <p>So what's actually blocking production?</p>
 
-          <h3>It's not the agent. It's the infrastructure around it.</h3>
+          <h3>It's not the agent. It's everything around it.</h3>
 
-          <p>Every stalled pilot I've seen shares the same pattern: the agent works beautifully in isolation, then fails the enterprise security review. The questions aren't about accuracy. They're about identity, audit trails, data residency, and cost controls.</p>
+          <p>Every stalled pilot I've seen follows the same pattern: the agent works beautifully in isolation, then fails the enterprise security review. The questions aren't about accuracy. They're about identity, audit trails, data residency, cost controls.</p>
 
-          <p>Can the agent check out code without a human credential? Can we log every token it spends? What happens when it writes a destructive SQL migration? Who approves the PR an agent generates at 3am?</p>
+          <p>Can the agent check out code without a human credential? Can we log every token it spends? Who approves the PR an agent generates at 3am?</p>
 
-          <p>These are not AI problems. They're <em>product</em> problems. And they're the ones that actually determine whether an agent ships or gets shut down after Q3 review.</p>
+          <p>These aren't AI problems. They're product problems. And they're the ones that determine whether an agent ships or gets killed at Q3 review.</p>
 
-          <h3>The three layers of agent readiness</h3>
+          <h3>Three layers of readiness</h3>
 
-          <p>After enough post-mortems, I've started thinking about agent deployment in three layers:</p>
+          <p>I think about agent deployment in three layers:</p>
 
-          <p><strong>Layer 1 — Model capability.</strong> Can the agent do the thing? SWE-bench scores, latency, context windows. This is where most of the industry attention lives. It's also the least interesting failure mode in 2026.</p>
+          <p><strong>Layer 1 — Model capability.</strong> Can the agent do the thing? This is where most attention goes. It's also the least interesting failure mode in 2026.</p>
 
-          <p><strong>Layer 2 — Workflow integration.</strong> Does the agent fit into existing processes? Can it read your Jira tickets, check your on-call rotation, post to your Slack channels, respect your code review policies? This is where pilots live or die.</p>
+          <p><strong>Layer 2 — Workflow integration.</strong> Does the agent fit into existing processes? Can it read your Jira, check on-call, post to Slack, respect your code review policies? This is where pilots live or die.</p>
 
-          <p><strong>Layer 3 — Governance and risk.</strong> Can you sleep at night while the agent runs? Audit trails, cost controls, blast radius limits, approval gates, rollback plans. This is the layer that separates a demo from a production system.</p>
+          <p><strong>Layer 3 — Governance and risk.</strong> Can you sleep at night while the agent runs? Audit trails, cost controls, blast radius limits, rollback plans. This is the layer that separates a demo from production.</p>
 
           <p>Most teams pour 90% of their energy into Layer 1 and wonder why Layer 3 kills them.</p>
 
           <h3>The productivity paradox</h3>
 
-          <p>Stanford's 2026 AI Index Report surfaced something curious: developers <em>report</em> massive productivity gains from AI coding agents, but controlled studies show much smaller measured improvements. The gap isn't necessarily deception — it's that productivity in practice depends on the entire system, not just the code-writing part.</p>
+          <p>Stanford's 2026 AI Index found something interesting: developers report massive productivity gains from AI coding agents, but controlled studies show smaller improvements. The gap isn't dishonesty. It's that productivity depends on the whole system, not just the code-writing part.</p>
 
-          <p>You can generate PRs 10x faster. But if those PRs need 3x more review time because the reviewer doesn't trust the agent, or if your deployment pipeline rejects half of them, or if compliance reviews take two weeks — you haven't actually accelerated anything. You've just shifted the bottleneck.</p>
+          <p>You can generate PRs 10x faster. But if those PRs need 3x more review time because the reviewer doesn't trust the agent, or if compliance reviews take two weeks — you haven't accelerated anything. You've just moved the bottleneck.</p>
 
-          <p>This is what I call the <strong>deployment tax</strong>: the overhead of governance, integration, and trust-building that every agent must pay before it can deliver value at scale.</p>
+          <h3>What production-ready looks like</h3>
 
-          <h3>What production-ready actually looks like</h3>
+          <p>The teams that successfully ship agents share a few patterns:</p>
 
-          <p>The teams I've seen successfully scale agents past pilot share a few patterns:</p>
+          <p><strong>Start with constrained scope.</strong> Not "the agent can do anything." More like "the agent can triage this specific incident type, post findings to Slack, and suggest a fix — but a human hits merge."</p>
 
-          <p><strong>Start with constrained scope.</strong> Not "the agent can do anything" but "the agent can triage this specific class of incident, post findings to Slack, and suggest a fix — but a human hits merge." Let trust build incrementally.</p>
+          <p><strong>Invest in observability.</strong> Treat agents like distributed systems. Log every action. Trace every decision. If you can't see what the agent did last night, you won't let it run tomorrow.</p>
 
-          <p><strong>Invest in observability.</strong> Treat your agents like distributed systems. Log every action, trace every decision, measure time-to-completion and error rates. If you can't see what the agent did last night, you won't let it run tomorrow.</p>
+          <p><strong>Design the human loop.</strong> The best agent workflows don't remove humans. They make humans more effective. An agent that drafts the first pass and presents options beats one that silently commits.</p>
 
-          <p><strong>Design the human loop, not the automation.</strong> The best agent workflows don't remove humans — they make humans more effective. An agent that drafts the first pass and presents options is more valuable than one that silently commits. Your PM intuition about trust and verification (I wrote about this in <a href="goodjira.html">GoodJira</a>) applies to agents too.</p>
-
-          <p><strong>Price for reality.</strong> The Gartner projection of $2.52 trillion in global AI spending for 2026 will attract a lot of pilots. Production deployments will go to the teams that understand that agent costs aren't just API fees — they're review time, integration maintenance, incident response, and governance overhead.</p>
+          <p><strong>Price for reality.</strong> Agent costs aren't just API fees. They're review time, integration maintenance, incident response, and governance overhead. Budget accordingly.</p>
 
           <h3>Where we go from here</h3>
 
-          <p>The 88% failure rate sounds bad until you remember that most new technologies follow this curve. Cloud computing had its "pilot graveyard." Microservices did too. The difference is that agentic AI's cycle time is faster — we're compressing years of adoption learning into quarters.</p>
+          <p>An 88% failure rate sounds bad until you remember most new technologies follow this curve. Cloud had its pilot graveyard. Microservices did too. The difference with agents is cycle time — we're compressing years of learning into quarters.</p>
 
-          <p>The agents themselves will keep getting better. The real unlock isn't another 5% on SWE-bench. It's the boring infrastructure of production: audit logs, approval workflows, cost dashboards, and the organizational trust that grows when humans see agents deliver reliably, incrementally, over months.</p>
+          <p>The agents will keep improving. The real unlock isn't another 5% on SWE-bench. It's the boring infrastructure: audit logs, approval workflows, cost dashboards, and the organizational trust that builds when humans see agents deliver reliably, incrementally, over months.</p>
 
-          <p>That's the product work that actually matters right now. And it doesn't look like AI research. It looks like good product management.</p>
+          <p>That's the product work that matters right now. And it doesn't look like AI research. It looks like good product management.</p>
 
           <p>What's stopping your agent pilots from shipping? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
 
