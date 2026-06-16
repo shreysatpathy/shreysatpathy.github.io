@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0290S4QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GT0290S4QW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Model versions are being deprecated faster than enterprises can re-deploy against them. Why version churn is quietly becoming your biggest unbudgeted AI cost." />
+  <link rel="canonical" href="https://shreysatpathy.github.io/blog/the-deprecation-crisis.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Deprecation Crisis: Why Model Version Churn Is the Hidden Cost Nobody Budgeted For | Shrey Satpathy" />
+  <meta property="og:description" content="Model versions are being deprecated faster than enterprises can re-deploy against them. Why version churn is quietly becoming your biggest unbudgeted AI cost." />
+  <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-deprecation-crisis.html" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Deprecation Crisis: Why Model Version Churn Is the Hidden Cost Nobody Budgeted For | Shrey Satpathy" />
+  <meta name="twitter:description" content="Model versions are being deprecated faster than enterprises can re-deploy against them. Why version churn is quietly becoming your biggest unbudgeted AI cost." />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Deprecation Crisis: Why Model Version Churn Is the Hidden Cost Nobody Budgeted For",
+    "description": "Model versions are being deprecated faster than enterprises can re-deploy against them. Why version churn is quietly becoming your biggest unbudgeted AI cost.",
+    "url": "https://shreysatpathy.github.io/blog/the-deprecation-crisis.html",
+    "datePublished": "2026-06-16",
+    "author": {
+      "@type": "Person",
+      "name": "Shrey Satpathy",
+      "url": "https://shreysatpathy.github.io/"
+    }
+  }
+  </script>
+  <title>The Deprecation Crisis: Why Model Version Churn Is the Hidden Cost Nobody Budgeted For | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+
+        <header class="post-header">
+          <h1>The Deprecation Crisis: Why Model Version Churn Is the Hidden Cost Nobody Budgeted For</h1>
+          <div class="post-meta-full">
+            <time datetime="2026-06-16">June 16, 2026</time>
+            <div class="post-tags">
+              <span class="tag">AI</span>
+              <span class="tag">FinOps</span>
+              <span class="tag">Product Management</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="post-body">
+
+          <p>Your agent has been running in production for six months. It handles customer refunds, routes escalations, and processes roughly 12,000 requests a day. Then one morning, the vendor sends an email: the model version you're pinned to reaches end-of-life in 30 days. The replacement is cheaper, faster, and scores 2 points higher on the benchmark. Great, you think — until your evaluation pipeline shows a 14-point drop in refusal accuracy on the new version, and your compliance team flags three output categories that now behave differently from what they audited.</p>
+
+          <p>Welcome to the deprecation crisis — the most expensive line item nobody put in the 2026 AI budget.</p>
+
+          <p>The <a href="https://www.digitalapplied.com/blog/agentic-ai-statistics-2026-definitive-collection-150-data-points">State of FinOps 2026 report</a> shows that 98% of FinOps practices now manage AI spend, up from 31% in 2024. Teams have gotten good at tracking inference costs, GPU utilization, and API consumption. But almost nobody is tracking what happens when the underlying model changes under their deployed agents — and the data suggests this oversight is about to get expensive.</p>
+
+          <p>Vendors are deprecating model versions on shorter cycles than enterprises designed their agents for. The cost of re-evaluating, re-grounding, and re-deploying against a new model is not yet line-itemed in most 2026 AI budgets. It will be by Q4 — and for many teams, it will be the surprise that breaks the ROI narrative.</p>
+
+          <h3>Three numbers that should scare you</h3>
+
+          <p><strong>30 days.</strong> The average deprecation notice window for frontier model API versions in 2026. Some vendors give 60. Some give 14. None give enough time to re-run the full evaluation suite that a production agent requires — especially when the agent coordinates multiple models for reasoning, tool selection, and response generation. A single deprecation can force a cascading re-validation of every workflow that touches that model.</p>
+
+          <p><strong>14-20%.</strong> The observed accuracy variance between a model's minor version bumps on domain-specific tasks, based on evaluations teams have shared across my network. The benchmark scores go up. The domain performance drifts — sometimes up, sometimes down, always unpredictably. If you are not re-evaluating every time a model version changes, you are flying blind on the metrics that actually matter for your use case.</p>
+
+          <p><strong>$0.</strong> The amount most enterprise AI budgets have allocated for model version migration in 2026. The FinOps categories have matured — foundation API spend at ~28%, GPU/compute at ~22%, data foundation at ~16%, integration at ~11%, evaluation and observability tooling at ~9% (<a href="https://apptad.com/insights/whats-next-for-enterprise-ai-mid-year-insights-for-2026/">Apptad H1 2026 synthesis</a>). But there is no "version migration" line item, no "regression testing" allocation, no "prompt re-engineering" budget. The work will get done — it has to — but it will cannibalize the innovation budget it wasn't planned against.</p>
+
+          <h3>Why this is different from software deprecation</h3>
+
+          <p>Software engineers are used to dependency churn. A library deprecates, you bump the version, run the test suite, deal with any breaking changes, and move on. The cost is predictable — a few developer-hours per dependency per quarter.</p>
+
+          <p>Model deprecation is categorically different, for three reasons:</p>
+
+          <p><strong>1. You cannot unit-test an LLM.</strong> A library upgrade either compiles or it doesn't. A model version change compiles perfectly — it just produces different outputs for the same inputs. The only way to validate it is to run your full evaluation suite against production-like data, compare distributions, surface regressions, and decide whether the behavior change is acceptable. That is not a CI check. That is a multi-day analysis requiring domain expertise, labeled data, and a human who can judge whether the new output is "better" or "wrong."</p>
+
+          <p><strong>2. Grounding changes when the model changes.</strong> Your retrieval-augmented generation pipeline was tuned for the old model's attention patterns, prompt sensitivity, and output structure. The new model weights the retrieved context differently. Chunks that used to surface in the top-3 now appear at position 7. Tokens the old model ignored now influence the output. Your grounding was implicitly optimized for the prior version, and the migration forces a re-optimization you did not budget for.</p>
+
+          <p><strong>3. Governance artifacts are version-locked.</strong> Your compliance team approved the agent's behavior against a specific model version's output distribution. The audit trail, the red-teaming results, the bias assessment — all of it refers to a version that is being turned off. The replacement version invalidates those artifacts. If your regulatory framework requires re-certification on model change — and the EU AI Act's <a href="https://artificialintelligenceact.eu/">conformity-assessment requirements</a> for high-risk systems, effective August 2026, arguably do — you are looking at a full re-audit cycle, not a quick swap.</p>
+
+          <h3>The Gartner cancellation prediction, reframed</h3>
+
+          <p>Gartner predicts that <a href="https://www.gartner.com/en/newsroom/press-releases/2025-10-15-gartner-says-more-than-40-percent-of-agentic-ai-projects-will-be-canceled-by-2027">40% of agentic AI projects will be canceled by 2027</a> due to runaway costs, unclear ROI, and governance failures. The prevailing read is that these projects fail because the technology doesn't deliver. I think the deprecation crisis is the hidden mechanism.</p>
+
+          <p>Here is the sequence I am seeing play out:</p>
+
+          <p>A team builds an agent, validates it against a specific model version, and deploys it to production. The model deprecates. The team migrates to the new version, but the evaluation shows regressions in three task categories. The team spends two weeks adjusting prompts, re-ranking retrieval results, and re-tuning tool-call formatting. The migration costs 6-8 engineering-weeks that were not planned. The project's ROI, which was marginal at the planned burn rate, now looks worse. Management reviews the program. The agent is canceled — not because it didn't work, but because the cost of keeping it working wasn't factored into the business case.</p>
+
+          <p>The Apptad mid-year analysis names this explicitly: Gartner's 40% cancellation rate "will not be evenly distributed. They will cluster in two patterns: agents whose business case was built on assumed cost economics that did not survive contact with model deprecation and token-spend growth, and agents whose data foundation underneath them was never robust enough." The deprecation dynamic amplifies both failure modes.</p>
+
+          <h3>What maturity looks like</h3>
+
+          <p>The teams I see navigating this well — the ones across my series that ship 12x more (<a href="the-governance-multiplier.html">The Governance Multiplier</a>) and deploy agents they can actually debug (<a href="the-observability-blindspot.html">The Observability Blindspot</a>) — share a deprecation playbook that looks nothing like the industry average:</p>
+
+          <p><strong>They build for version independence.</strong> Not by pinning to an old version forever — that is a security and capability risk. But by wrapping the model invocation layer behind an evaluation gate. Every model call passes through a lightweight evaluator that checks output quality against task-specific thresholds before returning the result. When the model version changes and output quality dips, the gate catches it before the user does. This turns deprecation from a crisis into a data point.</p>
+
+          <p><strong>They budget migration as an operating expense.</strong> The mature teams I know allocate 10-15% of their AI engineering capacity to what they call "model rotation" — the ongoing work of re-evaluating, re-grounding, and re-validating against new model versions. They treat migration not as a project risk but as a predictable cost of running on someone else's model, in the same way you budget for cloud instance upgrades or database version migrations.</p>
+
+          <p><strong>They invest in evaluation infrastructure as a first-class platform concern.</strong> Automated regression suites, domain-specific eval sets, and continuous comparison dashboards that track how the new version performs against the old one on every task category. Without this infrastructure, every deprecation notice is a fire drill. With it, a deprecation is a ticket — triaged, costed, and scheduled against a known SLA.</p>
+
+          <p><strong>They negotiate deprecation windows in their procurement contracts.</strong> This is the one that separates the pros. Enterprise teams with leverage are writing minimum deprecation notice periods into their API agreements — 90 days minimum, 120 preferred. Some are negotiating for continuation access to deprecated versions at a premium during migration windows. If you are buying at enterprise scale and your contract says "vendor may modify or discontinue features at any time," your procurement team has a gap to close.</p>
+
+          <h3>The arc, continued</h3>
+
+          <p>This series has traced the real barriers to enterprise AI — the unglamorous infrastructure problems that separate demos from production. <a href="the-great-cheapening.html">The Great Cheapening</a> made experimentation free. <a href="the-88-percent-problem.html">The 88% Problem</a> showed that pilots stall at governance. <a href="the-governance-multiplier.html">The Governance Multiplier</a> proved that guardrails ship more. <a href="the-68-point-gap.html">The 68-Point Gap</a> revealed the distance between claiming and depending. <a href="the-enforcement-gap.html">The Enforcement Gap</a> showed policies without runtime controls. <a href="the-mandate-trap.html">The Mandate Trap</a> argued you can't review your way to maturity. <a href="the-observability-blindspot.html">The Observability Blindspot</a> showed why you need to see what your agents are doing.</p>
+
+          <p>And now this: model deprecation as the silent ROI killer. The cost of maintaining an agent in production over 18 months is dominated not by inference or compute — those are falling — but by the recurring labor of re-validating against a moving model target.</p>
+
+          <p>We got cheap inference (<a href="the-great-cheapening.html">280x drop</a>). We got governance tooling. We got observability platforms. What we don't have yet is a mature model lifecycle management practice — and until we do, the deprecation tax will keep eating the ROI that makes agentic AI viable at scale.</p>
+
+          <p>Ask your FinOps team this: of the 22% of your AI budget that goes to evaluation, observability, and tooling — how much is for migration work you didn't plan? If they can't answer, you have your next line item for 2027 planning.</p>
+
+          <p>Has model deprecation surprised your team this year? I'd love to hear your migration stories — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
+
+          <div style="padding-bottom: 40px;"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
