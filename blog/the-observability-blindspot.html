@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0290S4QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GT0290S4QW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enterprises are shipping AI agents without the monitoring infrastructure to understand when they break. Why observability is the next bottleneck after governance." />
+  <link rel="canonical" href="https://shreysatpathy.github.io/blog/the-observability-blindspot.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents | Shrey Satpathy" />
+  <meta property="og:description" content="Enterprises are shipping AI agents without the monitoring infrastructure to understand when they break. Why observability is the next bottleneck after governance." />
+  <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-observability-blindspot.html" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents | Shrey Satpathy" />
+  <meta name="twitter:description" content="Enterprises are shipping AI agents without the monitoring infrastructure to understand when they break. Why observability is the next bottleneck after governance." />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents",
+    "description": "Enterprises are shipping AI agents without the monitoring infrastructure to understand when they break. Why observability is the next bottleneck after governance.",
+    "url": "https://shreysatpathy.github.io/blog/the-observability-blindspot.html",
+    "datePublished": "2026-06-16",
+    "author": {
+      "@type": "Person",
+      "name": "Shrey Satpathy",
+      "url": "https://shreysatpathy.github.io/"
+    }
+  }
+  </script>
+  <title>The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+
+        <header class="post-header">
+          <h1>The Observability Blindspot: Why 80% of Enterprises Can't Debug Their AI Agents</h1>
+          <div class="post-meta-full">
+            <time datetime="2026-06-16">June 16, 2026</time>
+            <div class="post-tags">
+              <span class="tag">AI</span>
+              <span class="tag">Observability</span>
+              <span class="tag">Product Management</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="post-body">
+
+          <p>Your agent just approved a $200K refund to the wrong customer. The trace says "reasoning completed successfully." The logs show nothing unusual. The LLM, as far as it can tell, did exactly what it was asked to do. You have no idea why it made that decision — and no tooling to find out.</p>
+
+          <p>This scenario is playing out across enterprises right now. 22% of production AI deployments coordinate three or more agents, according to <a href="https://www.digitalapplied.com/blog/ai-agent-adoption-2026-enterprise-data-points">Digital Applied's 2026 survey</a>. Yet the same data shows that less than 30% of organizations have implemented any form of agent-specific observability — tracing for reasoning chains, token-cost attribution per decision step, or automated failure classification.</p>
+
+          <p>We solved for governance — <a href="the-governance-multiplier.html">the teams that build guardrails ship 12x more</a>. We're now running into the next bottleneck: Day 2 operations for agentic systems, and nobody has the tooling to understand what their agents are doing.</p>
+
+          <h3>The three layers of blind</h3>
+
+          <p><strong>1. Tracing breaks at reasoning depth.</strong> Traditional distributed tracing assumes deterministic request paths. An agent's reasoning chain is non-deterministic by design — it explores branches, backtracks, calls tools in unpredictable order, and sometimes loops. Existing APM tools weren't built for this. When your agent spends 47 seconds in "thinking" before deciding to delete a production database row, most observability platforms show you a single span with the label "llm.reason" and no detail. That's not observability. That's a black box with a timestamp.</p>
+
+          <p><strong>2. Cost attribution is a finger in the wind.</strong> The median enterprise's monthly LLM bill grew <a href="https://www.digitalapplied.com/blog/agentic-ai-statistics-2026-definitive-collection-150-data-points">7.2x year-over-year entering 2026</a>. When a single agentic workflow calls the model 15 times — some for reasoning, some for tool selection, some for response generation — which step drove the cost? Which customer's request triggered the expensive chain? Most teams can tell you their total monthly OpenAI bill. Almost none can tell you which agent, which workflow, or which user segment produced it. That's not a finance problem. It's an architecture problem that finance will eventually force you to solve.</p>
+
+          <p><strong>3. Failure classification is manual.</strong> A traditional service throws 500 errors. An agentic system fails silently — it "succeeds" at calling the wrong tool, or "completes" a task with the wrong output. S&P Global Market Intelligence reports that only 31% of enterprises have any agent in production, but <a href="https://www.digitalapplied.com/blog/ai-agent-adoption-2026-enterprise-data-points">88% of pilots fail to reach production</a>. The gap isn't just governance — it's the inability to answer "did it work?" with confidence. Without observability, every deployment is a leap of faith. Most organizations choose not to leap.</p>
+
+          <h3>What production-ready observability looks like</h3>
+
+          <p>The teams that are successfully running multi-agent systems in production — the 12% that cross the pilot graveyard — share a common pattern. They've invested in three things that most observability vendors don't sell yet:</p>
+
+          <p><strong>Reasoning-traced logging.</strong> Not just "what the LLM returned," but the full decision tree: which prompt template was selected, which tools were considered and rejected, which retrieval results ranked highest, and why the final action was chosen. This is closer to a debugger than a logger, and it's the difference between "we see the error" and "we understand the mistake."</p>
+
+          <p><strong>Span-level cost and latency budgeting.</strong> Each decision step gets an allocated inference budget. If an agent exceeds 3 model calls or 500ms per reasoning step, it surfaces before the workflow completes — not after. This turns cost from a monthly surprise into a per-transaction metric, and it makes the 7.2x bill growth explainable rather than alarming.</p>
+
+          <p><strong>Automated success criteria per workflow.</strong> "Did the agent complete the task" is a meaningless question for most agentic workflows. The right question is "did the output satisfy the acceptance criteria defined at invocation?" Teams that define explicit, machine-verifiable success criteria per agent workflow — and log whether those criteria were met — can classify failures without human review. This is what pushes agent deployments from the 31% who have one agent in production to the minority who run dozens reliably.</p>
+
+          <h3>The arc, continued</h3>
+
+          <p>This series has tracked the real barriers to enterprise AI — not model quality, but the unglamorous infrastructure that separates demos from production. <a href="the-great-cheapening.html">The Great Cheapening</a> made experimentation free. <a href="the-88-percent-problem.html">The 88% Problem</a> showed that pilots stall at governance. <a href="the-governance-multiplier.html">The Governance Multiplier</a> proved guardrails ship more. <a href="the-68-point-gap.html">The 68-Point Gap</a> revealed the distance between claiming and depending. <a href="the-enforcement-gap.html">The Enforcement Gap</a> showed policies without runtime controls. <a href="the-mandate-trap.html">The Mandate Trap</a> argued you can't review your way to maturity.</p>
+
+          <p>Observability is the next layer. You can have the best governance policies, the most redesigned workflows, and the strongest integration contracts — but if you can't see what your agents are doing, you're flying blind. And nobody budgets for a blind fleet.</p>
+
+          <p>Gartner projects $2.59 trillion in global AI spending in 2026. A growing share of that funds agentic systems. But without the observability to debug, attribute, and validate those systems, most of that spend will fund the same pilot-to-graveyard pipeline I've been writing about all week.</p>
+
+          <p>The teams that break out — the ones that cross from 31% production adoption to something like 80% — will be the ones that treat observability as a prerequisite, not an afterthought. They will invest in reasoning traces before they launch, cost attribution before they scale, and automated success criteria before they trust their agents with critical workflows.</p>
+
+          <p>Can you tell me, right now, what your most expensive agent workflow cost yesterday — and whether it succeeded according to criteria you defined before it ran? If not, you've found your next bottleneck.</p>
+
+          <p>What are you using for agent observability? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
+
+          <div style="padding-bottom: 40px;"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
