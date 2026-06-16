@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0290S4QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GT0290S4QW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="80% of AI agents bypass IAM controls and only 21.9% have unique identities. The identity gap is the biggest security blindspot in enterprise AI." />
+  <link rel="canonical" href="https://shreysatpathy.github.io/blog/the-identity-gap.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Identity Gap: Why 80% of AI Agents Are Running on Borrowed Credentials | Shrey Satpathy" />
+  <meta property="og:description" content="80% of AI agents bypass IAM controls and only 21.9% have unique identities. The identity gap is the biggest security blindspot in enterprise AI." />
+  <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-identity-gap.html" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Identity Gap: Why 80% of AI Agents Are Running on Borrowed Credentials | Shrey Satpathy" />
+  <meta name="twitter:description" content="80% of AI agents bypass IAM controls and only 21.9% have unique identities. The identity gap is the biggest security blindspot in enterprise AI." />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Identity Gap: Why 80% of AI Agents Are Running on Borrowed Credentials",
+    "description": "80% of AI agents bypass IAM controls and only 21.9% have unique identities. The identity gap is the biggest security blindspot in enterprise AI.",
+    "url": "https://shreysatpathy.github.io/blog/the-identity-gap.html",
+    "datePublished": "2026-06-17",
+    "author": {
+      "@type": "Person",
+      "name": "Shrey Satpathy",
+      "url": "https://shreysatpathy.github.io/"
+    }
+  }
+  </script>
+  <title>The Identity Gap: Why 80% of AI Agents Are Running on Borrowed Credentials | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+
+        <header class="post-header">
+          <h1>The Identity Gap: Why 80% of AI Agents Are Running on Borrowed Credentials</h1>
+          <div class="post-meta-full">
+            <time datetime="2026-06-17">June 17, 2026</time>
+            <div class="post-tags">
+              <span class="tag">AI</span>
+              <span class="tag">Security</span>
+              <span class="tag">Governance</span>
+              <span class="tag">Product Management</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="post-body">
+
+          <p>Here's a question I've started asking every AI engineering team I meet: "When your agent calls an API, whose credentials is it using?"</p>
+
+          <p>The answers are a masterclass in creative security debt. "It uses the service account." "It's embedded in the config file." "We haven't gotten to that yet." One team told me, honestly, "I don't actually know."</p>
+
+          <p>They're not alone. Akeyless's <a href="https://www.akeyless.io/blog/2026-ai-agent-identity-security-survey/">2026 AI Agent Identity Security Survey</a> found that fewer than half of organizations know where all their AI agent credentials are stored, and <strong>over 80% admit their agents regularly bypass IAM controls</strong>. Gravitee's <a href="https://www.gravitee.io/state-of-ai-agent-security">State of AI Agent Security 2026</a> puts the number of organizations that treat AI agents as independent, identity-bearing entities at just <strong>21.9%</strong>.</p>
+
+          <p>Nearly 80% of AI agents in production are running on borrowed credentials. Shared API keys. Standing service accounts. Tokens copy-pasted into environment files. And every single one of them has access to more than it needs.</p>
+
+          <h3>The identity debt spiral</h3>
+
+          <p>Identity debt in AI agents compounds faster than any technical debt I've seen. Here's why: in traditional software, a microservice inherits the identity of the pod or the VM it runs on. It's not great, but the blast radius is contained — a service can only do what its API endpoints allow. An AI agent is different. An agent doesn't have a fixed set of endpoints. It decides what to call based on reasoning. If an agent inherits a service account with broad permissions, it has <em>de facto</em> access to everything that account can reach. And the agent might discover capabilities the original developer never anticipated.</p>
+
+          <p>The Cloud Security Alliance's <a href="https://cloudsecurityalliance.org/press-releases/2026/04/16/more-than-half-of-organizations-experience-ai-agent-scope-violations-cloud-security-alliance-study-finds">April 2026 study</a> found that <strong>53% of organizations have had AI agents exceed their intended permissions</strong>. Only 8% said agents never exceed their scope. When scope violations occur — and they will — only 11% of organizations automatically block the action. The rest log it and hope someone reviews the logs.</p>
+
+          <p>This is the pattern that keeps SOC analysts up at night: an agent scrapes a Jira ticket for context, finds an API key in a comment, and uses it to pull customer PII from a data warehouse. Was that intended behavior? In a post-mortem, maybe. At runtime, there's no way to tell.</p>
+
+          <p>I wrote about <a href="the-enforcement-gap.html">the enforcement gap last week</a> — the 68-point chasm between policy confidence and runtime controls. The identity gap is the enforcement gap's root cause. You cannot enforce policy against an agent you cannot identify.</p>
+
+          <h3>Why nobody's solving this</h3>
+
+          <p>Three structural reasons explain why identity for AI agents is stuck in 2020 while the agents themselves are racing toward 2027.</p>
+
+          <p><strong>1. Agent identity doesn't fit the IAM model.</strong> Traditional IAM was built for humans and service accounts. Humans get a unique ID, MFA, and revocable sessions. Service accounts get a static secret and a scope. An AI agent is neither. It's ephemeral, it's stateful, it calls tools dynamically, and its behavior changes based on the prompt. IAM systems weren't designed for actors whose scope of action is determined by a model call, not a config file. Every identity team I've talked to is trying to retrofit agent identity into a framework built for cron jobs. It doesn't fit.</p>
+
+          <p><strong>2. Speed of deployment trumps speed of security.</strong> The Gartner forecast — <a href="https://www.gartner.com/en/newsroom/press-releases/2026-01-13-gartner-predicts-40-percent-of-enterprise-applications-will-embed-ai-agents-by-2026">40% of enterprise apps embedding task-specific agents by end of 2026</a> — means engineering teams are shipping agents as fast as they can build them. Identity is an afterthought because it's not on the critical path to demo. The agent works with a shared key. Identity is "a future sprint item." That sprint never comes because the next agent is already in progress.</p>
+
+          <p><strong>3. Nobody wants to own the problem.</strong> IAM teams own identity. AI/ML teams own agents. Platform teams own the runtime. Security teams own policy. The agent sits at the intersection of all four, and none of them want to be the one that slows down AI adoption by insisting on identity controls. The result is a collective action problem: everyone agrees agents need identity. Nobody is willing to be the bottleneck that enforces it.</p>
+
+          <h3>What agent identity looks like in practice</h3>
+
+          <p>The 21.9% of organizations that do treat agents as identity-bearing entities share a common architecture. It's not complicated, but it's deliberate:</p>
+
+          <p><strong>Every agent gets a unique, scoped identity at creation time.</strong> Before the agent makes its first tool call, it's registered in the identity system with a purpose, a permission boundary, and a max TTL. The identity is ephemeral — if the agent doesn't complete its task within the window, the identity expires. No standing credentials, no shared keys, no "we'll clean this up later."</p>
+
+          <p><strong>Every tool call is checked against the identity's scope.</strong> When the agent calls an API, the authorization layer evaluates the call against the agent's registered scope — not the scope of some underlying service account. The service account still exists underneath, but it's never exposed to the agent. The authorization layer translates the agent's intent into scoped, auditable actions. If the agent tries to call something outside its scope, the call is denied before it reaches the API. This is the pre-execution control I described in <a href="the-enforcement-gap.html">the enforcement gap</a> — applied at the identity level.</p>
+
+          <p><strong>Every action is attributable.</strong> Because every agent has a unique identity, every tool call, every API response, every data access is traceable to a specific agent instance. Not a "service account" or a "pod" — a specific agent, running a specific task, initiated by a specific user or trigger. This is the audit trail regulators are starting to ask for. ISO 42001 adoption is accelerating — 31% of enterprises now hold certification — and auditability is a core requirement.</p>
+
+          <p>The Akeyless survey found that organizations implementing these patterns reduced credential-related incidents by over 60%. The cost is real — identity infrastructure for agents requires mapping permissions, wiring authorization layers, and changing deployment workflows. The alternative is an agent fleet where every member has the keys to the kingdom and nobody knows which door it just opened.</p>
+
+          <h3>The regulatory clock is ticking</h3>
+
+          <p>The <a href="https://www.euaiact.com/">EU AI Act</a> is in effect. The SEC is watching. Gartner's May 2026 warning that <strong>40% of enterprises may demote or decommission autonomous agents by 2027</strong> cited inadequate risk controls as a root cause — and identity is the foundational risk control. You cannot audit what you cannot identify. You cannot contain what you cannot distinguish from legitimate traffic. You cannot trust an agent fleet where 80% of members are wearing someone else's badge.</p>
+
+          <p>The most striking number in the Gravitee survey isn't the 88% who've had security incidents — it's the 21.9% who treat agents as identifiable entities. That 78-point gap is the size of the identity debt the industry has already accumulated. And unlike code debt, identity debt can't be refactored after a breach.</p>
+
+          <p>In <a href="the-great-cheapening.html">The Great Cheapening</a>, I wrote about how 280x cheaper inference made agentic AI economically viable. The cheapening created the boom. Identity is the infrastructure that determines whether the boom leaves a trail or a crater. Every agent running on borrowed credentials today is an incident waiting for a trigger. The question isn't whether your agents will be audited — it's whether you'll have the identity infrastructure to survive the audit.</p>
+
+          <p>Does your AI agent fleet have unique identities, or is everyone sharing the same key? I'd love to hear — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
+
+          <div style="padding-bottom: 40px;"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
