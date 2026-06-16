@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GT0290S4QW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GT0290S4QW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="64% of enterprises cite evaluation gaps as the top blocker for AI agent production. Only 31% have a measurement framework. Why most teams are flying blind on agent performance." />
+  <link rel="canonical" href="https://shreysatpathy.github.io/blog/the-evaluation-gap.html" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="The Evaluation Gap: Why 64% of Enterprises Can't Tell If Their AI Agents Are Actually Working | Shrey Satpathy" />
+  <meta property="og:description" content="64% of enterprises cite evaluation gaps as the top blocker for AI agent production. Only 31% have a measurement framework. Why most teams are flying blind on agent performance." />
+  <meta property="og:url" content="https://shreysatpathy.github.io/blog/the-evaluation-gap.html" />
+  <meta property="og:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Evaluation Gap: Why 64% of Enterprises Can't Tell If Their AI Agents Are Actually Working | Shrey Satpathy" />
+  <meta name="twitter:description" content="64% of enterprises cite evaluation gaps as the top blocker for AI agent production. Only 31% have a measurement framework. Why most teams are flying blind on agent performance." />
+  <meta name="twitter:image" content="https://shreysatpathy.github.io/images/Golden_gate_bridge_in_San_Francisco.jpg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Evaluation Gap: Why 64% of Enterprises Can't Tell If Their AI Agents Are Actually Working",
+    "description": "64% of enterprises cite evaluation gaps as the top blocker for AI agent production. Only 31% have a measurement framework. Why most teams are flying blind on agent performance.",
+    "url": "https://shreysatpathy.github.io/blog/the-evaluation-gap.html",
+    "datePublished": "2026-06-16",
+    "author": {
+      "@type": "Person",
+      "name": "Shrey Satpathy",
+      "url": "https://shreysatpathy.github.io/"
+    }
+  }
+  </script>
+  <title>The Evaluation Gap: Why 64% of Enterprises Can't Tell If Their AI Agents Are Actually Working | Shrey Satpathy</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <nav class="main-nav">
+        <a href="../index.html" class="logo">Shrey Satpathy</a>
+        <div class="nav-links">
+          <a href="../index.html">Home</a>
+          <a href="index.html" class="active">Blog</a>
+          <a href="../projects/index.html">Projects</a>
+          <a href="../about.html">About</a>
+        </div>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="post-content">
+      <div class="container">
+        <a href="index.html" class="back-link">
+          <i class="fas fa-arrow-left"></i> Back to all posts
+        </a>
+
+        <header class="post-header">
+          <h1>The Evaluation Gap: Why 64% of Enterprises Can't Tell If Their AI Agents Are Actually Working</h1>
+          <div class="post-meta-full">
+            <time datetime="2026-06-16">June 16, 2026</time>
+            <div class="post-tags">
+              <span class="tag">AI</span>
+              <span class="tag">Evaluation</span>
+              <span class="tag">Product Management</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="post-body">
+
+          <p>Your agent runs in production. It processes 15,000 requests a day. The latency dashboard shows p99 at 1.2 seconds. The cost dashboard shows $0.003 per inference. The vendor dashboard shows 96% task completion. Your executive sponsor asks a simple question: "Is it doing a good job?" And you realize — you don't actually know what "good" means, and you're not sure how to find out.</p>
+
+          <p>This is the evaluation gap. And it is the single most expensive blind spot in enterprise AI deployment right now. Adobe's <a href="https://business.adobe.com/resources/digital-trends-report.html">2026 Digital Trends Report</a> found that only <strong>31% of organizations</strong> have implemented a measurement framework for agentic AI. Forrester and Anaconda's 2026 research puts the number even more starkly: <strong>64% of enterprise leaders</strong> cite evaluation gaps as the primary blocker preventing AI agents from reaching production — ahead of governance friction, model reliability, and security concerns. You cannot ship what you cannot grade. And most teams cannot grade anything.</p>
+
+          <p>Three numbers explain why evaluation has become the bottleneck that governance used to be.</p>
+
+          <p><strong>64%.</strong> The share of leaders who say they cannot evaluate their AI agents well enough to ship them to production, per Forrester and Anaconda's 2026 joint survey. This is not a marginal finding — it is the single most-cited barrier across every industry and company size in the study. Governance friction came second at 57%. Model reliability at 51%. The gap is not that agents don't work. It is that organizations have no systematic way to determine whether they work for their specific use case, on their specific data, inside their specific workflow. They are approving production deployments based on demos and intuition rather than evidence.</p>
+
+          <p><strong>31%.</strong> Adobe's finding on the share of organizations with an agentic AI measurement framework is the companion number that explains the first one. Two out of three enterprises deploying or planning to deploy AI agents have no defined method for measuring whether those agents are delivering the intended outcome. The most common "evaluation framework" in use today is the human-in-the-loop — a person who reviews agent outputs and flags errors. That is not an evaluation framework. That is a QA tax that doesn't scale. When an agent processes 15,000 requests per shift, no human can review more than a fraction. The un-reviewed fraction is where the risk compounds.</p>
+
+          <p><strong>5.1 months.</strong> The median payback period for AI agent deployments across all functions, per BCG and Forrester 2026 surveys. SDR agents pay back in 3.4 months. Finance and ops agents in 8.9 months. These numbers exist because someone measured the before state, established a baseline, and tracked the delta. The organizations achieving these payback periods share one thing in common: they didn't start measuring after deployment. They designed the evaluation framework <em>before</em> they designed the agent. The framework dictated the architecture, not the other way around.</p>
+
+          <h3>Why evaluation is harder for agents than for models</h3>
+
+          <p>Most AI teams understand model evaluation. You have an offline test set. You compute accuracy, precision, recall, F1. You compare against a baseline. You gate the release. This workflow existed before LLMs and it works well for classification and extraction tasks.</p>
+
+          <p>Agents break this paradigm entirely. An agent does not produce a single prediction — it executes a multi-step workflow, calls tools, reads from APIs, makes conditional decisions, and produces outputs that may be correct in outcome but wrong in method (or vice versa). Standard model metrics capture none of this. "Task completion rate" sounds meaningful until you realize the agent completed the task by hallucinating a customer ID and charging the wrong account. The metric said 100%. The outcome was a disaster.</p>
+
+          <p>Capgemini's <a href="https://www.capgemini.com/insights/research-library/agentic-ai/">2026 Agentic AI Research</a> identified this as the fundamental evaluation paradox: agent outputs are too complex for simple metrics but too high-volume for human review. The organizations that solve this — only 12% of their survey respondents — treat evaluation as a three-layer problem: <strong>output quality</strong> (did the agent produce the right result?), <strong>process integrity</strong> (did the agent follow the correct steps to get there?), and <strong>business outcome</strong> (did the agent's work actually improve the metric that matters to the business?). Most teams only measure the first one. Almost none measure the third.</p>
+
+          <h3>The three-layer framework that separates production from pilot</h3>
+
+          <p><strong>Layer 1: Output quality.</strong> This is the easiest layer and the one most teams stop at. Did the agent return the correct answer? For deterministic tasks (data extraction, classification, form filling), you can build an automated ground-truth comparison. For open-ended tasks (summarization, code generation, research), you need LLM-as-judge evaluations, reference-based scoring, or both. The key insight: this layer tells you if the agent is technically competent. It tells you nothing about whether it is operationally safe or business-valuable. Google Cloud's <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/agents/evaluation">2026 Agent Evaluation Guide</a> recommends at least 200 evaluated examples per use case — fewer than 50 samples and your confidence intervals are too wide to make deployment decisions.</p>
+
+          <p><strong>Layer 2: Process integrity.</strong> This layer is where most production failures live. The agent produced the right answer — but did it access the right data source? Did it call the right API with the right parameters? Did it follow the intended tool-use sequence, or did it take a creative shortcut that happened to work this time? Trace-based evaluation — capturing every tool call, every API response, every conditional branch — is the only way to answer these questions. LangChain's LangSmith, Arize AI, and Helicone are building the tooling for this, but adoption remains low. S&P Global's 2026 survey found that only <strong>22% of production agent deployments</strong> have trace-based evaluation in place. The other 78% are relying on output metrics alone.</p>
+
+          <p><strong>Layer 3: Business outcome.</strong> The hardest layer and the one that determines whether your agent delivers actual value. Did the agent reduce cost per ticket? Increase revenue per rep? Shorten cycle time? Improve accuracy of decision-making? These metrics require something most teams skip: a pre-deployment baseline. IDC's 2025 AI Investment Survey found that 61% of enterprises cannot demonstrate measurable ROI because they never established a baseline before deploying. You cannot prove the agent improved cost per ticket if you never measured cost per ticket before the agent existed. The 31% of organizations with a measurement framework are doing this. The 69% without one are guessing.</p>
+
+          <h3>Why the gap exists — and how to close it</h3>
+
+          <p>The evaluation gap is not a tooling problem, though better tooling helps. It is a design problem. Most teams design the agent first and the evaluation framework second — if they design it at all. The teams that ship agents to production (the 12% who succeed, per Forrester) reverse this order. They define what "good" looks like, design the measurement framework, establish the baseline, build the trace infrastructure, and <em>then</em> build the agent to spec.</p>
+
+          <p>The Bain & Company 2026 Pathfinder data surfaces the same pattern from a different angle: the companies that reported successful AI outcomes invested significantly more in measurement infrastructure as a percentage of total project cost — not because measurement is expensive, but because they understood that you cannot optimize what you cannot observe. They treated evaluation as a prerequisite, not a post-deployment nice-to-have.</p>
+
+          <p>The Mayfield <a href="https://www.mayfield.com/the-agentic-enterprise-in-2026">2026 CXO Survey</a> adds another dimension: 56% of enterprises now name a dedicated "AI agent owner" or "agentic ops" lead. This is the organizational acknowledgment that evaluation is not a one-time gate — it is an ongoing operational function. Agents drift. Data schemas change. User behavior shifts. The ground truth you validated against in April may be irrelevant by July. Continuous evaluation — automated, trace-based, outcome-linked — is the only way to maintain confidence as your agentic footprint scales.</p>
+
+          <h3>The arc, continued</h3>
+
+          <p>This series has traced the real barriers to enterprise AI — the unglamorous infrastructure problems that separate demos from production. <a href="the-great-cheapening.html">The Great Cheapening</a> made experimentation free. <a href="the-88-percent-problem.html">The 88% Problem</a> showed that pilots stall at governance. <a href="the-governance-multiplier.html">The Governance Multiplier</a> proved that guardrails ship more. <a href="the-68-point-gap.html">The 68-Point Gap</a> revealed the distance between claiming and depending. <a href="the-enforcement-gap.html">The Enforcement Gap</a> showed policies without runtime controls. <a href="the-mandate-trap.html">The Mandate Trap</a> argued you can't review your way to maturity. <a href="the-observability-blindspot.html">The Observability Blindspot</a> showed why you need to see what your agents are doing. <a href="the-deprecation-crisis.html">The Deprecation Crisis</a> surfaced the hidden cost of model version churn. <a href="the-value-chasm.html">The Value Chasm</a> exposed the gap between AI spend and AI return. <a href="the-fluency-gap.html">The Fluency Gap</a> showed that technology without literacy is infrastructure without users. <a href="the-data-debt.html">The Data Debt</a> proved the foundation is what separates the 6% of winners from the 94% who are stuck.</p>
+
+          <p>The evaluation gap sits at the intersection of all of them. You can have governance, observability, enforcement, literacy, and clean data — but if you cannot measure whether any of it is working, you are flying blind. The 12% who ship agents to production are not building better agents. They are building better ways to evaluate them — and they are designing those frameworks before they write a single line of agent code.</p>
+
+          <p>What does "good" mean for your AI agent — and how do you know when you've achieved it? I'd love to hear how your team is tackling the evaluation gap — <a href="https://www.linkedin.com/in/shrey-satpathy-99a66158/">LinkedIn</a> or <a href="mailto:shrey.satpathy@gmail.com">shrey.satpathy@gmail.com</a>.</p>
+
+          <div style="padding-bottom: 40px;"></div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <script src="../js/components.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
