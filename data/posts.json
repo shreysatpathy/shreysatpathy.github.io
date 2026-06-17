@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Labor Paradox",
+    "filename": "the-labor-paradox.html",
+    "date": "June 29, 2026",
+    "excerpt": "US software developer employment hit a record 2.2 million in 2025, rising 8.5% year over year. The AI-replacement narrative has it backwards: AI is creating more demand for developers, not less.",
+    "tags": ["AI", "Economics", "Workforce", "Product Management"],
+    "image": "images/labor-paradox.svg"
+  },
+  {
     "title": "The Model Debt",
     "filename": "the-model-debt.html",
     "date": "June 27, 2026",
