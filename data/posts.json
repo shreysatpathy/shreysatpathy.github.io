@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Reliability Gap",
+    "filename": "the-reliability-gap.html",
+    "date": "June 26, 2026",
+    "excerpt": "AI agents fail 70-95% of the time in production. At 85% step reliability, a 10-step workflow succeeds only ~20% of the time. Why the reliability gap — not the model — is the real bottleneck.",
+    "tags": ["AI", "Infrastructure", "Reliability", "Product Management"],
+    "image": "images/reliability.svg"
+  },
+  {
     "title": "The Autonomy Gap",
     "filename": "the-autonomy-gap.html",
     "date": "June 24, 2026",
