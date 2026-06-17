@@ -1,29 +1,37 @@
 #!/bin/bash
-# auto-blog.sh — Research, author, and push a new blog post
-# Intended to run hourly. Requires OPENCODE_API_KEY and OPENCODE_BASE_URL.
-# Usage: ./auto-blog.sh
-# Or add to crontab: 0 * * * * /path/to/auto-blog.sh
+# auto-blog.sh — Every hour: research, author, push a new blog post
+# Installed via crontab: 0 * * * * /vercel/sandbox/agent-workspace/repos/shreysatpathy.github.io/auto-blog.sh
 
 REPO_DIR="/vercel/sandbox/agent-workspace/repos/shreysatpathy.github.io"
 cd "$REPO_DIR" || exit 1
 
-# Pull latest
 git pull origin master
 
-# Run research and authoring via opencode
-# This script triggers the opencode agent to research current AI topics,
-# author a new blog post matching the style of the blog, and push changes.
-# The actual LLM call happens through opencode's agent loop.
+# Trigger opencode to research, write, and push via the task tool
+opencode --agent general --prompt "
+You are Shrey Satpathy's automated blog writer. Your task every hour:
 
-echo "Starting blog automation cycle..."
-echo "Researching current AI topics..."
-echo "Authoring new post matching tone and style..."
-echo "Pushing changes to master..."
+1. Read existing blog posts at $REPO_DIR/blog/ to understand the style and series
+2. Web search for the latest AI enterprise trends, agentic AI adoption news, and emerging research
+3. Pick ONE fresh topic NOT already covered in the blog's 'gap' series
+4. Author a new HTML blog post matching the analytical, data-driven PM voice with specific statistics, citations, and the signature 'The [X Gap]' title framing
+5. Name the file blog/the-[topic]-gap.html (lowercase, hyphenated)
+6. Update blog/index.html with the new post as the first entry
+7. Update index.html featured section with the new post as the first entry
+8. git add, commit, and push to origin master
 
-# The following would be the opencode command to trigger the workflow:
-# opencode --agent general --prompt "Research latest AI trends from web search, author a new blog post matching the blog's style (data-driven, analytical, PM voice), create the HTML file, update index pages, and push to master"
+The post must:
+- Start with a relatable scenario hook
+- Use specific statistics from real sources (Gartner, Deloitte, McKinsey, Goldman Sachs, etc.)
+- Bold key numbers with <strong> tags
+- Have h3 subheadings
+- Reference related posts in the series where relevant
+- End with LinkedIn/email CTA
+- Match the exact HTML template structure found in existing posts
+- Date the post one day after the most recent post in the series
+- Tags format: <span class=\"tag\">AI</span> etc.
 
-# For fully automated use, integrate with a cron-compatible trigger
-# that invokes opencode with the research+author+push workflow.
+Do NOT add comments to the HTML. Keep the post concise (~800-1200 words).
+"
 
 echo "Cycle complete."
