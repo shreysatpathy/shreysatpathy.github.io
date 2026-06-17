@@ -8,6 +8,14 @@
     "image": "images/labor-paradox.svg"
   },
   {
+    "title": "The Sovereignty Gap",
+    "filename": "the-sovereignty-gap.html",
+    "date": "June 29, 2026",
+    "excerpt": "EU AI Act enforcement, China's sovereign AI stack, and America's regulatory vacuum are creating three incompatible AI markets. Why the sovereignty gap is the most expensive architecture decision nobody debated.",
+    "tags": ["AI", "Governance", "Regulation", "Product Management"],
+    "image": "images/runtime.svg"
+  },
+  {
     "title": "The Model Debt",
     "filename": "the-model-debt.html",
     "date": "June 27, 2026",
