@@ -88,6 +88,14 @@
     "image": "images/identity.svg"
   },
   {
+    "title": "The RCA Gap: Why 60% of Enterprises Can't Determine Why Their AI Agents Failed — And Why Silent Failures Are the Most Expensive Debugging Problem Nobody Instrumented For",
+    "filename": "the-rca-gap.html",
+    "date": "June 17, 2026",
+    "excerpt": "Nearly 60% of enterprises cannot automatically identify root cause when their AI agents fail. Why silent failures are the most expensive debugging problem nobody instrumented for.",
+    "tags": ["AI", "Observability", "Reliability", "Product Management"],
+    "image": "images/Golden_gate_bridge_in_San_Francisco.jpg"
+  },
+  {
     "title": "The Sprawl Gap",
     "filename": "the-sprawl-gap.html",
     "date": "June 16, 2026",
