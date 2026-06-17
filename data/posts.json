@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Model Debt",
+    "filename": "the-model-debt.html",
+    "date": "June 27, 2026",
+    "excerpt": "67% of enterprises run more LLMs than they can manage. Each one adds evaluation burden, deprecation risk, and operational overhead. Why model debt is the hidden tax nobody budgeted for.",
+    "tags": ["AI", "FinOps", "Infrastructure", "Product Management"],
+    "image": "images/runtime.svg"
+  },
+  {
     "title": "The Reliability Gap",
     "filename": "the-reliability-gap.html",
     "date": "June 26, 2026",
