@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Review Gap: Why 41% of Production Code Is AI-Generated But Only 29% of Developers Trust It — And Why Every Unreviewed AI Commit Is the Most Expensive Technical Debt Nobody Budgeted For",
+    "filename": "the-review-gap.html",
+    "date": "July 29, 2026",
+    "excerpt": "84% of developers use AI coding tools and 41% of production code is AI-generated, but only 29% trust what they ship. Why the review gap is the most expensive technical debt nobody budgeted for — and the four patterns that close it.",
+    "tags": ["AI", "Engineering", "Product Management"],
+    "image": "images/runtime.svg"
+  },
+  {
     "title": "The Labor Paradox",
     "filename": "the-labor-paradox.html",
     "date": "June 29, 2026",
