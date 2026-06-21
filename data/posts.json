@@ -1,5 +1,13 @@
 [
   {
+    "title": "The Sustainability Gap: Why 77% of Enterprise AI Deployments Stall After Going Live — And Why Every Batch-Connected Agent Is the Most Expensive Operational Debt Nobody Architected For",
+    "filename": "the-sustainability-gap.html",
+    "date": "August 9, 2026",
+    "excerpt": "77% of enterprise AI agent deployments stall after reaching production. 61% are abandoned. Confluent's 2026 Data Streaming Report reveals that 72% of enterprises now cite real-time data infrastructure as a major challenge — up 15 points in one year. Why the sustainability gap is the most expensive operational failure nobody architected for — and the four patterns that close it.",
+    "tags": ["AI", "Infrastructure", "Data", "Product Management"],
+    "image": "images/runtime.svg"
+  },
+  {
     "title": "The Review Gap: Why 41% of Production Code Is AI-Generated But Only 29% of Developers Trust It — And Why Every Unreviewed AI Commit Is the Most Expensive Technical Debt Nobody Budgeted For",
     "filename": "the-review-gap.html",
     "date": "July 29, 2026",
