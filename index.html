@@ -12,6 +12,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Shrey Satpathy">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
@@ -36,34 +37,75 @@
 
   <!-- Structured data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Shrey Satpathy",
-    "url": "https://shreysatpathy.github.io/",
-    "sameAs": [
-      "https://www.linkedin.com/in/shreysatpathy/",
-      "https://github.com/shreysatpathy"
-    ],
-    "jobTitle": "AI Platform Product Manager"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://shreysatpathy.github.io/#website",
+      "name": "Shrey Satpathy",
+      "url": "https://shreysatpathy.github.io/",
+      "publisher": {
+        "@id": "https://shreysatpathy.github.io/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://shreysatpathy.github.io/#person",
+      "name": "Shrey Satpathy",
+      "url": "https://shreysatpathy.github.io/",
+      "image": "https://shreysatpathy.github.io/images/me.jpg",
+      "description": "AI product leader building agentic enterprise software. Senior Product Manager for the AI Platform at C3 AI; led the 0 to 1 launch of C3 Code.",
+      "jobTitle": "Senior Product Manager - AI Platform",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "C3 AI",
+        "url": "https://c3.ai/"
+      },
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Georgia Institute of Technology"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "North Carolina State University"
+        }
+      ],
+      "knowsAbout": [
+        "Agentic AI systems",
+        "AI product management",
+        "Machine learning systems",
+        "Developer platforms",
+        "Observability",
+        "CI/CD",
+        "Reinforcement learning",
+        "Nuclear engineering"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/shrey-satpathy-99a66158/",
+        "https://github.com/shreysatpathy"
+      ]
+    }
+  ]
+}
   </script>
   <title>Shrey Satpathy — AI Product Leader Building Agentic Enterprise Software</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
   <header class="site-header">
     <div class="container">
       <nav class="main-nav">
-        <a href="index.html" class="logo">Shrey Satpathy</a>
+        <a href="/" class="logo">Shrey Satpathy</a>
         <div class="nav-links">
-          <a href="index.html" class="active">Home</a>
-          <a href="blog/index.html">Blog</a>
-          <a href="projects/index.html">Projects</a>
+          <a href="/" class="active">Home</a>
+          <a href="/blog/">Blog</a>
+          <a href="/projects/">Projects</a>
           <a href="about.html">About</a>
         </div>
         <button class="theme-toggle" aria-label="Toggle dark mode">
@@ -79,7 +121,7 @@
         <h1 class="reveal"><span class="name">Shrey Satpathy</span><span class="sep"> — </span>AI Product Leader Building Agentic Enterprise Software</h1>
         <p class="intro-lede reveal reveal-2">I write about AI product management, agentic software systems, developer platforms, observability, and the future of enterprise AI applications.</p>
         <div class="intro-links reveal reveal-3">
-          <a href="projects/index.html" class="text-link">View My Work <span class="arrow">→</span></a>
+          <a href="/projects/" class="text-link">View My Work <span class="arrow">→</span></a>
           <a href="about.html" class="text-link">About Me <span class="arrow">→</span></a>
         </div>
       </div>
@@ -89,7 +131,7 @@
       <div class="container">
         <header class="section-head">
           <h2><span class="index">01</span>Blog Posts</h2>
-          <a href="blog/index.html" class="text-link">View All Posts <span class="arrow">→</span></a>
+          <a href="/blog/" class="text-link">View All Posts <span class="arrow">→</span></a>
         </header>
         <ol class="post-list">
           <li>
@@ -170,7 +212,7 @@
       <div class="container">
         <header class="section-head">
           <h2><span class="index">02</span>Featured Projects</h2>
-          <a href="projects/index.html" class="text-link">View All Projects <span class="arrow">→</span></a>
+          <a href="/projects/" class="text-link">View All Projects <span class="arrow">→</span></a>
         </header>
         <ul class="project-list">
           <li>

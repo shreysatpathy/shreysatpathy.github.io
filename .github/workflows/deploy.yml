@@ -38,6 +38,9 @@ jobs:
       - name: Run tests
         run: npm test
       
+      - name: Remove build-only files from the published site
+        run: rm -rf node_modules
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
