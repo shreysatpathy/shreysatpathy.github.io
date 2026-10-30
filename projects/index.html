@@ -12,6 +12,10 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark-mode')}catch(e){}</script>
   <meta name="description" content="Projects by Shrey Satpathy — AI coding agents, ML platforms, physics simulation, enterprise software, and gamified sandbox environments." />
   <link rel="canonical" href="https://shreysatpathy.github.io/projects/" />
 
@@ -66,84 +70,51 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <h1>Projects</h1>
-        <p>When I do something interesting that leads to building something (outside of my day job), I like to document it here.</p>
+        <h1 class="reveal">Projects</h1>
+        <p class="reveal reveal-2">When I do something interesting that leads to building something (outside of my day job), I like to document it here.</p>
       </div>
     </section>
 
-    <section class="projects-list">
+    <section class="section projects-list">
       <div class="container">
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-card-image">
-              <img src="../images/herding-agents-boltz.png" alt="HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="project-card-content">
+        <ul class="project-list">
+          <li>
+            <div>
               <h3><a href="herding-agents.html">HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents</a></h3>
-              <p class="project-description">An interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.</p>
-              <div class="project-tech">
-                <span class="tech">AI</span>
-                <span class="tech">Open Source</span>
-                <span class="tech">Education</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/shreysatpathy/herdingAgents" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
+              <p>An interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.</p>
+              <div class="tags">AI · Open Source · Education</div>
+              <a href="https://github.com/shreysatpathy/herdingAgents" class="text-link">Source Code <span class="arrow ne">↗</span></a>
             </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card-image">
-              <img src="../images/microPlat.jpg" alt="Vibe-Coding an ML Platform" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="project-card-content">
+            <a href="herding-agents.html" class="project-thumb" tabindex="-1" aria-hidden="true"><img src="../images/herding-agents-boltz.png" alt="" loading="lazy"></a>
+          </li>
+          <li>
+            <div>
               <h3><a href="vibe-coding-an-ml-platform.html">Vibe-Coding an ML Platform</a></h3>
-              <p class="project-description">An exploration in testing out SWE-Agents for infrastructure as code</p>
-              <div class="project-tech">
-                <span class="tech">Machine Learning</span>
-                <span class="tech">DevOps</span>
-                <span class="tech">Platform Engineering</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/shreysatpathy/microPlat" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
+              <p>An exploration in testing out SWE-Agents for infrastructure as code</p>
+              <div class="tags">Machine Learning · DevOps · Platform Engineering</div>
+              <a href="https://github.com/shreysatpathy/microPlat" class="text-link">Source Code <span class="arrow ne">↗</span></a>
             </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card-image">
-              <img src="../images/the_world.png" alt="Can LLM agents simulate the world?" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="project-card-content">
+            <a href="vibe-coding-an-ml-platform.html" class="project-thumb" tabindex="-1" aria-hidden="true"><img src="../images/microPlat.jpg" alt="" loading="lazy"></a>
+          </li>
+          <li>
+            <div>
               <h3><a href="simulating-the-world.html">Can LLM agents simulate the world?</a></h3>
-              <p class="project-description">CRUD apps are easy, can coding agents build arbitrary simulation environments?</p>
-              <div class="project-tech">
-                <span class="tech">Simulation</span>
-                <span class="tech">Physics</span>
-                <span class="tech">Reinforcement Learning</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/shreysatpathy/rlexperiments" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
+              <p>CRUD apps are easy, can coding agents build arbitrary simulation environments?</p>
+              <div class="tags">Simulation · Physics · Reinforcement Learning</div>
+              <a href="https://github.com/shreysatpathy/rlexperiments" class="text-link">Source Code <span class="arrow ne">↗</span></a>
             </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card-image">
-              <img src="../images/v0_website.png" alt="Is this meta programming?" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="project-card-content">
+            <a href="simulating-the-world.html" class="project-thumb" tabindex="-1" aria-hidden="true"><img src="../images/the_world.png" alt="" loading="lazy"></a>
+          </li>
+          <li>
+            <div>
               <h3><a href="windsurf-personal-website.html">Is this meta programming?</a></h3>
-              <p class="project-description">A blog post detailing how I used Windsurf to build this personal website from scratch.</p>
-              <div class="project-tech">
-                <span class="tech">Windsurf</span>
-                <span class="tech">AI</span>
-                <span class="tech">Static Site</span>
-                <span class="tech">GitHub Actions</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/shreysatpathy/shreysatpathy.github.io" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
+              <p>A blog post detailing how I used Windsurf to build this personal website from scratch.</p>
+              <div class="tags">Windsurf · AI · Static Site · GitHub Actions</div>
+              <a href="https://github.com/shreysatpathy/shreysatpathy.github.io" class="text-link">Source Code <span class="arrow ne">↗</span></a>
             </div>
-          </article>
-        </div>
+            <a href="windsurf-personal-website.html" class="project-thumb" tabindex="-1" aria-hidden="true"><img src="../images/v0_website.png" alt="" loading="lazy"></a>
+          </li>
+        </ul>
       </div>
     </section>
   </main>

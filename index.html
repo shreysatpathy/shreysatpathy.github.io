@@ -12,6 +12,10 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark-mode')}catch(e){}</script>
   <meta name="google-site-verification" content="OMO1Mb5R6y-ki8BsIb903KcpfAhmKD4d63r1igF4qZg" />
   <!-- Primary SEO meta -->
   <meta name="description" content="Shrey Satpathy — AI product leader building agentic enterprise software. Blog on AI product management, agentic systems, developer platforms, and observability." />
@@ -70,201 +74,135 @@
   </header>
 
   <main>
-    <section class="hero hero-fullbleed">
-      <div class="hero-media">
-        <img src="images/Golden_gate_bridge_in_San_Francisco.jpg" alt="" />
-      </div>
-      <div class="container hero-overlay">
-        <div class="hero-text">
-          <h1>Shrey Satpathy — AI Product Leader Building Agentic Enterprise Software</h1>
-          <p>I write about AI product management, agentic software systems, developer platforms, observability, and the future of enterprise AI applications.</p>
-          <div class="hero-buttons">
-            <a href="projects/index.html" class="btn btn-light">View My Work </a>
-            <a href="about.html" class="btn btn-dark">About Me <i class="fas fa-arrow-right"></i></a>
-          </div>
+    <section class="intro">
+      <div class="container">
+        <h1 class="reveal"><span class="name">Shrey Satpathy</span><span class="sep"> — </span>AI Product Leader Building Agentic Enterprise Software</h1>
+        <p class="intro-lede reveal reveal-2">I write about AI product management, agentic software systems, developer platforms, observability, and the future of enterprise AI applications.</p>
+        <div class="intro-links reveal reveal-3">
+          <a href="projects/index.html" class="text-link">View My Work <span class="arrow">→</span></a>
+          <a href="about.html" class="text-link">About Me <span class="arrow">→</span></a>
         </div>
       </div>
     </section>
 
-    <section class="featured-posts">
+    <section class="section featured-posts">
       <div class="container">
-        <h2>Blog Posts</h2>
-        <div class="post-grid">
-          <article class="post-card">
-            <div class="post-card-image">
-              <img src="images/future_software.png" alt="My bets in software" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="post-card-content">
-              <h3><a href="blog/my-bets-in-software.html">My bets in software</a></h3>
-              <p class="post-meta">June 15, 2025</p>
-              <p class="post-excerpt">Forecasting the future of software development and placing bets on how AI will transform the industry.</p>
-              <div class="post-tags">
-                <span class="tag">AI</span>
-                <span class="tag">Software</span>
-                <span class="tag">Future</span>
+        <header class="section-head">
+          <h2><span class="index">01</span>Blog Posts</h2>
+          <a href="blog/index.html" class="text-link">View All Posts <span class="arrow">→</span></a>
+        </header>
+        <ol class="post-list">
+          <li>
+            <a href="blog/the-labor-paradox.html">
+              <time datetime="2026-06-29">June 29, 2026</time>
+              <div>
+                <h3>The Labor Paradox: Why Developer Employment Hit a Record High During the AI Boom</h3>
+                <p>Developer employment hit a record high during the biggest explosion of AI coding tools. Here&#x27;s why.</p>
+                <div class="tags">AI · Economics · Workforce · Product Management</div>
               </div>
-            </div>
-          </article>
-          <article class="post-card">
-            <div class="post-card-image">
-              <img src="images/goodjira.png" alt="GoodJira" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="post-card-content">
-              <h3><a href="blog/goodjira.html">GoodJira: Project Management for AI Agents</a></h3>
-              <p class="post-meta">June 18, 2025</p>
-              <p class="post-excerpt">Imagining what project management tools look like when your developers are SWE-agents.</p>
-              <div class="post-tags">
-                <span class="tag">AI</span>
-                <span class="tag">Productivity</span>
+            </a>
+          </li>
+          <li>
+            <a href="blog/the-68-point-gap.html">
+              <time datetime="2026-06-15">June 15, 2026</time>
+              <div>
+                <h3>The 68-Point Gap: Why 88% of Companies Say They Use AI But Only 20% Actually Do</h3>
+                <p>88% of organizations say they use AI. The Census Bureau says only 20% actually do.</p>
+                <div class="tags">AI · Adoption · Product Management</div>
               </div>
-            </div>
-          </article>
-          <article class="post-card">
-            <div class="post-card-image">
-              <img src="images/Apple_II_Plus,_Museum_of_the_Moving_Image.jpg" alt="Software - what is it good for?" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="post-card-content">
-              <h3><a href="blog/software-what-is-it-good-for.html">Software - what is it good for?</a></h3>
-              <p class="post-meta">November 8, 2025</p>
-              <p class="post-excerpt">Four fundamental uses of software: math, brokering human interactions, entertainment, and software for software.</p>
-              <div class="post-tags">
-                <span class="tag">Software</span>
-                <span class="tag">Philosophy</span>
+            </a>
+          </li>
+          <li>
+            <a href="blog/the-great-cheapening.html">
+              <time datetime="2026-06-15">June 15, 2026</time>
+              <div>
+                <h3>The Great Cheapening: How 280x Cheaper Inference Rewrote AI Economics</h3>
+                <p>Inference costs dropped 280x from 2022 to 2026. This single economic shift explains everything.</p>
+                <div class="tags">AI · Economics · Product Management</div>
               </div>
-            </div>
-          </article>
-          <article class="post-card">
-            <div class="post-card-image">
-              <img src="images/88-percent-problem.svg" alt="The 88% Problem" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="post-card-content">
-              <h3><a href="blog/the-88-percent-problem.html">The 88% Problem: Why Most AI Agent Pilots Never Reach Production</a></h3>
-              <p class="post-meta">June 15, 2026</p>
-              <p class="post-excerpt">88% of AI agent pilots never reach production. It's not the model — it's the governance.</p>
-              <div class="post-tags">
-                <span class="tag">AI</span>
-                <span class="tag">Agents</span>
-                <span class="tag">Product Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="blog/the-88-percent-problem.html">
+              <time datetime="2026-06-15">June 15, 2026</time>
+              <div>
+                <h3>The 88% Problem: Why Most AI Agent Pilots Never Reach Production</h3>
+                <p>88% of AI agent pilots never reach production. It&#x27;s not the model — it&#x27;s the governance.</p>
+                <div class="tags">AI · Agents · Product Management</div>
               </div>
-            </div>
-          </article>
-          <article class="post-card">
-            <div class="post-card-image">
-              <img src="images/cheapening.svg" alt="The Great Cheapening" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="post-card-content">
-              <h3><a href="blog/the-great-cheapening.html">The Great Cheapening: How 280x Cheaper Inference Rewrote AI Economics</a></h3>
-              <p class="post-meta">June 15, 2026</p>
-              <p class="post-excerpt">Inference costs dropped 280x from 2022 to 2026. This single economic shift explains everything.</p>
-              <div class="post-tags">
-                <span class="tag">AI</span>
-                <span class="tag">Economics</span>
-                <span class="tag">Product Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="blog/software-what-is-it-good-for.html">
+              <time datetime="2025-11-08">November 8, 2025</time>
+              <div>
+                <h3>Software - what is it good for?</h3>
+                <p>Four fundamental uses of software: math, brokering human interactions, entertainment, and software for software.</p>
+                <div class="tags">Software · Philosophy</div>
               </div>
-            </div>
-          </article>
-          <article class="post-card">
-            <div class="post-card-image">
-              <img src="images/68-point-gap.svg" alt="The 68-Point Gap" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="post-card-content">
-              <h3><a href="blog/the-68-point-gap.html">The 68-Point Gap: Why 88% of Companies Say They Use AI But Only 20% Actually Do</a></h3>
-              <p class="post-meta">June 15, 2026</p>
-              <p class="post-excerpt">88% of organizations say they use AI. The Census Bureau says only 20% actually do.</p>
-              <div class="post-tags">
-                <span class="tag">AI</span>
-                <span class="tag">Adoption</span>
-                <span class="tag">Product Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="blog/goodjira.html">
+              <time datetime="2025-06-18">June 18, 2025</time>
+              <div>
+                <h3>GoodJira: Project Management for AI Agents</h3>
+                <p>Imagining what project management tools look like when your developers are SWE-agents.</p>
+                <div class="tags">AI · Productivity</div>
               </div>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div class="post-card-image">
-              <img src="images/labor-paradox.svg" alt="The Labor Paradox" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="post-card-content">
-              <h3><a href="blog/the-labor-paradox.html">The Labor Paradox: Why Developer Employment Hit a Record High During the AI Boom</a></h3>
-              <p class="post-meta">June 29, 2026</p>
-              <p class="post-excerpt">Developer employment hit a record high during the biggest explosion of AI coding tools. Here's why.</p>
-              <div class="post-tags">
-                <span class="tag">AI</span>
-                <span class="tag">Economics</span>
-                <span class="tag">Workforce</span>
-                <span class="tag">Product Management</span>
+            </a>
+          </li>
+          <li>
+            <a href="blog/my-bets-in-software.html">
+              <time datetime="2025-06-15">June 15, 2025</time>
+              <div>
+                <h3>My bets in software</h3>
+                <p>Forecasting the future of software development and placing bets on how AI will transform the industry.</p>
+                <div class="tags">AI · Software · Future</div>
               </div>
-            </div>
-          </article>
-        </div>
-        <div class="view-all">
-          <a href="blog/index.html" class="btn">View All Posts</a>
-        </div>
+            </a>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <section class="featured-projects">
+    <section class="section featured-projects">
       <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-card-image">
-              <img src="images/herding-agents-boltz.png" alt="HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="project-card-content">
+        <header class="section-head">
+          <h2><span class="index">02</span>Featured Projects</h2>
+          <a href="projects/index.html" class="text-link">View All Projects <span class="arrow">→</span></a>
+        </header>
+        <ul class="project-list">
+          <li>
+            <div>
               <h3><a href="projects/herding-agents.html">HerdingAgents: A Gamified Sandbox for Learning to Work With AI Coding Agents</a></h3>
-              <p class="project-description">An interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.</p>
-              <div class="project-tech">
-                <span class="tech">AI</span>
-                <span class="tech">Open Source</span>
-                <span class="tech">Education</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/shreysatpathy/herdingAgents" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
+              <p>An interactive, retro-styled platform that teaches you how to effectively use AI coding agents through a gamified curriculum called Agent Ninja.</p>
+              <div class="tags">AI · Open Source · Education</div>
+              <a href="https://github.com/shreysatpathy/herdingAgents" class="text-link">Source Code <span class="arrow ne">↗</span></a>
             </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card-image">
-              <img src="images/microPlat.jpg" alt="Vibe-Coding an ML Platform" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="project-card-content">
+            <a href="projects/herding-agents.html" class="project-thumb" tabindex="-1" aria-hidden="true"><img src="images/herding-agents-boltz.png" alt="" loading="lazy"></a>
+          </li>
+          <li>
+            <div>
               <h3><a href="projects/vibe-coding-an-ml-platform.html">Vibe-Coding an ML Platform</a></h3>
-              <p class="project-description">An exploration in testing out SWE-Agents for infrastructure as code</p>
-              <div class="project-tech">
-                <span class="tech">Machine Learning</span>
-                <span class="tech">DevOps</span>
-                <span class="tech">Platform Engineering</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/shreysatpathy/microPlat" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
+              <p>An exploration in testing out SWE-Agents for infrastructure as code</p>
+              <div class="tags">Machine Learning · DevOps · Platform Engineering</div>
+              <a href="https://github.com/shreysatpathy/microPlat" class="text-link">Source Code <span class="arrow ne">↗</span></a>
             </div>
-          </article>
-          <article class="project-card">
-            <div class="project-card-image">
-              <img src="images/the_world.png" alt="Can LLM agents simulate the world?" style="width:100%;height:100%;object-fit:cover">
-            </div>
-            <div class="project-card-content">
+            <a href="projects/vibe-coding-an-ml-platform.html" class="project-thumb" tabindex="-1" aria-hidden="true"><img src="images/microPlat.jpg" alt="" loading="lazy"></a>
+          </li>
+          <li>
+            <div>
               <h3><a href="projects/simulating-the-world.html">Can LLM agents simulate the world?</a></h3>
-              <p class="project-description">CRUD apps are easy, can coding agents build arbitrary simulation environments?</p>
-              <div class="project-tech">
-                <span class="tech">Simulation</span>
-                <span class="tech">Physics</span>
-                <span class="tech">Reinforcement Learning</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/shreysatpathy/rlexperiments" class="btn btn-sm btn-outline">Source Code</a>
-              </div>
+              <p>CRUD apps are easy, can coding agents build arbitrary simulation environments?</p>
+              <div class="tags">Simulation · Physics · Reinforcement Learning</div>
+              <a href="https://github.com/shreysatpathy/rlexperiments" class="text-link">Source Code <span class="arrow ne">↗</span></a>
             </div>
-          </article>
-        </div>
-        <div class="view-all">
-          <a href="projects/index.html" class="btn">View All Projects</a>
-        </div>
+            <a href="projects/simulating-the-world.html" class="project-thumb" tabindex="-1" aria-hidden="true"><img src="images/the_world.png" alt="" loading="lazy"></a>
+          </li>
+        </ul>
       </div>
     </section>
-
-
   </main>
 
   <!-- Footer will be dynamically loaded here -->

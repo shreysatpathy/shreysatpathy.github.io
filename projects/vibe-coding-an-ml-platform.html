@@ -11,6 +11,10 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+  <script>try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark-mode')}catch(e){}</script>
   <meta name="description" content="An exploration in testing out SWE-Agents for infrastructure as code — building a minimalistic ML platform with gitops and Kubernetes." />
   <link rel="canonical" href="https://shreysatpathy.github.io/projects/vibe-coding-an-ml-platform.html" />
 
@@ -88,11 +92,9 @@
             <a href="https://github.com/shreysatpathy/microPlat" class="btn">View Project</a>
           </div>
 
-          <div style="margin-top: 30px;"></div>
-
           <!-- Project image -->
           <div class="featured-image">
-            <img src="../images/microPlat.jpg" alt="ML Platform visualization" style="width: 100%; border-radius: 8px;">
+            <img src="../images/microPlat.jpg" alt="ML Platform visualization">
           </div>
         </header>
 
@@ -118,9 +120,7 @@
 
           <p>To my surprise, within a few hours I had a gitops based kubernetes cluster managed by ArgoCD that deploys a JupyterHub instance with a Ray Cluster where I can immediately start experimenting at scale for any machine learning use-case. Check out the architecture doc <a href="https://github.com/shreysatpathy/microPlat/blob/main/plan.md">here</a></p>
 
-          <p>This is a work-in-progress and I'll continue to build out more features as I go. I also hope to deploy some sample ML / GenAI apps to really put this seminal paper to the test: <a href="https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">Hidden Technical Debt in Machine Learning Systems</a>. The question is - In 2025 with modern open-source abstractions and SWE-Agent driven productivity, can team's (and individuals) be so nimble that technical debt in these systems doesn't really matter anymore. I imagine a world with hyper-personalized deployments, tailored to each use-case built on abstractions that these LLMs <i>understand</i> well.</p>
-
-          <div style="padding-bottom: 40px;"></div> 
+          <p>This is a work-in-progress and I'll continue to build out more features as I go. I also hope to deploy some sample ML / GenAI apps to really put this seminal paper to the test: <a href="https://proceedings.neurips.cc/paper_files/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf">Hidden Technical Debt in Machine Learning Systems</a>. The question is - In 2025 with modern open-source abstractions and SWE-Agent driven productivity, can team's (and individuals) be so nimble that technical debt in these systems doesn't really matter anymore. I imagine a world with hyper-personalized deployments, tailored to each use-case built on abstractions that these LLMs <i>understand</i> well.</p> 
         </div>
       </div>
     </article>

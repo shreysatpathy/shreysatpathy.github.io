@@ -24,13 +24,15 @@ function setupDarkMode() {
   // Apply saved theme or use system preference
   if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.body.classList.add('dark-mode');
+    document.documentElement.classList.add('dark-mode');
     themeIcon.classList.remove('fa-moon');
     themeIcon.classList.add('fa-sun');
   }
   
   // Toggle dark mode when button is clicked
   themeToggle.addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.toggle('dark-mode');
+    document.documentElement.classList.toggle('dark-mode', isDark);
     
     // Update icon
     if (document.body.classList.contains('dark-mode')) {
