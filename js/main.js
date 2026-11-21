@@ -54,11 +54,17 @@ function setupMobileNavigation() {
   // This can be expanded if we add a mobile menu toggle button
   const navLinks = document.querySelectorAll('.nav-links a');
   
-  // Add active class to current page
+  // Add active class to current page. Compare normalized paths: the home link
+  // ("/") must match exactly, otherwise it would match every page; section
+  // links ("/blog/") also match pages nested under them.
+  const normalize = p => p.replace(/index\.html$/, '');
+  const current = normalize(window.location.pathname);
   navLinks.forEach(link => {
-    if (link.href === window.location.href || window.location.href.includes(link.href)) {
-      link.classList.add('active');
-    }
+    const target = normalize(new URL(link.href, window.location.href).pathname);
+    const isActive = target === '/'
+      ? current === '/'
+      : current === target || (target.endsWith('/') && current.startsWith(target));
+    link.classList.toggle('active', isActive);
   });
 }
 
